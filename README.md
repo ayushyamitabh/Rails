@@ -25,7 +25,7 @@ Our development team is making use of various pre-built libraries to help us foc
 |Customer|Ayushya Amitabh|
 |Tracker||
 |Presenter||
-|Code Reviewer||
+|Code Reviewer|Weicheng Huang|
 |Unit Tester||
 |Continuous Integrator and Deploy-er||
 |Designer|Mohamed Khelif|
