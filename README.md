@@ -26,7 +26,7 @@ Our development team is making use of various pre-built libraries to help us foc
 |Tracker||
 |Presenter||
 |Code Reviewer|Weicheng Huang|
-|Unit Tester||
+|Unit Tester|Yu Hao Liu|
 |Continuous Integrator and Deploy-er||
 |Designer|Mohamed Khelif|
 |Documenter|Tobias He|
