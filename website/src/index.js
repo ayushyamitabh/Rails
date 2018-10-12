@@ -1,7 +1,7 @@
 import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import firebase from 'firebase/app';
+import * as firebase from 'firebase';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -14,6 +14,8 @@ const config = {
     messagingSenderId: "927373339672"
 };
 firebase.initializeApp(config);
+const messaging = firebase.messaging()
+messaging.usePublicVapidKey('BLTf1ScMkukM6eMWQ3c713ZwaJ2Relaal_FWIUjiNf-ztSlDVQWYi44HnOxK05ToNE9dHOABd7K0Yv7OfsC2ILA');
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

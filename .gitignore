@@ -1,13 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+*/node_modules
 
 # testing
 /coverage
 
 # production
-/build
+*/build
 
 # misc
 .DS_Store
@@ -15,7 +15,9 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.vscode
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+functions/rails-private-key.json
