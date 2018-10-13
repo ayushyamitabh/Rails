@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Card, Icon} from 'antd';
+import './Home.css';
 
 export default class Home extends Component {
     render() {
