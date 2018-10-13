@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div style={{width: '100%', height: '100%'}}>
           <Route exact path="/" component={Home} />
           {/* Example for route
             <Route path="/...." component={ComponentName} />
