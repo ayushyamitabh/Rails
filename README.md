@@ -23,7 +23,7 @@ Our development team is making use of various pre-built libraries to help us foc
 | Role | Member |  
 |------|--------|
 |Customer|Ayushya Amitabh|
-|Tracker||
+|Tracker|Ka Shing Wai|
 |Presenter||
 |Code Reviewer|Weicheng Huang|
 |Unit Tester|Yu Hao Liu|
