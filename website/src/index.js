@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as firebase from 'firebase';
 import * as serviceWorker from './serviceWorker';
-import './Google Sans/stylesheet.css';
+import './Google-Sans/stylesheet.css';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 const config = {
