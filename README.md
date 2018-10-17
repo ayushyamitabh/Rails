@@ -24,10 +24,10 @@ Our development team is making use of various pre-built libraries to help us foc
 |------|--------|
 |Customer|Ayushya Amitabh|
 |Tracker|Ka Shing Wai|
-|Presenter||
+|Presenter|Ka Shing Wai|
 |Code Reviewer|Weicheng Huang|
 |Unit Tester|Yu Hao Liu|
-|Continuous Integrator and Deploy-er||
+|Continuous Integrator and Deploy-er|Mohamed Khelif|
 |Designer|Mohamed Khelif|
 |Documenter|Tobias He|
 
