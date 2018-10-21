@@ -1,0 +1,8 @@
+.HeaderIcons {
+  font-size: 25px;
+  color: black;
+  display: flex;
+  width: 160px;
+  justify-content: space-between;
+  align-items: center;
+}

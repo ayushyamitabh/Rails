@@ -1,3 +1,4 @@
 import Home from './Home/Home';
+import SamplePage from './SamplePage/SamplePage';
 
-export { Home }; // eslint-disable-line import/prefer-default-export
+export { Home, SamplePage };
