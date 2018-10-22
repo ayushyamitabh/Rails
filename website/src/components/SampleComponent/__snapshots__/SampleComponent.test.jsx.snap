@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expect SampleComponent to return a div with its name 1`] = `
+<div>
+  A sample Component
+</div>
+`;

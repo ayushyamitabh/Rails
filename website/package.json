@@ -17,7 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "",
+    "test": "react-scripts test",
+    "regen": "react-scripts test -u",
     "lint": "node_modules/.bin/eslint src/ | node_modules/.bin/stylelint src/ *.css",
     "eject": "react-scripts eject"
   },
@@ -41,6 +42,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^1.1.2",
     "lint-staged": "^7.3.0",
+    "react-test-renderer": "^16.5.2",
     "stylelint": "^9.6.0",
     "stylelint-config-standard": "^18.2.0"
   }
