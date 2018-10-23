@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "antd": "3.10.0",
-    "classnames": "^2.2.6",
+    "classnames": "2.2.6",
     "firebase": "5.5.4",
-    "material-design-icons": "^3.0.1",
-    "prop-types": "^15.6.2",
+    "material-design-icons": "3.0.1",
+    "prop-types": "15.6.2",
     "react": "16.5.2",
     "react-big-calendar": "0.20.1",
     "react-dom": "16.5.2",
@@ -15,17 +15,18 @@
     "react-scripts": "2.0.4"
   },
   "scripts": {
+    "install": "npm install -g eslint stylelint",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "regen": "react-scripts test -u",
-    "lint": "node_modules/.bin/eslint src/ | node_modules/.bin/stylelint src/ *.css",
+    "lint": "eslint src/ | stylelint src/ *.css",
     "eject": "react-scripts eject"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "npm test"
+      "pre-push": "CI=true npm test "
     }
   },
   "browserslist": [
@@ -35,15 +36,15 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.6.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.1.2",
-    "lint-staged": "^7.3.0",
-    "react-test-renderer": "^16.5.2",
-    "stylelint": "^9.6.0",
-    "stylelint-config-standard": "^18.2.0"
+    "eslint": "5.6.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1",
+    "husky": "1.1.2",
+    "lint-staged": "7.3.0",
+    "react-test-renderer": "16.5.2",
+    "stylelint": "9.6.0",
+    "stylelint-config-standard": "18.2.0"
   }
 }
