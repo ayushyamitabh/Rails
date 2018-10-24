@@ -33,3 +33,6 @@ Our development team is making use of various pre-built libraries to help us foc
 
 #### Environment Setup
 _Please read the [GETTING_STARTED.md](./GETTING_STARTED.md)_
+
+#### API Documentation
+_API Documentation can be found in the functions folder [functions/API_DOCS.md](./functions/APIDOCS.md)
