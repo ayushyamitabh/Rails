@@ -32,10 +32,9 @@ class App extends PureComponent {
       <Router>
         <div style={{ height: '100%' }}>
           <Route exact path="/" component={Home} />
-          <Route path="/signup/:type?" component={Signup} />
-          <Route path="/signin" component={Signin} />
-          <Route path="/dashboard/:trigger?" render={() => (<Dashboard />)} />
-          <Route path="/signout" render={this.signout} />
+          <Dashboard>
+            <Route path="/dashboard" component={null} />
+          </Dashboard>
         </div>
       </Router>
     );
