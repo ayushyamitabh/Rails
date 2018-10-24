@@ -15,7 +15,7 @@
     "react-scripts": "2.0.4"
   },
   "scripts": {
-    "install": "npm install -g eslint stylelint",
+    "install": "npm install -g eslint stylelint cross-env",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -26,7 +26,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "CI=true npm test "
+      "pre-push": "cross-env CI=true npm test "
     }
   },
   "browserslist": [
