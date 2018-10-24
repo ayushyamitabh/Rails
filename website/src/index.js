@@ -2,12 +2,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as firebase from 'firebase';
-import App from './App';
+import firebase from 'firebase/app';
+import 'firebase/messaging';
+import {FirebaseApp} from './App';
 import * as serviceWorker from './serviceWorker';
 import './Google-Sans/stylesheet.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 const config = {
   apiKey: 'AIzaSyDHa2E9E4xuExZFqdoxX-4Ehwh7qMzTPew',
   authDomain: 'rails-students.firebaseapp.com',
@@ -19,6 +19,9 @@ const config = {
 firebase.initializeApp(config);
 const messaging = firebase.messaging();
 messaging.usePublicVapidKey('BLTf1ScMkukM6eMWQ3c713ZwaJ2Relaal_FWIUjiNf-ztSlDVQWYi44HnOxK05ToNE9dHOABd7K0Yv7OfsC2ILA');
+
+
+ReactDOM.render(<FirebaseApp />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,5 +1,5 @@
 
-.home {
+.signin {
   width: 100%;
   height: 100%;
   display: flex;
@@ -26,22 +26,9 @@
   font-weight: 100;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.about-card {
+.signin-card {
   width: 400px;
   margin-top: 10px !important;
   border-radius: 15px !important;
   filter: drop-shadow(0 1px 2px rgba(190, 190, 190, 0.5));
-}
-
-.home-button {
-  border-radius: 15px !important;
-  margin-top: 10px !important;
-  width: 400px;
 }

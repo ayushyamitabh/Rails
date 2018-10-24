@@ -1,4 +1,5 @@
 import Home from './Home/Home';
-import SamplePage from './SamplePage/SamplePage';
+import Signin from './Signin/Signin';
+import Signup from './Signup/Signup';
 
-export { Home, SamplePage };
+export { Home, Signin, Signup };
