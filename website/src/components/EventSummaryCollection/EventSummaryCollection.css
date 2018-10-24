@@ -1,0 +1,14 @@
+.eventWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+}
+
+.events {
+  width: 100%;
+}
+
+.eventDate {
+  font-size: 22px;
+  margin-left: 7.5px;
+}

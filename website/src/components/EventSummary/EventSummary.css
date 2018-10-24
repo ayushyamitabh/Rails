@@ -1,0 +1,20 @@
+.EventSummary {
+  border-radius: 15px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.course {
+  font-size: 22px;
+}
+
+.eventName {
+  color: #7e3bf7;
+}

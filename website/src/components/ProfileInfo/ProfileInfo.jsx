@@ -17,7 +17,7 @@ class ProfileInfo extends PureComponent {
 
     return (
       <div className="ProfileInfo">
-        <MaterialIcon className="ProfileImage" type="person" />
+        <MaterialIcon style={{ color: 'black' }} className="ProfileImage" type="account_circle" />
         <div className="rightSide">
           <p className="name">{name}</p>
           <p className="email">{email}</p>

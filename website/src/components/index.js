@@ -5,6 +5,8 @@ import MaterialIcon from './MaterialIcon/MaterialIcon';
 import HeaderIcons from './HeaderIcons/HeaderIcons';
 import IconButton from './IconButton/IconButton';
 import SampleComponent from './SampleComponent/SampleComponent';
+import EventSummary from './EventSummary/EventSummary';
+import EventSummaryCollection from './EventSummaryCollection/EventSummaryCollection';
 import Notification from './Notification/Notification';
 
 export {
@@ -16,4 +18,6 @@ export {
   MaterialIcon,
   SampleComponent,
   Notification,
+  EventSummary,
+  EventSummaryCollection
 };
