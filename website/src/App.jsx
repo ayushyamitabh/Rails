@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Home, Signin, Signup } from './views';
+import { Home, Signin, Signup, CreateClass, JoinClass } from './views';
 import { Dashboard } from './components';
 import './App.css';
 import withFirebase from './utils/firebase/firebase';
@@ -34,7 +34,9 @@ class App extends PureComponent {
           <Route exact path="/" component={Home} />
           <Route path="/signup/:type?" component={Signup} />
           <Route path="/signin" component={Signin} />
-          <Route path="/dashboard/:trigger?" render={() => (<Dashboard />)} />
+          <Route path="/create/class" component={CreateClass} />
+          <Route path="/join/class" component={JoinClass} />
+          <Route path="/dashboard" component={null} />
           <Route path="/signout" render={this.signout} />
         </div>
       </Router>
