@@ -1,0 +1,33 @@
+.create {
+  width: 100%;
+  height: 123%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(210, 31, 241);
+  background: linear-gradient(135deg, rgba(210, 31, 241, 1) 0%, rgba(130, 51, 232, 1) 49%, rgba(0, 212, 255, 1) 100%);
+}
+
+.title {
+  color: white;
+  font-size: 3.8rem;
+  margin-top: 20px;
+  padding: 60px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.tag-line {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 !important;
+  margin-top: -15px !important;
+  text-align: center;
+  font-weight: 100;
+}
+
+.createcard {
+  width: 500px;
+  margin-top: 10px;
+  border-radius: 15px !important;
+}
