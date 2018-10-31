@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Redirect, Switch,
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-  Home, Signin, Signup, CreateClass, JoinClass, DashboardHome,
+  Home, Signin, Signup, CreateClass, JoinClass, DashboardHome, NotFound,
 } from './views';
 import { Dashboard } from './components';
 import './App.css';
@@ -38,17 +40,20 @@ class App extends PureComponent {
     return (
       <Router>
         <div style={{ height: '100%' }}>
-          <Route exact path="/" component={Home} />
-          <Route path="/signup/:type?" component={Signup} />
-          <Route path="/signin" component={Signin} />
-          <Route path="/create/class" component={CreateClass} />
-          <Route path="/join/class" component={JoinClass} />
-          <Route path="/signout" render={this.signout} />
-          {signedin ? (
-            <Dashboard>
-              <Route path="/dashboard" component={DashboardHome} />
-            </Dashboard>
-          ) : null}
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/signup/:type?" component={Signup} />
+            <Route path="/signin" component={Signin} />
+            <Route path="/create/class" component={CreateClass} />
+            <Route path="/join/class" component={JoinClass} />
+            <Route path="/signout" render={this.signout} />
+            {signedin ? (
+              <Dashboard>
+                <Route path="/dashboard" component={DashboardHome} />
+              </Dashboard>
+            ) : null}
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
     );
