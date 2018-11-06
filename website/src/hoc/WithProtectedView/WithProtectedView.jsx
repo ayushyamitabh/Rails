@@ -43,8 +43,6 @@ function WithProtectedView(Component) {
       const {
         pathname,
       } = this.props.location;
-
-      console.log(pathname);
       if (signedin !== null) {
         return (
           (

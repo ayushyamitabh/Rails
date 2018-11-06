@@ -8,5 +8,6 @@ import NotFound from './NotFound/NotFound';
 import { ProtectedDashboardRouter, DashboardRouter } from './DashboardRouter/DashboardRouter';
 
 export {
-  Home, Signin, Signup, CreateClass, DashboardHome, NotFound, DashboardRouter, JoinClass, ProtectedCreateClass, ProtectedDashboardRouter, ProtectedJoinClass,
+  Home, Signin, Signup, CreateClass, DashboardHome, NotFound, DashboardRouter, JoinClass,
+  ProtectedCreateClass, ProtectedDashboardRouter, ProtectedJoinClass,
 };
