@@ -24,6 +24,7 @@ export default class Signin extends PureComponent {
 
   signin() {
     const { email, password } = this.state;
+    const { from } = this.props.location.state;
     if (email === '' || password === '') {
       message.error('Looks like you\'re missing something.');
       return;
@@ -31,7 +32,7 @@ export default class Signin extends PureComponent {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
         if (user) {
-          window.location = '/dashboard';
+          window.location = from || '/dashboard';
         }
       })
       .catch((err) => {
@@ -41,6 +42,7 @@ export default class Signin extends PureComponent {
 
   render() {
     const { email, password, loading } = this.state;
+    console.log(this.props.location.state.from);
     return (
       <div className="signin">
         <h1 className="title">Rails</h1>

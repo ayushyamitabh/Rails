@@ -12,10 +12,11 @@ function withFirebase(App) {
       this.firebaseListener = null;
       this.authStateListener = this.authStateListener.bind(this);
       this.signoutHandler = this.signoutHandler.bind(this);
+      if (firebase.app()) this.authStateListener();
     }
 
     componentDidMount() {
-      if (firebase.app()) this.authStateListener();
+      // if (firebase.app()) this.authStateListener();
     }
 
     componentWillUnmount() {

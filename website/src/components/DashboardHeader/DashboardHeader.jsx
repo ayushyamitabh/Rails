@@ -11,7 +11,7 @@ import './DisplayHeader.css';
 const { Header } = Layout;
 
 class DashboardHeader extends Component {
-  static PropTypes = {
+  static propTypes = {
     showDrawer: PropTypes.func,
   }
 
