@@ -106,6 +106,11 @@ export default class Signup extends PureComponent {
     const {
       type, name, loading, collegeOptions,
     } = this.state;
+    const { history } = this.props;
+    const user = firebase.auth().currentUser;
+    if (user) {
+      history.push('/dashboard');
+    }
     return (
       <div className="signup">
         <h1 className="title">Rails</h1>
