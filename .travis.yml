@@ -1,14 +1,22 @@
-
 language: node_js
 node_js:
-  - "10"
-
+- '10'
+branches:
+  only:
+  - master
+  - /^deploy-.*$/
 cache:
   directories:
   - node_modules
-
 script:
-  - cd website
-  - npm install
-  - npm run lint
-  - npm test
+- cd ./functions && npm install && cd ..
+- cd ./website && npm install
+- npm run lint
+- npm test
+- npm run build
+deploy:
+  provider: firebase
+  skip_cleanup: true
+env:
+  global:
+    secure: gdG/1nnyDCPf+3rccbYnI4AyXXsnV29DAeulhi1EgWmL71p8JvC0d3ICNHnn/PPjGHDUk8GE3ibg4TZg9f/SdsVhEU9yUgOqJIjcJKDpSMJScaPMWIENrFn/NlVhUVYfrQxr8qM3y0X3sny7w6INTsI6yZZp4BzjWpf3nuE/X8hjBBGqJpDbSuuXkW4UsNqCG9KFYu8QkglohUYl500vJL6k4jqFLYFCq58DPiH4yNIjWAQrR8v77uSt4TygxWirAI4OvuYLHGDn6mv4joEshzJku4iBdTKvGdSLc443BuF9LQV6q2XY/aA444dTOFm+uMZboUTozKGkRKx/onX6C6nWVYB6HIBp/ZbXFrBxQ2BZMZoGQixPCuT8LgzHHzSEl+b+iwBHOQHIcAPBHeYmH1EsX7dKIm8XP3rXB8nLYmvfPXZ5lT2hh5QjMyBT75PHWXog+BXSqubWr3eCOyZQv7cGveZijGXc6BgPBz7lUIUkK4uuUxkGMMOBTk3HFBquBLaZpwnByxaIxzoRK5bJOf+McK6dBZ0PRsyYlKqZXiMdQJDpNBBqQu4eD3/AeIg2xwgTYujHzVh2SyXt44VR9zlX4SPmPekFTNMxQxWsZkavgC4/F+M14I8a3LTvrIwebkdQihFqOW8ZQEncMEYlEbwrVB5k5Cn33mVfiGlr05E=
