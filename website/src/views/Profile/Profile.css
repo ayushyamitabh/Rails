@@ -1,0 +1,27 @@
+.profile-page {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-card {
+  flex: 1;
+  height: fit-content !important;
+  margin: 0 10px !important;
+  border-radius: 15px !important;
+}
+
+.profile-card .cust-button,
+.cust-input {
+  margin-top: 10px !important;
+}
+
+.profile-card .cust-input {
+  border-radius: 15px !important;
+}
+
+.profile-card .cust-button {
+  border-radius: 15px !important;
+}

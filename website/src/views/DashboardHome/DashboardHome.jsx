@@ -85,8 +85,6 @@ class DashboardHome extends PureComponent {
         {classArray.map(event => (
           <EventSummaryCollection event={event} />
         ))}
-
-
       </div>
     );
   }
