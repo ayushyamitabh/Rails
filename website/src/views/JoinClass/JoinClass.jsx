@@ -64,7 +64,6 @@ class JoinClass extends Component {
         <Card
           className="joinclasscard"
           title="Join Class"
-          extra={<a href="#" />}
         >
           <Form className="regiform">
             <FormItem
@@ -98,7 +97,6 @@ class JoinClass extends Component {
         <Card
           className="request_permission"
           title="Request Permission"
-          extra={<a href="#" />}
         >
           <Form className="permission_form">
             <FormItem

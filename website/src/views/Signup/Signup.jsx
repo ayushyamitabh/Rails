@@ -1,7 +1,6 @@
 import {
   Button, Card, Icon, Input, Select, Radio, message,
 } from 'antd';
-import { Redirect } from 'react-router-dom';
 import React, { PureComponent } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';

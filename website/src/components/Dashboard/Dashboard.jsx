@@ -33,7 +33,7 @@ class Dashboard extends PureComponent {
 
   render() {
     const { children } = this.props;
-    const { loggedIn, visible, onClose } = this.state;
+    const { loggedIn, visible } = this.state;
     return (
       <Layout className="Container" style={{ height: '100%' }}>
         {loggedIn && <DashboardHeader showDrawer={this.showDrawer} />}

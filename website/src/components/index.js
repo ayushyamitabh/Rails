@@ -8,7 +8,6 @@ import SampleComponent from './SampleComponent/SampleComponent';
 import EventSummary from './EventSummary/EventSummary';
 import EventSummaryCollection from './EventSummaryCollection/EventSummaryCollection';
 import Notification from './Notification/Notification';
-import Delayed from './Delayed/Delayed';
 
 export {
   Dashboard,
@@ -21,5 +20,4 @@ export {
   Notification,
   EventSummary,
   EventSummaryCollection,
-  Delayed,
 };

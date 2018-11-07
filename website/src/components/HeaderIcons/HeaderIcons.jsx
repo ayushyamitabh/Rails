@@ -8,7 +8,7 @@ import './HeaderIcons.css';
 class HeaderIcons extends PureComponent {
   render() {
     const {
-      showDrawer, history,
+      showDrawer,
     } = this.props;
     return (
       <div className="HeaderIcons">
