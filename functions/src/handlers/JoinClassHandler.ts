@@ -1,7 +1,9 @@
-const cors = require('cors')({origin: true});
-const admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import * as _cors from 'cors';
 
-exports.handler = function (req, res)  {
+const cors = _cors({origin: true});
+
+export function joinclass (req, res)  {
 
     /*
     {
@@ -32,7 +34,7 @@ exports.handler = function (req, res)  {
     admin.database().ref(`users/${studentData.uid}/universities/${universityName}`)
     .once('value')
     .then((snap) => {
-      var userClassList = snap.val();
+      let userClassList = snap.val();
       if (userClassList && userClassList.length > 0) {
         if (userClassList.indexOf(classUid) === -1) userClassList.push(classUid);
         else res.status(200).send({message: 'Already joined this class'});
@@ -40,7 +42,7 @@ exports.handler = function (req, res)  {
         userClassList = [classUid];
       }
       console.log(userClassList);
-      return updateStudentProfile(query, userClassList);
+      updateStudentProfile(query, userClassList);
     })
     .catch((err) => {
       res.status(400).send({message: 'Something went wrong adding to student profile.', error: err});
@@ -58,7 +60,7 @@ exports.handler = function (req, res)  {
         const classData = snap.val();
         if (classData) {
           if (classData.approvedEmails.indexOf(studentData.email) !== -1) {
-            return addToStudentProfile(req.body);
+            addToStudentProfile(req.body);
           } else {
             return res.status(400).send({message: 'Not pre-approved for this class.'});
           }

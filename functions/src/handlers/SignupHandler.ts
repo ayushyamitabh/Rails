@@ -1,16 +1,17 @@
-const cors = require('cors')({origin: true});
-const admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import * as _cors from 'cors';
 
-exports.handler =  function (req, res) {
-    /*
-    {
-      email: '1@email.com',
-      name: 'Full Name',
-      password: 'topsecret',
-      type: 'student // EITHER 'student' or 'teacher' -- ALL SMALL CASE
-    }
-    */
+const cors = _cors({origin: true});
 
+export function signup (req, res) {
+  /*
+  {
+    email: '1@email.com',
+    name: 'Full Name',
+    password: 'topsecret',
+    type: 'student // EITHER 'student' or 'teacher' -- ALL SMALL CASE
+  }
+  */
   function addToDatabase(uid, type) {
     admin.database().ref(`users/${uid}`).set({type: type})
     .then(()=> {
@@ -31,7 +32,7 @@ exports.handler =  function (req, res) {
         password: password
       }).then((user) => {
         if (user) {
-          return addToDatabase(user.uid, type);
+          addToDatabase(user.uid, type);
         } else {
           return res.status(400).send({message: 'User created, but couldn\'t be fetched.'});
         }

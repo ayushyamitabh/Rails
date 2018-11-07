@@ -1,7 +1,9 @@
-const cors = require('cors')({origin: true});
-const admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import * as _cors from 'cors';
 
-exports.handler = function (req, res) {
+const cors = _cors({origin: true});
+
+export function approveclass (req, res) {
     /*
     {
       universityName: 'CUNY City College',
@@ -27,13 +29,13 @@ exports.handler = function (req, res) {
         admin.database().ref(`users/${uid}/universities/${universityName}`)
         .once('value')
         .then((snap) => {
-        var classList = snap.val();
+        let classList = snap.val();
         if (classList) {
             classList.push(classUid);
         } else {
             classList = [classUid];
         }
-        return updateStudentProfile(query, uid, classList);
+        updateStudentProfile(query, uid, classList);
         })
         .catch((err) => {
         return res.status(400).send({message: 'Something went wrong', error: err});
@@ -45,7 +47,7 @@ exports.handler = function (req, res) {
         admin.auth().getUserByEmail(studentEmail)
         .then((user) => {
         if (user) {
-            return addToStudentProfile(query, user.uid);
+            addToStudentProfile(query, user.uid);
         } else {
             return res.status(400).send({message: 'Student account not found.'});
         }
@@ -60,7 +62,7 @@ exports.handler = function (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/approvedEmails`)
         .set(emailList)
         .then(()=>{
-        return getStudentProfile(query);
+        getStudentProfile(query);
         })
         .catch((err) => {
         return res.status(400).send({message: 'Something went wrong', error: err});
@@ -72,13 +74,13 @@ exports.handler = function (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/approvedEmails`)
         .once('value')
         .then((snap)=>{
-        var approvedEmails = snap.val();
+        let approvedEmails = snap.val();
         if (approvedEmails) {
             approvedEmails.push(studentEmail);
         } else {
             approvedEmails = [studentEmail];
         }
-        return updateApprovedList(query, approvedEmails);
+        updateApprovedList(query, approvedEmails);
         })
         .catch((err) => {
         return res.status(400).send({message: 'Something went wrong', error: err});
@@ -90,7 +92,7 @@ exports.handler = function (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/pendingEmails`)
         .set(emailList)
         .then(()=>{
-        return addToApprovedList(query);
+        addToApprovedList(query);
         })
         .catch((err) => {
         return res.status(400).send({message: 'Something went wrong', error: err});
@@ -102,12 +104,12 @@ exports.handler = function (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/pendingEmails`)
         .once('value')
         .then((snap) => {
-        var pendingEmails = snap.val();
+        const pendingEmails = snap.val();
         if (pendingEmails) {
             const emailIndex = pendingEmails.indexOf(studentEmail);
             if ( emailIndex !== -1) {
             pendingEmails.splice(emailIndex, 1);
-            return updatePendingList(req.body, pendingEmails);
+            updatePendingList(req.body, pendingEmails);
             } else {
             return res.status(400).send({message: 'Student email not found.'});
             }
@@ -119,7 +121,7 @@ exports.handler = function (req, res) {
         return res.status(400).send({message: 'Something went wrong', error: err});
         });
     }
-
+    
     return cors(req, res, () => {
         const { universityName, classUid, studentEmail, uid } = req.body;
         if (!(universityName && classUid && studentEmail && uid)) {
@@ -131,7 +133,7 @@ exports.handler = function (req, res) {
             const userType = snap.val();
             if (userType) {
             if (userType === 'teacher') {
-                return addToPendingList(req.body);
+                addToPendingList(req.body);
             } else {
                 return res.status(400).send({message: 'User can\'t approve emails (not teacher).'})
             }
