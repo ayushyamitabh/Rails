@@ -49,6 +49,7 @@ export default class Signup extends PureComponent {
 
   signup() {
     this.setState({ loading: true });
+    const { history } = this.props;
     const {
       universities, name, password, type, email,
     } = this.state;
@@ -83,7 +84,11 @@ export default class Signup extends PureComponent {
           .then((user) => {
             if (user) {
               message.success('Signed Up. Redirecting..');
-              window.location = '/dashboard';
+              if (type === 'student') {
+                history.push('/join/class');
+              } if (type === 'teacher') {
+                history.push('/create/class');
+              }
             }
           });
       } else {
@@ -100,6 +105,11 @@ export default class Signup extends PureComponent {
     const {
       type, name, loading, collegeOptions,
     } = this.state;
+    const { history } = this.props;
+    const user = firebase.auth().currentUser;
+    if (user) {
+      history.push('/dashboard');
+    }
     return (
       <div className="signup">
         <h1 className="title">Rails</h1>

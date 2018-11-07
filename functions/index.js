@@ -2,7 +2,7 @@
 // DON'T CHANGE IMPORTS / INITIALIZER
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const cors = require('cors')({origin: true});
+const handlers = require('./Handlers');
 var serviceAccount = require("./rails-private-key.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -11,53 +11,25 @@ admin.initializeApp({
 // ==========================================================
 
 exports.signup = functions.https.onRequest((req, res) => {
-  return cors(req, res, () => {
-    const reqData = req.body;
-    if (reqData && 
-        reqData.email && 
-        reqData.name && 
-        reqData.password && 
-        reqData.universities &&
-        reqData.type) {
-      if (reqData.type !== 'student' && reqData.type !== 'teacher') {
-        res.status(400).send('Invalid User Type.');
-      }
-      admin.auth().createUser({
-        email: reqData.email,
-        displayName: reqData.name,
-        password: reqData.password
-      }).then((user) => {
-          console.log(user.uid);
-          admin.database().ref('users/'+user.uid).set({
-            type: reqData.type,
-            universities: reqData.universities
-          }).then(() => {
-            res.status(200).send('Signed up.');
-            return;
-          }).catch((err) => {
-            res.status(300).send(err);
-          });
-          return;
-      }).catch((err) => {
-        if (err) {
-          console.log(err.message);
-          res.status(400).send(err);
-        }
-      });
-    } else {
-      console.log(reqData);
-      res.status(500).send('Invalid Request.');
-    }
-  });
+  handlers.signup(req, res);
 });
 
-// exports.getUserData = functions.https.onRequest((req, res) => {
-//   return cors((req, res) => {
-//     const reqData = req.body;
-//     if (re)
-//   });
-// })
+exports.createclass = functions.https.onRequest((req, res) => {
+  handlers.createclass(req, res)
+});
 
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+exports.joinclass = functions.https.onRequest((req, res) => {
+  handlers.joinclass(req, res);
+});
+
+exports.getclasses = functions.https.onRequest((req, res) => {
+  handlers.getclasses(req, res);
+});
+
+exports.requestclass = functions.https.onRequest((req, res) => {
+  handlers.requestclass(req, res);
+});
+
+exports.approveclass = functions.https.onRequest((req, res) => {
+  handlers.approveclass(req, res);
+});

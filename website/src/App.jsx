@@ -4,28 +4,25 @@ import {
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-  Home, Signin, Signup, CreateClass, JoinClass, DashboardHome, NotFound,
+  Home, Signin, Signup, ProtectedCreateClass, ProtectedJoinClass, NotFound,
+  ProtectedDashboardRouter,
 } from './views';
-import { Dashboard } from './components';
 import './App.css';
-import withFirebase from './utils/firebase/firebase';
+import { withFirebase } from './hoc';
 
 class App extends PureComponent {
   static propTypes = {
     signoutHandler: PropTypes.func,
-    signedin: PropTypes.bool,
   }
 
   static defaultProps = {
     signoutHandler: console.log('No signout handler inputted'),
-    signedin: false,
   }
 
   constructor(props) {
     super(props);
     this.signout = this.signout.bind(this);
   }
-
 
   signout() {
     const { signoutHandler } = this.props;
@@ -34,9 +31,6 @@ class App extends PureComponent {
   }
 
   render() {
-    const {
-      signedin,
-    } = this.props;
     return (
       <Router>
         <div style={{ height: '100%' }}>
@@ -44,14 +38,11 @@ class App extends PureComponent {
             <Route exact path="/" component={Home} />
             <Route path="/signup/:type?" component={Signup} />
             <Route path="/signin" component={Signin} />
-            <Route path="/create/class" component={CreateClass} />
-            <Route path="/join/class" component={JoinClass} />
             <Route path="/signout" render={this.signout} />
-            {signedin ? (
-              <Dashboard>
-                <Route path="/dashboard" component={DashboardHome} />
-              </Dashboard>
-            ) : null}
+            {/* Protected Routes */}
+            <Route path="/create/class" component={ProtectedCreateClass} />
+            <Route path="/join/class" component={ProtectedJoinClass} />
+            <Route path="/dashboard/:optional?" component={ProtectedDashboardRouter} />
             <Route component={NotFound} />
           </Switch>
         </div>

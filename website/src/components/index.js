@@ -19,5 +19,5 @@ export {
   SampleComponent,
   Notification,
   EventSummary,
-  EventSummaryCollection
+  EventSummaryCollection,
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from 'firebase/app';
 import 'firebase/messaging';
-import {FirebaseApp} from './App';
+import { FirebaseApp } from './App';
 import * as serviceWorker from './serviceWorker';
 import './Google-Sans/stylesheet.css';
 

@@ -6,7 +6,6 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import './Signin.css';
 
-/* eslint linebreak-style: ["error", "windows"] */
 /* eslint no-undef: 0 */
 /* eslint react/prop-types: 0 */
 /* eslint no-console: 0 */
@@ -24,6 +23,7 @@ export default class Signin extends PureComponent {
 
   signin() {
     const { email, password } = this.state;
+    const { location, history } = this.props;
     if (email === '' || password === '') {
       message.error('Looks like you\'re missing something.');
       return;
@@ -31,7 +31,11 @@ export default class Signin extends PureComponent {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
         if (user) {
-          window.location = '/dashboard';
+          if (location.state !== undefined) {
+            history.push(location.state.from || '/dashboard');
+          } else {
+            history.push('/dashboard');
+          }
         }
       })
       .catch((err) => {
@@ -41,6 +45,11 @@ export default class Signin extends PureComponent {
 
   render() {
     const { email, password, loading } = this.state;
+    const { history } = this.props;
+    const user = firebase.auth().currentUser;
+    if (user) {
+      history.push('/dashboard');
+    }
     return (
       <div className="signin">
         <h1 className="title">Rails</h1>

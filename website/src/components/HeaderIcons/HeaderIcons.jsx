@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { IconButton } from '..';
 import './HeaderIcons.css';
 
@@ -15,7 +17,7 @@ class HeaderIcons extends PureComponent {
         <IconButton type="notifications_active" onClick={() => showDrawer()} />
         <IconButton type="settings" onClick={() => console.log('Button Settings Clicked')} />
         <Link to="/signout">
-          <IconButton type="exit_to_app" onClick={() => console.log('Signing out')} />
+          <IconButton type="exit_to_app" onClick={() => { firebase.auth().signOut(); }} />
         </Link>
 
       </div>

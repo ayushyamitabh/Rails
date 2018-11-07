@@ -35,4 +35,4 @@ Our development team is making use of various pre-built libraries to help us foc
 _Please read the [GETTING_STARTED.md](./GETTING_STARTED.md)_
 
 #### API Documentation
-_API Documentation can be found in the functions folder [functions/API_DOCS.md](./functions/APIDOCS.md)_
+_API Documentation can be found in the functions folder [functions/API_DOCS.md](https://github.com/CSC59939/Rails/blob/master/functions/API_DOCS.md)_
