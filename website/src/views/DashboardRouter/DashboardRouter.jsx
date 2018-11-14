@@ -6,6 +6,7 @@ import { DashboardHome, Profile } from '..';
 import { Layout } from 'antd';
 import { DashboardHeader, Notification } from '../../components';
 import { WithProtectedView } from '../../hoc';
+import './Dashboard.css';
 
 class DashboardRouter extends PureComponent {
   constructor(props) {
