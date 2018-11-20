@@ -1,7 +1,7 @@
-.create {
+.create-class-page {
   width: 100%;
-  height: 123%;
   display: flex;
+  min-height: 100%;
   flex-direction: column;
   align-items: center;
   background: rgb(210, 31, 241);
@@ -26,8 +26,45 @@
   font-weight: 100;
 }
 
-.createcard {
+.create-card {
   width: 500px;
   margin-top: 10px;
   border-radius: 15px !important;
+}
+
+.create-card .create-class-input {
+  margin-top: 7.5px;
+}
+
+.create-class-days-label {
+  margin: 0;
+  margin-top: 15px !important;
+  margin-bottom: 5px !important;
+  font-size: 16px !important;
+}
+
+.create-class-days-hint {
+  margin: 0;
+  margin-top: 2.5px !important;
+  margin-bottom: 2.5px !important;
+  font-size: 12px !important;
+  color: darkgray;
+}
+
+.create-class-days-error {
+  margin: 0;
+  margin-top: 2.5px !important;
+  margin-bottom: 2.5px !important;
+  font-size: 12px !important;
+  color: darkred;
+  text-align: center;
+}
+
+.create-class-days label {
+  width: 110px;
+}
+
+.time-container {
+  display: flex;
+  align-items: center;
 }

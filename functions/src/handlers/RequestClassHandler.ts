@@ -1,7 +1,9 @@
-const cors = require('cors')({origin: true});
-const admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import * as _cors from 'cors';
 
-exports.handler = function (req, res) {
+const cors = _cors({origin: true});
+
+export function requestclass (req, res) {
     /*
         input = {
         universityName: 'CUNY City College',
@@ -25,13 +27,13 @@ exports.handler = function (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/pendingEmails`)
         .once('value')
         .then((snap) => {
-        var pendingEmails = snap.val();
+        let pendingEmails = snap.val();
         if (pendingEmails) {
             pendingEmails.push(studentEmail);
         } else {
             pendingEmails = [studentEmail];
         }
-        return updatePendingList(query, pendingEmails);
+        updatePendingList(query, pendingEmails);
         }).catch((err) => {
         res.status(400).send({message: 'Something went wrong adding to pending list.', error: err});
         });
@@ -52,7 +54,7 @@ exports.handler = function (req, res) {
             } else if ( classData.pendingEmails && (classData.pendingEmails.indexOf(studentEmail) !== -1)) {
                 return res.status(400).send({message: 'Already requested permission for this class.'});
             } else {
-                return addToPendingList(req.body);
+                addToPendingList(req.body);
             }
             } else {
             return res.status(400).send({message: 'Class is no longer available'});

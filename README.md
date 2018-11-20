@@ -19,7 +19,7 @@ Our development team is making use of various pre-built libraries to help us foc
 7. [React Router](https://reacttraining.com/react-router/web/guides/quick-start) - our routing manager
 
 #### Team  
-
+##### iteration 1
 | Role | Member |  
 |------|--------|
 |Customer|Ayushya Amitabh|
@@ -31,8 +31,20 @@ Our development team is making use of various pre-built libraries to help us foc
 |Designer|Mohamed Khelif|
 |Documenter|Tobias He|
 
+##### iteration 2
+| Role | Member |  
+|------|--------|
+|Customer|Ayushya Amitabh|
+|Tracker|Ka Shing Wai|
+|Presenter|Ka Shing Wai|
+|Code Reviewer|Weicheng Huang|
+|Unit Tester|Yu Hao Liu|
+|Continuous Integrator and Deploy-er|Weicheng Huang|
+|Designer|Mohamed Khelif|
+|Documenter|Tobias He|
+
 #### Environment Setup
 _Please read the [GETTING_STARTED.md](./GETTING_STARTED.md)_
 
 #### API Documentation
-_API Documentation can be found in the functions folder [functions/API_DOCS.md](https://github.com/CSC59939/Rails/blob/master/functions/API_DOCS.md)_
+_API Documentation can be found in wiki on Github [API Documentation](https://github.com/CSC59939/Rails/wiki/API-Documentation)_

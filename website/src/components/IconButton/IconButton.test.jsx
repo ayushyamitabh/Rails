@@ -10,8 +10,8 @@ configure({ adapter: new Adapter() });
 const sampleFunction = () => {
 
 }
-describe("SampleComponent", () => {
-  it('Expect SampleComponent to return a div with its name', () => { // eslint-disable-line no-undef
+describe("IconButton", () => {
+  it('Render IconButon without any errors', () => { // eslint-disable-line no-undef
     const component = renderer.create(
       <IconButton type="setting" onClick={sampleFunction}/>,
     );

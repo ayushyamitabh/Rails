@@ -1,7 +1,9 @@
-const cors = require('cors')({origin: true});
-const admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import * as _cors from 'cors';
 
-exports.handler = function (req, res) {
+const cors = _cors({origin: true});
+
+export function createclass (req, res) {
     /*
     {
     "uid": "XCRZgzLysNOaI9pN8neyU5AQxiT2",
@@ -44,13 +46,13 @@ exports.handler = function (req, res) {
     admin.database().ref(`users/${uid}/universities/${universityName}`)
     .once('value')
     .then((snap)=>{
-      var existingClasses = snap.val();
+      let existingClasses = snap.val();
       if (existingClasses) {
         existingClasses.push(pushKey);
       } else {
         existingClasses = [pushKey];
       }
-      return setTeacherProfile(query, existingClasses);
+      setTeacherProfile(query, existingClasses);
     }).catch((err)=>{
       res.status(400).send({message: 'Something went wrong adding to teacher profile.', error: err});
     });
@@ -61,8 +63,8 @@ exports.handler = function (req, res) {
     admin.database().ref(`universities/${universityName}`)
     .push(classData)
     .then((pushData)=>{
-      return addToTeacherProfile(query, pushData.key);
-    }).catch((err)=>{
+      addToTeacherProfile(query, pushData.key);
+    },(err)=>{
       res.status(400).send({message: 'Something went wrong creating class.', error: err});
     });
   }
@@ -77,7 +79,7 @@ exports.handler = function (req, res) {
       .then((snap) => {
         const type = snap.val();
         if (type && (type === 'teacher')) {
-          return createClass(req.body);
+          createClass(req.body);
         } else if (type && (type === 'student')) {
           return res.status(400).send({message: 'Not authorized to create class'});
         } else {

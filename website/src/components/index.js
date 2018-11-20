@@ -1,4 +1,3 @@
-import Dashboard from './Dashboard/Dashboard';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import DashboardHeader from './DashboardHeader/DashboardHeader';
 import MaterialIcon from './MaterialIcon/MaterialIcon';
@@ -10,7 +9,6 @@ import EventSummaryCollection from './EventSummaryCollection/EventSummaryCollect
 import Notification from './Notification/Notification';
 
 export {
-  Dashboard,
   ProfileInfo,
   DashboardHeader,
   HeaderIcons,

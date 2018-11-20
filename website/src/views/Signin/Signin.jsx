@@ -25,10 +25,12 @@ export default class Signin extends PureComponent {
     const { email, password } = this.state;
     const { location, history } = this.props;
     if (email === '' || password === '') {
-      message.error('Looks like you\'re missing something.');
+      message.error("Looks like you're missing something.");
       return;
     }
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .then((user) => {
         if (user) {
           if (location.state !== undefined) {
@@ -54,10 +56,7 @@ export default class Signin extends PureComponent {
       <div className="signin">
         <h1 className="title">Rails</h1>
         <h5 className="tag-line">Keep students on track</h5>
-        <Card
-          className="signin-card"
-          title="Sign In"
-        >
+        <Card className="signin-card" title="Sign In">
           <div>
             <Input
               required
@@ -67,7 +66,9 @@ export default class Signin extends PureComponent {
               style={{ marginTop: 10 }}
               type="email"
               value={email}
-              onChange={(e) => { this.setState({ email: e.target.value }); }}
+              onChange={(e) => {
+                this.setState({ email: e.target.value });
+              }}
             />
             <Input
               required
@@ -77,9 +78,20 @@ export default class Signin extends PureComponent {
               style={{ marginTop: 10 }}
               type="password"
               value={password}
-              onChange={(e) => { this.setState({ password: e.target.value }); }}
+              onChange={(e) => {
+                this.setState({ password: e.target.value });
+              }}
             />
-            <Button icon="check-circle" size="large" block style={{ marginTop: 10 }} onClick={this.signin} loading={loading} type="primary">
+
+            <Button
+              icon="check-circle"
+              size="large"
+              block
+              style={{ marginTop: 10 }}
+              onClick={this.signin}
+              loading={loading}
+              type="primary"
+            >
               <p style={{ margin: 0, display: 'inline', marginLeft: 10 }}>Sign In</p>
             </Button>
             <Button size="large" block style={{ marginTop: 10 }} href="/signup">

@@ -1,7 +1,9 @@
-const cors = require('cors')({origin: true});
-const admin = require('firebase-admin');
+import * as admin from 'firebase-admin';
+import * as _cors from 'cors';
 
-exports.handler = function (req, res) {
+const cors = _cors({origin: true});
+
+export function getclasses (req, res) {
     /*
     =======
     REQUEST
@@ -35,10 +37,10 @@ exports.handler = function (req, res) {
       .then((snap) => {
         if (snap.val()) {
           const uniData = snap.val();
-          var processedData = {};
+          const processedData = {};
           Object.keys(uniData).forEach((key)=>{
-            const { approvedEmails, description, instructorName, meetingTimes, name } = uniData[key];
-            processedData[key] = {approvedEmails, description, instructorName, meetingTimes, name};
+            const { approvedEmails, description, instructorName, meetingTimes, name, meetingDays } = uniData[key];
+            processedData[key] = {approvedEmails, description, instructorName, meetingTimes, name, meetingDays};
           });
           return res.status(200).send({message: 'Classes found.', classList: processedData});
         } else {
