@@ -17,3 +17,9 @@
   height: auto !important;
   color: white !important;
 }
+
+.profile-loading svg {
+  width: 50px !important;
+  height: auto !important;
+  color: rgb(38, 27, 190) !important;
+}

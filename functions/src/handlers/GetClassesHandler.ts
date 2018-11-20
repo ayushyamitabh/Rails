@@ -39,8 +39,8 @@ export function getclasses (req, res) {
           const uniData = snap.val();
           const processedData = {};
           Object.keys(uniData).forEach((key)=>{
-            const { approvedEmails, description, instructorName, meetingTimes, name } = uniData[key];
-            processedData[key] = {approvedEmails, description, instructorName, meetingTimes, name};
+            const { approvedEmails, description, instructorName, meetingTimes, name, meetingDays } = uniData[key];
+            processedData[key] = {approvedEmails, description, instructorName, meetingTimes, name, meetingDays};
           });
           return res.status(200).send({message: 'Classes found.', classList: processedData});
         } else {

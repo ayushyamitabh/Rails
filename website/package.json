@@ -49,5 +49,10 @@
     "react-test-renderer": "16.5.2",
     "stylelint": "9.6.0",
     "stylelint-config-standard": "18.2.0"
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true
+    }
   }
 }

@@ -1,6 +1,6 @@
-.join {
+.join-class-page {
   width: 100%;
-  height: 115%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +16,13 @@
   font-weight: 400;
 }
 
+.join-card {
+  width: 75%;
+  margin-top: 10px;
+  margin-bottom: 50px !important;
+  border-radius: 15px !important;
+}
+
 .tag-line {
   color: white;
   font-size: 1.2rem;
@@ -25,13 +32,43 @@
   font-weight: 100;
 }
 
-.joinclasscard,
-.request_permission {
-  width: 500px;
+.join-card * {
+  transition: all ease-in-out 0.3s;
+}
+
+.join-class-table {
+  margin-top: 20px !important;
+}
+
+.class-modal .ant-modal-content,
+.ant-modal-header {
   border-radius: 15px !important;
 }
 
-.registerButton {
+.list-header {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.icon-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding: 20px 0;
+}
+
+.add-distance {
+  margin-top: 5px !important;
+}
+
+.join-class-label {
+  margin: 0;
+  margin-top: 15px !important;
+  margin-bottom: 5px !important;
+  font-size: 16px !important;
+}
+
+.join-class-label span {
+  font-weight: 600;
 }
