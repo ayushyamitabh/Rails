@@ -83,10 +83,11 @@ class JoinClass extends Component {
 
   openClassModal(r) {
     const rec = r;
-    if (rec.approvedEmails && rec.approvedEmails.indexOf(firebase.auth().currentUser.email) === -1) {
-      rec.isApproved = false;
-    } else {
+    if (rec.approvedEmails
+       && rec.approvedEmails.indexOf(firebase.auth().currentUser.email) !== -1) {
       rec.isApproved = true;
+    } else {
+      rec.isApproved = false;
     }
     this.setState({
       selectedClass: rec,
