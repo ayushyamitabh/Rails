@@ -17,7 +17,8 @@ export function signup (req, res) {
     .then(()=> {
       return res.status(200).send({message: 'Signed up successfully'});
     }).catch((err) => {
-      res.status(400).send({message: 'Something went wrong.', error: err});
+      err.whereInApi = 'SingupHandler/addToDatabase';
+      res.status(406).send({message: 'Something went wrong.', error: err});
     });
   }
 
@@ -34,10 +35,11 @@ export function signup (req, res) {
         if (user) {
           addToDatabase(user.uid, type);
         } else {
-          return res.status(400).send({message: 'User created, but couldn\'t be fetched.'});
+          return res.status(409).send({message: 'User created, but couldn\'t be fetched.'});
         }
       }).catch((err) => {
-        res.status(400).send({message: 'Something went wrong.', error: err});
+        err.whereInApi = 'SingupHandler/cors';
+        res.status(406).send({message: 'Something went wrong.', error: err});
       });
     }
   });

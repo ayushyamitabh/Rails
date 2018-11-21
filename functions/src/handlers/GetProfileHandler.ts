@@ -70,10 +70,11 @@ export function getprofile (req, res) {
                 });
                 return res.status(200).send({message: 'Got user profile.', userData: userData});
             } else {
-                return res.status(400).send({message: 'Error getting events'});
+                return res.status(404).send({message: 'Error getting events'});
             }
         }).catch((err) => {
-            return res.status(400).send({message: 'Something went wrong - getClassEvents', error: err});
+            err.whereInApi = 'GotProfileHandler/getClassEvents';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -93,10 +94,11 @@ export function getprofile (req, res) {
                 });
                 getClassEvents(userData, classList);
             } else {
-                return res.status(400).send({message: 'Error getting universities'});
+                return res.status(404).send({message: 'Error getting universities'});
             }
         }).catch((err) => {
-            return res.status(400).send({message: 'Something went wrong - getClassDetails', error: err});
+            err.whereInApi = 'GotProfileHandler/getClassDetails';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -115,10 +117,11 @@ export function getprofile (req, res) {
                     return res.status(200).send({message: 'Got user profile.', userData: userData});
                 }
             } else {
-                return res.status(400).send({message: 'User type not found.'});
+                return res.status(404).send({message: 'User not found.'});
             }
         }).catch((err) => {
-            res.status(400).send({message: 'Something went wrong - getUserFromDatabase', error: err});
+            err.whereInApi = 'GetProfileHandler/getUserFromDatabase';
+            res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -130,7 +133,8 @@ export function getprofile (req, res) {
             const userData = { displayName, email };
             getUserFromDatabase(query, userData);
         }).catch((err) => {
-            res.status(400).send({message: 'Something went wrong - getUserData', error: err});
+            err.whereInApi = 'GetProfileHandler/getUserData';
+            res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -141,10 +145,11 @@ export function getprofile (req, res) {
             if (decodedToken.uid === uid) {
                 getUserData(req.body);
             } else {
-                return res.status(400).send({message: 'User authorization error'});
+                return res.status(401).send({message: 'User authorization error'});
             }
         }).catch((err) => {
-            res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'GetProfileHandler/cors';
+            res.status(406).send({message: 'Something went wrong', error: err});
         });
     });
 }

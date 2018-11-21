@@ -24,7 +24,8 @@ export function joinclass (req, res)  {
       return res.status(200).send({message: 'Successfully joined class.'});
     })
     .catch((err) => {
-      res.status(400).send({message: 'Something went wrong updating student profile.', error: err});
+      err.whereInApi = 'JoinClassHandler/updateStudentProfile';
+      res.status(406).send({message: 'Something went wrong updating student profile.', error: err});
     });
   }
 
@@ -37,7 +38,7 @@ export function joinclass (req, res)  {
       let userClassList = snap.val();
       if (userClassList && userClassList.length > 0) {
         if (userClassList.indexOf(classUid) === -1) userClassList.push(classUid);
-        else res.status(200).send({message: 'Already joined this class'});
+        else res.status(202).send({message: 'Already joined this class'});
       } else {
         userClassList = [classUid];
       }
@@ -45,7 +46,8 @@ export function joinclass (req, res)  {
       updateStudentProfile(query, userClassList);
     })
     .catch((err) => {
-      res.status(400).send({message: 'Something went wrong adding to student profile.', error: err});
+      err.whereInApi = 'JoinClassHandler/addToStudentProfile';
+      res.status(406).send({message: 'Something went wrong adding to student profile.', error: err});
     });
   }
 
@@ -62,14 +64,15 @@ export function joinclass (req, res)  {
           if (classData.approvedEmails.indexOf(studentData.email) !== -1) {
             addToStudentProfile(req.body);
           } else {
-            return res.status(400).send({message: 'Not pre-approved for this class.'});
+            return res.status(401).send({message: 'Not pre-approved for this class.'});
           }
         } else {
-          return res.status(400).send({message: 'Class is no longer available'});
+          return res.status(404).send({message: 'Class is no longer available'});
         }
       })
       .catch((err) => {
-        res.status(400).send({message: 'Something went wrong.', error: err});
+        err.whereInApi = 'JoinClassHandler/cors';
+        res.status(406).send({message: 'Something went wrong.', error: err});
       });
     }
   });
