@@ -4,5 +4,9 @@ module.exports = {
     "rules": {
       "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
       "no-unused-vars": 2
+    },
+    "env": {
+      "jest": true,
+      "browser": true
     }
 };

@@ -8,7 +8,7 @@ class MaterialIcon extends PureComponent {
   static propTypes = {
     type: PropTypes.string.isRequired,
     className: PropTypes.string,
-    style: PropTypes.string,
+    style: PropTypes.objectOf(PropTypes.string),
   }
 
   static defaultProps = {

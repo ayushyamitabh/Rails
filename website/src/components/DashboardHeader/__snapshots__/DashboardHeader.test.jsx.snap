@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardHeader Expect DashboardHeader to match snapshot 1`] = `
+<div
+  className="Header ant-layout-header"
+>
+  <div
+    className="ProfileInfo"
+  >
+    <i
+      className="ProfileImage material-icons"
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+      account_circle
+    </i>
+    <div
+      className="rightSide"
+    >
+      <p
+        className="name"
+      >
+        testDisplayName
+      </p>
+      <p
+        className="email"
+      >
+        test@test.com
+      </p>
+    </div>
+  </div>
+  <div
+    className="HeaderIcons"
+  >
+    <button
+      className="IconButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="material-icons"
+        style={null}
+      >
+        add_alert
+      </i>
+    </button>
+    <button
+      className="IconButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="material-icons"
+        style={null}
+      >
+        notifications_active
+      </i>
+    </button>
+    <button
+      className="IconButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="material-icons"
+        style={null}
+      >
+        settings
+      </i>
+    </button>
+    <a
+      href="/signout"
+      onClick={[Function]}
+    >
+      <button
+        className="IconButton"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="material-icons"
+          style={null}
+        >
+          exit_to_app
+        </i>
+      </button>
+    </a>
+  </div>
+</div>
+`;
