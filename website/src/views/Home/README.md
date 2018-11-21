@@ -1,6 +1,6 @@
 ### Home
 
-**Purpose:** This page helps students and teachers signup for our service.
+**Purpose:** This page serves as the homepage for our project.
 
 **How It Works:** 
 1. Shows some information about Rails.
