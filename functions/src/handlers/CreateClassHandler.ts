@@ -37,7 +37,8 @@ export function createclass (req, res) {
     .then(()=>{
       return res.status(200).send({message: `Created class ${classData.name}`});
     }).catch((err)=>{
-      return res.status(400).send({message: 'Something went wrong updating teacher profile.', error: err});
+      err.whereInApi = 'CreateClassHandler/setTeacherProfile';
+      return res.status(406).send({message: 'Something went wrong updating teacher profile.', error: err});
     });
   }
 
@@ -54,7 +55,8 @@ export function createclass (req, res) {
       }
       setTeacherProfile(query, existingClasses);
     }).catch((err)=>{
-      res.status(400).send({message: 'Something went wrong adding to teacher profile.', error: err});
+      err.whereInApi = 'CreateClassHandler/addToTeacherProfile';
+      res.status(406).send({message: 'Something went wrong adding to teacher profile.', error: err});
     });
   }
 
@@ -65,7 +67,8 @@ export function createclass (req, res) {
     .then((pushData)=>{
       addToTeacherProfile(query, pushData.key);
     },(err)=>{
-      res.status(400).send({message: 'Something went wrong creating class.', error: err});
+      err.whereInApi = 'CreateClassHandler/createClass';
+      res.status(406).send({message: 'Something went wrong creating class.', error: err});
     });
   }
 
@@ -81,12 +84,13 @@ export function createclass (req, res) {
         if (type && (type === 'teacher')) {
           createClass(req.body);
         } else if (type && (type === 'student')) {
-          return res.status(400).send({message: 'Not authorized to create class'});
+          return res.status(403).send({message: 'Not authorized to create class'});
         } else {
-          return res.status(400).send({message: 'Can\'t authorize user.'});
+          return res.status(401).send({message: 'Can\'t authorize user.'});
         }
       }).catch((err)=>{
-        res.status(400).send({message: 'Something went wrong.', error: err});
+        err.whereInApi = 'CreateClassHandler/cors';
+        res.status(406).send({message: 'Something went wrong.', error: err});
       });
     }
   });

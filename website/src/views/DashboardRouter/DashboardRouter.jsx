@@ -4,6 +4,8 @@ import {
 } from 'react-router-dom';
 import { DashboardHome, Profile } from '..';
 import { Layout } from 'antd';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { DashboardHeader, Notification } from '../../components';
 import { WithProtectedView } from '../../hoc';
 import './Dashboard.css';
@@ -13,7 +15,36 @@ class DashboardRouter extends PureComponent {
     super(props);
     this.state = {
       visible: false,
+      teacher: false,
     };
+  }
+
+  componentDidMount() {
+    if (firebase.auth().currentUser !== undefined) {
+      firebase.auth().currentUser
+        .getIdToken(true)
+        .then((idToken) => {
+          const { uid } = firebase.auth().currentUser;
+          const reqData = { uid, idToken };
+          const profileData = fetch('https://us-central1-rails-students.cloudfunctions.net/getprofile', {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(reqData),
+          }).then((result) => {
+            if (result.status === 200) {
+              return result.json();
+            }
+          }).catch((err) => {
+            console.log(err);
+          });
+          profileData.then((data) => {
+            this.setState({ teacher: data.userData.type === 'teacher' });
+          });
+        });
+    }
   }
 
   showDrawer = () => {
@@ -28,11 +59,12 @@ class DashboardRouter extends PureComponent {
     });
   };
 
+
   render() {
-    const { visible } = this.state;
+    const { visible, teacher } = this.state;
     return (
       <Layout className="Container" style={{ height: '100%' }}>
-        <DashboardHeader showDrawer={this.showDrawer} />
+        <DashboardHeader teacher={teacher} showDrawer={this.showDrawer} />
         <Layout style={{ height: '100%' }}>
           <Router>
             <div>
@@ -46,6 +78,5 @@ class DashboardRouter extends PureComponent {
     );
   }
 }
-
 const ProtectedDashboardRouter = WithProtectedView(DashboardRouter);
 export { ProtectedDashboardRouter, DashboardRouter };

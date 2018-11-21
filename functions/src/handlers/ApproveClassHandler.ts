@@ -17,10 +17,11 @@ export function approveclass (req, res) {
         admin.database().ref(`users/${uid}/universities/${universityName}`)
         .set(classList)
         .then(() => {
-        return res.status(200).send({message: 'Approved and added student to class.'})
+            return res.status(200).send({message: 'Approved and added student to class.'})
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/updateStudentProfile';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -29,16 +30,17 @@ export function approveclass (req, res) {
         admin.database().ref(`users/${uid}/universities/${universityName}`)
         .once('value')
         .then((snap) => {
-        let classList = snap.val();
-        if (classList) {
-            classList.push(classUid);
-        } else {
-            classList = [classUid];
-        }
-        updateStudentProfile(query, uid, classList);
+            let classList = snap.val();
+            if (classList) {
+                classList.push(classUid);
+            } else {
+                classList = [classUid];
+            }
+            updateStudentProfile(query, uid, classList);
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/addToStudentProfile';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -46,14 +48,15 @@ export function approveclass (req, res) {
         const { studentEmail } = query;
         admin.auth().getUserByEmail(studentEmail)
         .then((user) => {
-        if (user) {
-            addToStudentProfile(query, user.uid);
-        } else {
-            return res.status(400).send({message: 'Student account not found.'});
-        }
+            if (user) {
+                addToStudentProfile(query, user.uid);
+            } else {
+                return res.status(404).send({message: 'Student account not found.'});
+            }
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/getStudentProfile';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -62,10 +65,11 @@ export function approveclass (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/approvedEmails`)
         .set(emailList)
         .then(()=>{
-        getStudentProfile(query);
+            getStudentProfile(query);
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/updateApprovedList';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -74,16 +78,17 @@ export function approveclass (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/approvedEmails`)
         .once('value')
         .then((snap)=>{
-        let approvedEmails = snap.val();
-        if (approvedEmails) {
-            approvedEmails.push(studentEmail);
-        } else {
-            approvedEmails = [studentEmail];
-        }
-        updateApprovedList(query, approvedEmails);
+            let approvedEmails = snap.val();
+            if (approvedEmails) {
+                approvedEmails.push(studentEmail);
+            } else {
+                approvedEmails = [studentEmail];
+            }
+            updateApprovedList(query, approvedEmails);
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/addToApprovedList';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -92,10 +97,11 @@ export function approveclass (req, res) {
         admin.database().ref(`universities/${universityName}/${classUid}/pendingEmails`)
         .set(emailList)
         .then(()=>{
-        addToApprovedList(query);
+            addToApprovedList(query);
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/updatePendingList';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
@@ -111,14 +117,15 @@ export function approveclass (req, res) {
             pendingEmails.splice(emailIndex, 1);
             updatePendingList(req.body, pendingEmails);
             } else {
-            return res.status(400).send({message: 'Student email not found.'});
+            return res.status(404).send({message: 'Student email not found.'});
             }
         } else {
-            return res.status(400).send({message: 'Couldn\'t get class details.'});
+            return res.status(404).send({message: 'Couldn\'t get class details.'});
         }
         })
         .catch((err) => {
-        return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/addToPendingList';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
     
@@ -135,14 +142,15 @@ export function approveclass (req, res) {
             if (userType === 'teacher') {
                 addToPendingList(req.body);
             } else {
-                return res.status(400).send({message: 'User can\'t approve emails (not teacher).'})
+                return res.status(403).send({message: 'User can\'t approve emails (not teacher).'})
             }
             } else {
-            return res.status(400).send({message: 'User not found - UID may be wrong.'});
+                return res.status(404).send({message: 'User not found - UID may be wrong.'});
             }
         })
         .catch((err) => {
-            return res.status(400).send({message: 'Something went wrong', error: err});
+            err.whereInApi = 'ApproveClassHandler/cors';
+            return res.status(406).send({message: 'Something went wrong', error: err});
         });
         }    
     });

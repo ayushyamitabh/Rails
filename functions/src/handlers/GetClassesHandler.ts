@@ -44,10 +44,11 @@ export function getclasses (req, res) {
           });
           return res.status(200).send({message: 'Classes found.', classList: processedData});
         } else {
-          return res.status(300).send({message: `No classes found for ${universityName}`});
+          return res.status(404).send({message: `No classes found for ${universityName}`});
         }
       }).catch((err) => {
-        res.status(400).send({message: 'Something went wrong', error: err});
+        err.whereInApi = 'GetClassesHandler/cors';
+        res.status(406).send({message: 'Something went wrong', error: err});
       });
     }
   });

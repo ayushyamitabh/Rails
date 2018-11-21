@@ -5,7 +5,7 @@ import './EventSummaryCollection.css';
 
 class EventSummaryCollection extends Component {
   static propTypes = {
-    event: PropTypes.array,
+    event: PropTypes.object,
   }
 
   static defaultProps = {
@@ -32,6 +32,7 @@ class EventSummaryCollection extends Component {
               eventName={course.eventName}
               dueDate={course.dueTime}
               color={course.color}
+              key={course.key}
             />))}
         </div>
       </div>
