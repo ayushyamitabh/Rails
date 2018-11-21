@@ -7,16 +7,15 @@ exports[`DashboardHeader Expect DashboardHeader to match snapshot 1`] = `
   <div
     className="ProfileInfo"
   >
-    <i
-      className="ProfileImage material-icons"
-      style={
-        Object {
-          "color": "black",
-        }
-      }
+    <a
+      href="/dashboard"
     >
-      account_circle
-    </i>
+      <img
+        alt="Rails"
+        className="header-logo"
+        src="logo.svg"
+      />
+    </a>
     <div
       className="rightSide"
     >
@@ -35,18 +34,6 @@ exports[`DashboardHeader Expect DashboardHeader to match snapshot 1`] = `
   <div
     className="HeaderIcons"
   >
-    <button
-      className="IconButton"
-      onClick={[Function]}
-      type="button"
-    >
-      <i
-        className="material-icons"
-        style={null}
-      >
-        add_alert
-      </i>
-    </button>
     <button
       className="IconButton"
       onClick={[Function]}

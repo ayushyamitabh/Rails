@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { MaterialIcon } from '..';
 import './ProfileInfo.css';
+import Logo from '../../resources/logo.svg';
 
 class ProfileInfo extends PureComponent {
   static propTypes = {
@@ -17,7 +17,7 @@ class ProfileInfo extends PureComponent {
 
     return (
       <div className="ProfileInfo">
-        <MaterialIcon style={{ color: 'black' }} className="ProfileImage" type="account_circle" />
+        <a href="/dashboard"><img src={Logo} alt="Rails" className="header-logo" /></a>
         <div className="rightSide">
           <p className="name">{name}</p>
           <p className="email">{email}</p>

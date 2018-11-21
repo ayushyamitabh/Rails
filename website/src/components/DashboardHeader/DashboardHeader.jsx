@@ -26,12 +26,24 @@ class DashboardHeader extends PureComponent {
       teacher,
     } = this.props;
 
-    const Icons = [
+    const {
+      currentUser,
+    } = firebase.auth();
+
+    const TeacherIcons = [
+      {
+        type: 'add_circle',
+        onClick: () => console.log('add event'),
+        key: 'add_circle',
+      },
       {
         type: 'add_alert',
-        onClick: () => console.log('add button clicked'),
+        onClick: () => console.log('add notification'),
         key: 'add_alert',
       },
+    ];
+
+    const Icons = [
       {
         type: 'notifications_active',
         onClick: showDrawer,
@@ -44,15 +56,14 @@ class DashboardHeader extends PureComponent {
       },
     ];
     if (teacher) {
-      Icons.unshift({
-        type: 'add_circle',
-        onClick: () => { window.location = '/create/class'; },
-        key: 'add_circle',
-      });
+      Icons.unshift(...TeacherIcons);
     }
     return (
       <Header className="Header">
-        <ProfileInfo name={firebase.auth().currentUser ? firebase.auth().currentUser.displayName : 'User Name'} email={firebase.auth().currentUser ? firebase.auth().currentUser.email : 'email@domain.com'} />
+        <ProfileInfo
+          name={currentUser ? currentUser.displayName : 'User Name'}
+          email={currentUser ? currentUser.email : 'email@domain.com'}
+        />
         <HeaderIcons Icons={Icons} />
       </Header>
     );

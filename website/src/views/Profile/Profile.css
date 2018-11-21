@@ -26,3 +26,11 @@
 .profile-card .cust-button {
   border-radius: 15px !important;
 }
+
+.center-loading-icon {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
