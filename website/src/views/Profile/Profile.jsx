@@ -108,8 +108,10 @@ class Profile extends PureComponent {
                       <p>{'You haven\'t joined any universities/classes yet.'}</p>
                     )
                     : (
-                      <Collapse>
-                        {
+                      <div>
+                        <p className="academics-subtitle">Joined classes</p>
+                        <Collapse>
+                          {
                           Object.keys(userData.universities).map((university) => {
                             const classList = [];
                             Object.keys(userData.universities[university]).forEach((classUid) => {
@@ -134,9 +136,48 @@ class Profile extends PureComponent {
                             );
                           })
                         }
-                      </Collapse>
+                        </Collapse>
+                      </div>
                     )
                   }
+                {
+                    Object.keys(userData.requested).length === 0
+                      ? (
+                        <p>No other requested classes.</p>
+                      )
+                      : (
+                        <div>
+                          <p className="academics-subtitle">Requested classes</p>
+                          <Collapse>
+                            {
+                            Object.keys(userData.requested).map((university) => {
+                              const classList = [];
+                              Object.keys(userData.requested[university]).forEach((classUid) => {
+                                classList.push(`${userData.requested[university][classUid].name} - ${userData.requested[university][classUid].description}`);
+                              });
+                              return (
+                                <Collapse.Panel header={university} key={`requested${university}`}>
+                                  <List
+                                    dataSource={classList}
+                                    renderItem={item => (
+                                      <List.Item
+                                        actions={[
+                                          <Button icon="eye" size="small" shape="circle" />,
+                                          <Button icon="close" size="small" shape="circle" type="danger" />,
+                                        ]}
+                                      >
+                                        {item}
+                                      </List.Item>
+                                    )}
+                                  />
+                                </Collapse.Panel>
+                              );
+                            })
+                          }
+                          </Collapse>
+                        </div>
+                      )
+                    }
               </Card>
             </div>
           )

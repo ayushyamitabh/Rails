@@ -34,3 +34,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.academics-subtitle {
+  margin: 0;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 500;
+  margin-bottom: 7.5px;
+}

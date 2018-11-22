@@ -11,12 +11,54 @@ export function requestclass (req, res) {
         studentEmail: 'student@email.com'
         }
     */
+
+    function updateStudentList(query, uid, list) {
+        const { universityName } = query;
+        admin.database().ref(`users/${uid}/requested/${universityName}`)
+        .set(list)
+        .then(() => {
+            return res.status(200).send({message: 'Requested permission.'});
+        })
+        .catch((err) => {
+            err.whereInApi = 'RequestClassHandler/addToStudentList';
+            res.status(409).send({message: 'Something went wrong updating to pending list.', error: err});
+        });
+    }
+
+    function addToStudentList(query, uid) {
+        const { universityName, classUid } = query;
+        admin.database().ref(`users/${uid}/requested/${universityName}`)
+        .once('value')
+        .then((snap) => {
+            let userPendingList = snap.val();
+            if (userPendingList) userPendingList.push(classUid);
+            else userPendingList = [classUid];
+            updateStudentList(query, uid, userPendingList);
+        })
+        .catch((err) => {
+            err.whereInApi = 'RequestClassHandler/addToStudentList';
+            res.status(409).send({message: 'Something went wrong updating to pending list.', error: err});
+        });
+    }
+
+    function getStudentUid(query) {
+        const { studentEmail } = query;
+        admin.auth().getUserByEmail(studentEmail)
+        .then((user) => {
+            if (user) addToStudentList(query, user.uid);
+            else return res.status(404).send({message: 'User not found.'});
+        }).catch((err) => {
+            err.whereInApi = 'RequestClassHandler/getStudentUid';
+            res.status(409).send({message: 'Something went wrong updating to pending list.', error: err});
+        });
+    }
+
     function updatePendingList(query, pendingList) {
         const { universityName, classUid } = query;
         admin.database().ref(`universities/${universityName}/${classUid}/pendingEmails`)
         .set(pendingList)
         .then(()=>{
-        return res.status(200).send({message: 'Requested permission.'});
+            getStudentUid(query);
         }).catch((err) => {
             err.whereInApi = 'RequestClassHandler/updatePendingList';
             res.status(409).send({message: 'Something went wrong updating to pending list.', error: err});
