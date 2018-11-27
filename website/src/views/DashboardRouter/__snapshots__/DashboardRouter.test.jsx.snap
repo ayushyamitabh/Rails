@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardRouter Render DashboardRouter without any eror 1`] = `
+<div
+  className="Container ant-layout"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="Header ant-layout-header"
+  >
+    <div
+      className="ProfileInfo"
+    >
+      <a
+        href="/dashboard"
+      >
+        <img
+          alt="Rails"
+          className="header-logo"
+          src="logo.svg"
+        />
+      </a>
+      <div
+        className="rightSide"
+      >
+        <p
+          className="name"
+        >
+          testDisplayName
+        </p>
+        <p
+          className="email"
+        >
+          test@test.com
+        </p>
+      </div>
+    </div>
+    <div
+      className="HeaderIcons"
+    >
+      <button
+        className="IconButton"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="material-icons"
+          style={null}
+        >
+          notifications_active
+        </i>
+      </button>
+      <button
+        className="IconButton"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          className="material-icons"
+          style={null}
+        >
+          settings
+        </i>
+      </button>
+      <a
+        href="/signout"
+        onClick={[Function]}
+      >
+        <button
+          className="IconButton"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="material-icons"
+            style={null}
+          >
+            exit_to_app
+          </i>
+        </button>
+      </a>
+    </div>
+  </div>
+  <div
+    className="ant-layout"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div>
+      <div />
+    </div>
+  </div>
+</div>
+`;

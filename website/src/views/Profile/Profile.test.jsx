@@ -5,7 +5,7 @@ import { Profile } from './Profile';
 import '../../utils/tests/test.css';
 
 describe('Profile View', () => {
-  it('Expect the Profile page to match snap shot', () => { // eslint-disable-line no-undef
+  it('Expect the Profile page to match snap shot', () => {
     jest.spyOn(firebase, 'auth')
       .mockImplementation(() => ({
         currentUser: {
@@ -24,6 +24,6 @@ describe('Profile View', () => {
       <Profile />,
     );
     const tree = component.toJSON();
-    expect(tree).toMatchSnapshot(); // eslint-disable-line no-undef
+    expect(tree).toMatchSnapshot();
   });
 });
