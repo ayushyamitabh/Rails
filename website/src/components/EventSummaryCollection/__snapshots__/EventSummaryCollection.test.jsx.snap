@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventSummaryCollection Render EventSummaryCollection without any eror 1`] = `
+<div
+  className="eventWrapper"
+>
+  <span
+    className="eventDate"
+  >
+    Oct. 24
+  </span>
+  <div
+    className="events"
+  >
+    <div
+      className="EventSummary"
+      style={
+        Object {
+          "borderColor": "#d83a42",
+          "color": "#d83a42",
+        }
+      }
+    >
+      <span
+        className="course"
+      >
+        CSC 342
+      </span>
+      <span
+        className="eventName"
+      >
+        Review of First Exam
+      </span>
+      <span
+        className="dueDate"
+      >
+        3:30pm
+      </span>
+    </div>
+    <div
+      className="EventSummary"
+      style={
+        Object {
+          "borderColor": "#62c4f9",
+          "color": "#62c4f9",
+        }
+      }
+    >
+      <span
+        className="course"
+      >
+        CSC 220
+      </span>
+      <span
+        className="eventName"
+      >
+        Homework 1
+      </span>
+      <span
+        className="dueDate"
+      >
+        5:00pm
+      </span>
+    </div>
+  </div>
+</div>
+`;

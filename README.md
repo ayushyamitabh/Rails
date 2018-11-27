@@ -48,3 +48,5 @@ _Please read the [GETTING_STARTED.md](./GETTING_STARTED.md)_
 
 #### API Documentation
 _API Documentation can be found in wiki on Github [API Documentation](https://github.com/CSC59939/Rails/wiki/API-Documentation)_
+
+#### [Update log](https://github.com/CSC59939/Rails/wiki/Project-Updates)

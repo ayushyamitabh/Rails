@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JoinClass Render JoinClass without any eror 1`] = `
+<div
+  className="join-class-page"
+>
+  <h1
+    className="title"
+  >
+    Rails
+  </h1>
+  <div
+    className="ant-card join-card ant-card-bordered"
+  >
+    <div
+      className="ant-card-head"
+      style={Object {}}
+    >
+      <div
+        className="ant-card-head-wrapper"
+      >
+        <div
+          className="ant-card-head-title"
+        >
+          Join Class
+        </div>
+        <div
+          className="ant-card-extra"
+        >
+          <a
+            className="ant-btn ant-btn-danger"
+            href="/dashboard"
+            onClick={[Function]}
+          >
+            <span>
+              Back to  Dashboard
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="ant-card-body"
+      style={Object {}}
+    >
+      <div
+        className="ant-select-lg ant-select ant-select-enabled"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          aria-autocomplete="list"
+          aria-expanded={false}
+          aria-haspopup="true"
+          className="ant-select-selection
+            ant-select-selection--single"
+          onKeyDown={[Function]}
+          role="combobox"
+          tabIndex={0}
+        >
+          <div
+            className="ant-select-selection__rendered"
+          >
+            <div
+              className="ant-select-selection__placeholder"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={
+                Object {
+                  "WebkitUserSelect": "none",
+                  "display": "block",
+                  "userSelect": "none",
+                }
+              }
+              unselectable="on"
+            >
+              University/College
+            </div>
+            <div
+              className="ant-select-search ant-select-search--inline"
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+            >
+              <div
+                className="ant-select-search__field__wrap"
+              >
+                <input
+                  autoComplete="off"
+                  className="ant-select-search__field"
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  value=""
+                />
+                <span
+                  className="ant-select-search__field__mirror"
+                >
+                  
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+          <span
+            className="ant-select-arrow"
+            onClick={[Function]}
+            style={
+              Object {
+                "WebkitUserSelect": "none",
+                "userSelect": "none",
+              }
+            }
+            unselectable="on"
+          >
+            <i
+              className="anticon anticon-down ant-select-arrow-icon"
+            >
+              <svg
+                aria-hidden="true"
+                className=""
+                data-icon="down"
+                fill="currentColor"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+      </div>
+      <div
+        className="ant-table-wrapper join-class-table"
+      >
+        <div
+          className="ant-spin-nested-loading"
+          style={null}
+        >
+          <div
+            className="ant-spin-container"
+          >
+            <div
+              className="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
+              style={Object {}}
+            >
+              <div
+                className="ant-table-content"
+              >
+                <div
+                  className="ant-table-body"
+                  onScroll={[Function]}
+                  onWheel={[Function]}
+                  style={Object {}}
+                >
+                  <table
+                    className=""
+                    style={Object {}}
+                  >
+                    <colgroup>
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                      <col
+                        style={
+                          Object {
+                            "minWidth": undefined,
+                            "width": undefined,
+                          }
+                        }
+                      />
+                    </colgroup>
+                    <thead
+                      className="ant-table-thead"
+                    >
+                      <tr
+                        style={
+                          Object {
+                            "height": null,
+                          }
+                        }
+                      >
+                        <th
+                          className=""
+                        >
+                          <div
+                            onClick={[Function]}
+                            title="Sort"
+                          >
+                            Class Code
+                          </div>
+                        </th>
+                        <th
+                          className=""
+                        >
+                          <div
+                            onClick={[Function]}
+                            title="Sort"
+                          >
+                            Class Name
+                          </div>
+                        </th>
+                        <th
+                          className=""
+                        >
+                          <div
+                            onClick={[Function]}
+                            title="Sort"
+                          >
+                            Instructor
+                          </div>
+                        </th>
+                        <th
+                          className=""
+                        >
+                          <div
+                            onClick={[Function]}
+                            title="Sort"
+                          >
+                            Time
+                          </div>
+                        </th>
+                        <th
+                          className=""
+                        >
+                          <div
+                            onClick={[Function]}
+                            title="Sort"
+                          >
+                            Days
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      className="ant-table-tbody"
+                    />
+                  </table>
+                </div>
+                <div
+                  className="ant-table-placeholder"
+                >
+                  No data
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

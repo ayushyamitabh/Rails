@@ -55,70 +55,87 @@ export function getprofile (req, res) {
         }
     }
     */
-
-    function getClassEvents(userData, classList) {
-        admin.database().ref('events')
+    function populateEventsList(userData, universities) {
+        admin.database().ref(`events`)
         .once('value')
-        .then((snap) => {
-            const eventsData = snap.val();
+        .then((eventsDataSnap) => {
+            const eventsData = eventsDataSnap.val();
             if (eventsData) {
-                Object.keys(classList).forEach((university) => {
-                    classList[university].forEach((classUid) => {
-                        userData.universities[university][classUid]['events'] = {};
-                        userData.universities[university][classUid]['events'] = eventsData[classUid];
+                Object.keys(universities).forEach((uni) => {
+                    universities[uni].forEach((cuid) => {
+                        if (eventsData[cuid]) {
+                            userData.universities[uni][cuid].events = {}
+                            userData.universities[uni][cuid].events = eventsData[cuid];
+                        }
+                        else userData.universities[uni][cuid].events = {};
                     });
                 });
-                return res.status(200).send({message: 'Got user profile.', userData: userData});
+                res.status(200).send({message: 'Got user profile.', userData})
             } else {
-                return res.status(404).send({message: 'Error getting events'});
+                Object.keys(universities).forEach((uni) => {
+                    universities[uni].forEach((cuid) => {
+                        userData.universities[uni][cuid].events = {};
+                    });
+                });
+                res.status(200).send({message: 'Got user profile.', userData});
             }
-        }).catch((err) => {
-            err.whereInApi = 'GotProfileHandler/getClassEvents';
-            return res.status(406).send({message: 'Something went wrong', error: err});
+        })
+        .catch((err) => {
+            err.whereInApi = 'GetProfileHandler/populateEventsList';
+            res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
-    function getClassDetails(userData, classList) {
+    function populateUniversityData (userData, universities, requested) {
         admin.database().ref('universities')
         .once('value')
-        .then((snap) => {
-            const universitiesData = snap.val();
-            userData.universities = {};
+        .then((universitiesDataSnap) => {
+            const universitiesData = universitiesDataSnap.val();
             if (universitiesData) {
-                Object.keys(classList).forEach((university) => {
-                    userData.universities[university] = {};
-                    classList[university].forEach((classUid) => {
-                        const { name, description, instructorName, meetingDays, meetingTimes } = universitiesData[university][classUid];
-                        userData.universities[university][classUid] = { name, description, instructorName, meetingDays, meetingTimes };
+                userData.universities = {};
+                Object.keys(universities).forEach((uni) => {
+                    userData.universities[uni] = {};
+                    universities[uni].forEach((cuid) => {
+                        if (universitiesData[uni] && universitiesData[uni][cuid]) {
+                            userData.universities[uni][cuid] = {};
+                            const { meetingDays, meetingTimes, instructorName, name, description } = universitiesData[uni][cuid];
+                            userData.universities[uni][cuid] = { meetingDays, meetingTimes, instructorName, name, description };
+                        }
                     });
                 });
-                getClassEvents(userData, classList);
+                userData.requested = {};
+                Object.keys(requested).forEach((uni) => {
+                    userData.requested[uni] = {};
+                    requested[uni].forEach((cuid) => {
+                        userData.requested[uni][cuid] = {};
+                        if (universitiesData[uni] && universitiesData[uni][cuid]) {
+                            const { meetingDays, meetingTimes, instructorName, name, description } = universitiesData[uni][cuid];
+                            userData.requested[uni][cuid] = { meetingDays, meetingTimes, instructorName, name, description };
+                        }
+                    });
+                });
+                populateEventsList(userData, universities);
             } else {
-                return res.status(404).send({message: 'Error getting universities'});
+                res.status(404).send({message: 'University data couldn\'t be found.'})
             }
-        }).catch((err) => {
-            err.whereInApi = 'GotProfileHandler/getClassDetails';
-            return res.status(406).send({message: 'Something went wrong', error: err});
+        })
+        .catch((err) => {
+            err.whereInApi = 'GetProfileHandler/populateUniversityData';
+            res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
 
-    function getUserFromDatabase(query, userData) {
+    function getUserFromDatabase (query, userData) {
         const { uid } = query;
         admin.database().ref(`users/${uid}`)
         .once('value')
-        .then((snap) => {
-            const userSnapData = snap.val();
-            if (userSnapData) {
-                userData['type'] = userSnapData.type;
-                if (userSnapData.universities) {
-                    getClassDetails(userData, userSnapData.universities);
-                } else {
-                    userData['universities'] = {};
-                    return res.status(200).send({message: 'Got user profile.', userData: userData});
-                }
-            } else {
-                return res.status(404).send({message: 'User not found.'});
+        .then((userDataSnap) => {
+            const snapData = userDataSnap.val();
+            if (snapData) {
+                userData.type = snapData.type;
+                populateUniversityData(userData, snapData.universities ? snapData.universities : {}, snapData.requested ? snapData.requested : {});
             }
+            else return res.status(404).send({message: 'User not found in database.'});
         }).catch((err) => {
             err.whereInApi = 'GetProfileHandler/getUserFromDatabase';
             res.status(406).send({message: 'Something went wrong', error: err});

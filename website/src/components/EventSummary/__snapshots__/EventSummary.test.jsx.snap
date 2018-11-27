@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventSummary Render EventSummary without any eror 1`] = `
+<div
+  className="EventSummary"
+  style={
+    Object {
+      "borderColor": "red",
+      "color": "red",
+    }
+  }
+>
+  <span
+    className="course"
+  >
+    CS103
+  </span>
+  <span
+    className="eventName"
+  >
+    Final exam
+  </span>
+  <span
+    className="dueDate"
+  >
+    Friday
+  </span>
+</div>
+`;

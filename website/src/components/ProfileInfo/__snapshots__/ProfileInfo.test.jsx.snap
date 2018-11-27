@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileInfo Render ProfileInfo without any eror 1`] = `
+<div
+  className="ProfileInfo"
+>
+  <a
+    href="/dashboard"
+  >
+    <img
+      alt="Rails"
+      className="header-logo"
+      src="logo.svg"
+    />
+  </a>
+  <div
+    className="rightSide"
+  >
+    <p
+      className="name"
+    >
+      test full name
+    </p>
+    <p
+      className="email"
+    >
+      test@gmail.com
+    </p>
+  </div>
+</div>
+`;

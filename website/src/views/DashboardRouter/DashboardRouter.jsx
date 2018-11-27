@@ -26,23 +26,23 @@ class DashboardRouter extends PureComponent {
         .then((idToken) => {
           const { uid } = firebase.auth().currentUser;
           const reqData = { uid, idToken };
-          const profileData = fetch('https://us-central1-rails-students.cloudfunctions.net/getprofile', {
+          fetch('https://us-central1-rails-students.cloudfunctions.net/getprofile', {
             method: 'POST',
             headers: {
               Accept: 'application/json',
               'Content-Type': 'application/json',
             },
             body: JSON.stringify(reqData),
-          }).then((result) => {
-            if (result.status === 200) {
-              return result.json();
-            }
-          }).catch((err) => {
-            console.log(err);
-          });
-          profileData.then((data) => {
-            this.setState({ teacher: data.userData.type === 'teacher' });
-          });
+          }).then(res => res.json())
+            .then((data) => {
+              this.setState({
+                teacher: data.userData.type === 'teacher',
+                userData: data.userData ? data.userData : {},
+              });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         });
     }
   }
@@ -61,7 +61,7 @@ class DashboardRouter extends PureComponent {
 
 
   render() {
-    const { visible, teacher } = this.state;
+    const { visible, teacher, userData } = this.state;
     return (
       <Layout className="Container" style={{ height: '100%' }}>
         <DashboardHeader teacher={teacher} showDrawer={this.showDrawer} />
@@ -69,7 +69,7 @@ class DashboardRouter extends PureComponent {
           <Router>
             <div>
               <Route exact path="/dashboard" component={DashboardHome} />
-              <Route exact path="/dashboard/profile" component={Profile} />
+              <Route exact path="/dashboard/profile" render={props => <Profile {...props} userData={userData} />} />
             </div>
           </Router>
         </Layout>

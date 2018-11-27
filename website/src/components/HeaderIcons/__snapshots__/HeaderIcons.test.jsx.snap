@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headerlcons Render Headerlcons without any eror 1`] = `
+<div
+  className="HeaderIcons"
+>
+  <a
+    href="/signout"
+    onClick={[Function]}
+  >
+    <button
+      className="IconButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="material-icons"
+        style={null}
+      >
+        exit_to_app
+      </i>
+    </button>
+  </a>
+</div>
+`;
