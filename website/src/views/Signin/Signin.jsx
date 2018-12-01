@@ -25,14 +25,12 @@ export default class Signin extends PureComponent {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  /* Email validation */
   validateEmail(email) {
     const filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (filter.test(email) && email !== '') return true;
     return false;
   }
 
-  /* Password validation */
   validatePassword(password) {
     if (password !== '') return true;
     return false;
@@ -82,7 +80,7 @@ export default class Signin extends PureComponent {
       return;
     }
     firebase.auth().sendPasswordResetEmail(email).then(() => {
-      message.success('Password reset email has been sent.')
+      message.success('Password reset email has been sent.');
     }).catch((err) => {
       message.error(err.message);
     });
@@ -93,8 +91,8 @@ export default class Signin extends PureComponent {
 
   render() {
     const {
- email, password, loading, showModal 
-} = this.state;
+      email, password, loading, showModal,
+    } = this.state;
     const { history } = this.props;
     const user = firebase.auth().currentUser;
     if (user) {

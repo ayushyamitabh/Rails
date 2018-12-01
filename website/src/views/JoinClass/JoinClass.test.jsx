@@ -20,9 +20,6 @@ describe('JoinClass', () => {
 /* Enzyme */
 const wrapper = shallow(<JoinClass />);
 describe('JoinClass shallow', () => {
-  it('Join-class-label name should not be change', () => {
-    expect(wrapper.find('.join-class-label').every('.join-class-label')).toBe(true);
-  });
   it('Title tag should exists', () => {
     expect(wrapper.find('.title').closest('.join-class-page').length).toBe(1);
   });
