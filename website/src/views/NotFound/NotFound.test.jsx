@@ -22,11 +22,11 @@ describe('NotFound View', () => {
   /* enzyme testing */
   const wrapper = shallow(<NotFound />);
 
-  it('should contains a sub Title to say what is going on', () => {
+  it('should contains a sub Title', () => {
     expect(wrapper.contains(<h2 className="subTitle">404 Page Not Found</h2>)).toBe(true);
   });
 
-  it('should contains a button to go back', () => {
+  it('should have a class called home-button', () => {
     expect(wrapper.exists('.home-button')).toBe(true);
   });
 });

@@ -17,27 +17,27 @@ describe('ProfileInfo', () => {
   /* enzyme testing */
   const wrapper = shallow(<ProfileInfo name="test full name" email="test@gmail.com" />);
 
-  it('should display name', () => {
+  it('should have a class called name', () => {
     expect(wrapper.exists('.name')).toBe(true);
   });
 
-  it('should display email', () => {
+  it('should have a class called email', () => {
     expect(wrapper.exists('.email')).toBe(true);
   });
 
-  it('should display logo', () => {
+  it('should have a class called logo', () => {
     expect(wrapper.exists('.header-logo')).toBe(true);
   });
 
-  it('name should be inside of a div', () => {
+  it('class name should be inside of a div', () => {
     expect(wrapper.find('.name').parent().is('div')).toBe(true);
   });
 
-  it('email should be inside of a div', () => {
+  it('class email should be inside of a div', () => {
     expect(wrapper.find('.email').parent().is('div')).toBe(true);
   });
 
-  it('email should be type of div', () => {
+  it('Type of wrapper should be div', () => {
     expect(wrapper.type()).toBe('div');
   });
 });

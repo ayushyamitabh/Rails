@@ -14,7 +14,7 @@ describe('Notification', () => {
   /* enzyme testing */
   const wrapper = shallow(<Notification notificationVisible={true} onClose={() => {}} />);
 
-  it('Drawer should display correctly', () => {
+  it('Type of wrapper should be Drawer', () => {
     expect(wrapper.type()).toBe(Drawer);
   });
 });
