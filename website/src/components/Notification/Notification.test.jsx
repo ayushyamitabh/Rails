@@ -1,6 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { Drawer, Card } from 'antd';
+import { Drawer } from 'antd';
 import {
   shallow,
   configure,
