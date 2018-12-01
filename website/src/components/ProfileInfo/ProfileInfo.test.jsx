@@ -25,6 +25,14 @@ describe('ProfileInfo', () => {
     expect(wrapper.exists('.email')).toBe(true);
   });
 
+  it('Name should pass into the component without error', () => {
+    expect(wrapper.contains(<p className="name">test full name</p>));
+  });
+
+  it('NEmail should pass into the component without errort', () => {
+    expect(wrapper.contains(<p className="email">test@gmail.com</p>));
+  });
+
   it('should have a class called logo', () => {
     expect(wrapper.exists('.header-logo')).toBe(true);
   });
