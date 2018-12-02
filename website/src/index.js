@@ -22,7 +22,11 @@ messaging.usePublicVapidKey('BLTf1ScMkukM6eMWQ3c713ZwaJ2Relaal_FWIUjiNf-ztSlDVQW
 
 ReactDOM.render(<FirebaseApp />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// Google Service Worker. Support Chrome 64+ and firefox 13+. Tested on Chrome 70.0.3538.110 (64 bit).
+
+// Registion. Scope: '/app/'.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/service-worker.js');
+  });
+}
