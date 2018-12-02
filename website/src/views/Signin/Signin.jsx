@@ -25,23 +25,21 @@ export default class Signin extends PureComponent {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
-  /* Email validation */
-  validateEmail (email) {
+  validateEmail(email) {
     const filter = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (filter.test(email) && email !== '') return true;
-      return false;
+    return false;
   }
 
-  /* Password validation */
-  validatePassword (password) {
-    if (password !== '' ) return true;
-      return false;
+  validatePassword(password) {
+    if (password !== '') return true;
+    return false;
   }
 
   signin() {
     const { email, password } = this.state;
     const { location, history } = this.props;
-    if ( !this.validateEmail(email) || !this.validatePassword(password) ) {
+    if (!this.validateEmail(email) || !this.validatePassword(password)) {
       message.error('Please enter valid eamil and password');
       return;
     }
@@ -60,39 +58,41 @@ export default class Signin extends PureComponent {
       });
   }
 
-/* Pop out a forgot password window */
+  /* Pop out a forgot password window */
   forgotPassword = () => {
     this.setState({
       showModal: true,
     });
   }
 
-/* Handle cancel button in the forgot password window */
+  /* Handle cancel button in the forgot password window */
   handleCancel = () => {
     this.setState({
       showModal: false,
     });
   }
 
-/* Handle ok button in the forgot password window, send user a password reset email using firebase function */
+  /* Handle ok button in the forgot password window, send user a password reset email using firebase function */
   handleOk() {
-    const { email } =  this.state;
-    if ( !this.validateEmail(email) ) {
+    const { email } = this.state;
+    if (!this.validateEmail(email)) {
       message.error('Please enter valid eamil');
       return;
     }
-    firebase.auth().sendPasswordResetEmail(email).then(function() {
-      message.success('Password reset email has been sent.')
-    }).catch(function(err) {
+    firebase.auth().sendPasswordResetEmail(email).then(() => {
+      message.success('Password reset email has been sent.');
+    }).catch((err) => {
       message.error(err.message);
     });
     this.setState({
       showModal: false,
     });
-}
- 
+  }
+
   render() {
-    const { email, password, loading, showModal } = this.state;
+    const {
+      email, password, loading, showModal,
+    } = this.state;
     const { history } = this.props;
     const user = firebase.auth().currentUser;
     if (user) {
