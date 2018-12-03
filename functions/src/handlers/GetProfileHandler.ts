@@ -63,11 +63,13 @@ export function getprofile (req, res) {
             if (eventsData) {
                 Object.keys(universities).forEach((uni) => {
                     universities[uni].forEach((cuid) => {
+                        userData.universities[uni][cuid].events = {}
                         if (eventsData[cuid]) {
-                            userData.universities[uni][cuid].events = {}
+                            Object.keys(eventsData[cuid]).forEach((ev) => {
+                                delete eventsData[cuid][ev].instructorUid;
+                            });
                             userData.universities[uni][cuid].events = eventsData[cuid];
                         }
-                        else userData.universities[uni][cuid].events = {};
                     });
                 });
                 res.status(200).send({message: 'Got user profile.', userData})

@@ -45,7 +45,7 @@ class JoinClass extends Component {
   getClasses(su) {
     const selectedUniversity = su.split('-')[0];
     this.setState({ selectedUniversity, loading: true });
-    const reqData = { universityName: selectedUniversity };
+    const reqData = { universityName: selectedUniversity, userEmail: firebase.auth().currentUser.email };
     fetch('https://us-central1-rails-students.cloudfunctions.net/getclasses',
       {
         method: 'POST',
@@ -81,14 +81,7 @@ class JoinClass extends Component {
       });
   }
 
-  openClassModal(r) {
-    const rec = r;
-    if (rec.approvedEmails
-       && rec.approvedEmails.indexOf(firebase.auth().currentUser.email) !== -1) {
-      rec.isApproved = true;
-    } else {
-      rec.isApproved = false;
-    }
+  openClassModal(rec) {
     this.setState({
       selectedClass: rec,
       showModal: true,
@@ -107,7 +100,7 @@ class JoinClass extends Component {
     this.setState({ loading: true });
     let API_URL = '';
     let reqData = {};
-    if (selectedClass.isApproved === true) {
+    if (selectedClass.approved === true) {
       API_URL = 'https://us-central1-rails-students.cloudfunctions.net/joinclass';
       reqData = {
         universityName: selectedUniversity,
@@ -203,7 +196,7 @@ class JoinClass extends Component {
                 onClick={this.confirmClass}
               >
                 {
-                  selectedClass.isApproved
+                  selectedClass.approved
                     ? 'Join Class'
                     : 'Request Permission'
                 }
@@ -211,7 +204,7 @@ class JoinClass extends Component {
             ]}
           >
             {
-              selectedClass.isApproved
+              selectedClass.approved
                 ? <Alert message="Pre-approved for this class" type="success" showIcon />
                 : <Alert message="Not pre-approved for this class" type="info" showIcon />
             }
