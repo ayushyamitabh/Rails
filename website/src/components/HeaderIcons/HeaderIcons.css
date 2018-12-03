@@ -3,6 +3,6 @@
   color: black;
   display: flex;
   width: 160px;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }

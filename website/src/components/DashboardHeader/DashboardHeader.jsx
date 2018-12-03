@@ -33,22 +33,12 @@ class DashboardHeader extends PureComponent {
     const TeacherIcons = [
       {
         type: 'add_circle',
-        onClick: () => console.log('add event'),
+        onClick: showDrawer,
         key: 'add_circle',
-      },
-      {
-        type: 'add_alert',
-        onClick: () => console.log('add notification'),
-        key: 'add_alert',
       },
     ];
 
     const Icons = [
-      {
-        type: 'notifications_active',
-        onClick: showDrawer,
-        key: 'notifications_active',
-      },
       {
         type: 'settings',
         onClick: () => { window.location = '/dashboard/profile'; },

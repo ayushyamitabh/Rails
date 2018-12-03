@@ -13,41 +13,20 @@ class Notification extends PureComponent {
   }
 
   render() {
-    const notificationArray = [
-      {
-        title: 'Notification 1',
-        message: 'Message 1',
-        key: 0,
-      },
-      {
-        title: 'Notification 2',
-        message: 'Message 2',
-        key: 1,
-      },
-    ];
-
     const {
       notificationVisible,
       onClose,
     } = this.props;
     return (
       <Drawer
-        title="Notifications"
+        title="Create New Event"
         placement="right"
         width="500"
         closable
         onClose={onClose}
         visible={notificationVisible}
       >
-        {notificationArray.map(data => (
-          <Card
-            key={data.title}
-            title={data.title}
-            style={{ marginBottom: 25, borderRadius: 30, width: 350 }}
-          >
-            <p>{data.message}</p>
-          </Card>
-        ))}
+        asdf
       </Drawer>
     );
   }

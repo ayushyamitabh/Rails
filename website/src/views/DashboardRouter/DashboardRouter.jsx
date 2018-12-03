@@ -73,7 +73,7 @@ class DashboardRouter extends PureComponent {
             </div>
           </Router>
         </Layout>
-        <Notification notificationVisible={visible} onClose={this.onClose} />
+        <Notification userData={userData} notificationVisible={visible} onClose={this.onClose} />
       </Layout>
     );
   }
