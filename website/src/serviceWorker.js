@@ -20,7 +20,7 @@ const isLocalhost = Boolean(
 
 // If you want to test serviceWorker in local host, remove "process.env.NODE_ENV === 'production' &&" at line 23.
 export function register(config) {
-  if (/*process.env.NODE_ENV === 'production' &&*/ 'serviceWorker' in navigator) {
+  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
