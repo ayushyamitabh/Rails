@@ -17,7 +17,7 @@
   "scripts": {
     "install": "npm install -g eslint stylelint cross-env",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && workbox generateSW ../website/workbox-config.js",
     "test": "react-scripts test --env=jsdom --verbose",
     "regen": "react-scripts test -u",
     "lint": "eslint src/ | stylelint src/ *.css",
