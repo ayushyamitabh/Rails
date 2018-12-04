@@ -37,6 +37,8 @@ class DashboardRouter extends PureComponent {
             )
               .then(res => res.json())
               .then((data) => {
+                localStorage.setItem('DashboardRouter-teacher', (data.userData.type === 'teacher').toString());
+                localStorage.setItem('DashboardRouter-userData', JSON.stringify(data.userData));
                 this.setState({
                   teacher: data.userData.type === 'teacher',
                   userData: data.userData ? data.userData : {},
