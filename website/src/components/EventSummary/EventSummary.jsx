@@ -12,6 +12,7 @@ class EventSummary extends PureComponent {
       dueDate: PropTypes.instanceOf(Date),
       description: PropTypes.string,
       priority: PropTypes.number,
+      viewEvent: PropTypes.func,
     }).isRequired,
   }
 
@@ -31,10 +32,9 @@ class EventSummary extends PureComponent {
     const {
       event,
     } = this.props;
-
     const time = moment(event.dueDate).format('hh:mm A');
     return (
-      <div style={{ backgroundColor: this.priorityColor() }} className="EventSummary">
+      <div style={{ backgroundColor: this.priorityColor() }} onClick={() => { event.viewEvent(event); }} className="EventSummary">
         <span className="course">{event.course}</span>
         <span className="eventName">{event.title}</span>
         <span className="dueDate">{time}</span>

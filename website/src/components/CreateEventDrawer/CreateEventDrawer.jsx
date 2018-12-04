@@ -3,19 +3,22 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/auth';
 import {
-  Drawer, Icon, Select, Switch, Input, Slider, Button, message, DatePicker,
+  Drawer, Icon, Select, Switch, Input, Slider, Button, message, DatePicker, List,
 } from 'antd';
 import PropTypes from 'prop-types';
 import './CreateEventDrawer.css';
+import moment from 'moment';
 
 class CreateEventDrawer extends PureComponent {
   static propTypes = {
     visible: PropTypes.bool.isRequired,
     onClose: PropTypes.func,
+    eventData: PropTypes.shape({}),
   };
 
   static defaultProps = {
     onClose: () => console.log('no close function passed'),
+    eventData: null,
   };
 
   constructor(props) {
@@ -31,8 +34,11 @@ class CreateEventDrawer extends PureComponent {
       submission: false,
       uploading: false,
       file: null,
+      hasFile: false,
       loading: false,
-      dueDate: null,
+      dueDate: moment(Date.now()),
+      mode: 'create',
+      submissions: null,
     };
     this.fileHandler = this.fileHandler.bind(this);
     this.createEvent = this.createEvent.bind(this);
@@ -40,6 +46,24 @@ class CreateEventDrawer extends PureComponent {
 
   componentWillReceiveProps(nxtPrps) {
     if (nxtPrps.userData) this.setState({ userData: nxtPrps.userData });
+    if (nxtPrps.eventData) {
+      const {
+        university, classUid, submissions, title, description, priority, allowDiscussion, allowSubmission, dueDate, hasFile,
+      } = nxtPrps.eventData;
+      this.setState({
+        mode: 'edit',
+        selectedUni: university,
+        selectedClass: classUid,
+        submissions,
+        title,
+        description,
+        priority,
+        discussion: allowDiscussion === 'true' || allowDiscussion === true,
+        submission: allowSubmission === 'true' || allowSubmission === true,
+        dueDate: moment(dueDate),
+        hasFile,
+      });
+    }
   }
 
   fileHandler(e = new Event()) {
@@ -52,12 +76,16 @@ class CreateEventDrawer extends PureComponent {
   createEvent() {
     this.setState({ loading: true });
     const {
-      selectedUni, selectedClass, title, description, priority, discussion, submission, file, dueDate,
+      selectedUni, selectedClass, title, description, priority, discussion, submission, file, dueDate, hasFile, mode,
     } = this.state;
-    if (selectedUni && selectedClass && title && description && priority && dueDate) {
+    const {
+      eventData,
+    } = this.props;
+    if (selectedUni && selectedClass && title && description && (priority !== null) && dueDate) {
       const reqData = {
         university: selectedUni,
         classUid: selectedClass,
+        eventUid: eventData.eventUid,
         uid: firebase.auth().currentUser.uid,
         eventData: {
           allowDiscussion: discussion,
@@ -67,10 +95,11 @@ class CreateEventDrawer extends PureComponent {
           priority,
           dueDate,
           postedDate: new Date(Date.now()).toISOString(),
-          hasFile: file !== null,
+          hasFile: (hasFile || file !== null),
         },
       };
-      fetch('https://us-central1-rails-students.cloudfunctions.net/createevent',
+      const API_URL = mode === 'edit' ? 'https://us-central1-rails-students.cloudfunctions.net/editevent' : 'https://us-central1-rails-students.cloudfunctions.net/createevent';
+      fetch(API_URL,
         {
           method: 'POST',
           headers: {
@@ -139,11 +168,17 @@ class CreateEventDrawer extends PureComponent {
   render() {
     const { visible, onClose } = this.props;
     const {
-      userData, selectedUni, uploading, loading, file,
+      userData, selectedUni,
+      uploading, loading,
+      file, mode, submissions,
+      title, description,
+      priority, selectedClass,
+      dueDate, discussion,
+      submission,
     } = this.state;
     return (
       <Drawer
-        title="Create New Event"
+        title={mode === 'edit' ? `Edit ${title}` : 'Create New Event'}
         placement="right"
         width="500"
         closable
@@ -153,8 +188,9 @@ class CreateEventDrawer extends PureComponent {
         {userData ? (
           <div style={{ width: '100%' }}>
             <Select
-              disabled={loading}
+              disabled={loading || mode === 'edit'}
               placeholder="Select University"
+              value={selectedUni}
               onSelect={v => this.setState({ selectedUni: v })}
               className="select-input"
             >
@@ -165,7 +201,8 @@ class CreateEventDrawer extends PureComponent {
               ))}
             </Select>
             <Select
-              disabled={loading}
+              value={selectedClass}
+              disabled={loading || mode === 'edit'}
               placeholder="Select Class"
               onSelect={v => this.setState({ selectedClass: v })}
               className="select-input"
@@ -179,21 +216,24 @@ class CreateEventDrawer extends PureComponent {
               ) : null}
             </Select>
             <Input
+              value={title}
               disabled={loading}
               placeholder="Title"
               className="select-input"
               onChange={e => this.setState({ title: e.target.value })}
             />
             <Input.TextArea
+              value={description}
               disabled={loading}
               placeholder="Description"
               className="select-input"
               onChange={e => this.setState({ description: e.target.value })}
             />
             <DatePicker
+              value={dueDate}
               placeholder="Due Date & Time"
               disabledDate={c => (c ? new Date(c.toString()) < Date.now() : false)}
-              onChange={c => this.setState({ dueDate: new Date(c.toString()).toISOString() })}
+              onChange={c => this.setState({ dueDate: c })}
               className="select-input"
               format="MM/DD/YYYY @ HH:mm"
               showToday={false}
@@ -204,7 +244,7 @@ class CreateEventDrawer extends PureComponent {
               disabled={loading}
               onChange={v => this.setState({ priority: v })}
               dots
-              defaultValue={1}
+              value={priority}
               max={2}
               min={0}
 
@@ -217,6 +257,7 @@ class CreateEventDrawer extends PureComponent {
               }}
             />
             <Switch
+              checked={discussion}
               disabled={loading}
               onChange={c => this.setState({ discussion: c })}
               className="select-input"
@@ -224,6 +265,7 @@ class CreateEventDrawer extends PureComponent {
               unCheckedChildren="Discussion Disabled"
             />
             <Switch
+              checked={submission}
               disabled={loading}
               onChange={c => this.setState({ submission: c })}
               className="select-input"
@@ -257,6 +299,25 @@ class CreateEventDrawer extends PureComponent {
                 ? <p>{file.name}</p>
                 : null
             }
+            {
+              mode === 'edit'
+                ? (
+                  <div className="select-input">
+                    <h4>Submissions</h4>
+                    {
+                  submissions
+                    ? (
+                      <List
+                        dataSource={submissions}
+                        renderItem={item => <List.Item><Button href={item.fileUrl} block>{item.fileName}</Button></List.Item>}
+                      />
+                    )
+                    : <p>No submissions yet</p>
+                }
+                  </div>
+                )
+                : null
+            }
             <Button
               className="select-input"
               disabled={loading}
@@ -266,7 +327,8 @@ class CreateEventDrawer extends PureComponent {
               block
               onClick={this.createEvent}
             >
-              Create Event
+              {mode === 'edit' ? 'Update ' : 'Create '}
+              Event
             </Button>
           </div>
         ) : (

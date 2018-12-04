@@ -3,7 +3,7 @@ import * as _cors from 'cors';
 
 const cors = _cors({origin: true});
 
-export function addmessage(req, res) {
+export function addsubmission(req, res) {
     /*
         {
             university: 'CUNY City College',
@@ -12,57 +12,62 @@ export function addmessage(req, res) {
             uid: 'user uid',
             name: 'user name',
             email: 'user email',
-            message: 'lasdkjfla'
+            fileName: 'adslkf.pdf',
+            fileUrl: 'dlkfajlkfj',
         }
     */
 
     function validateData(query) {
-        const { university, classUid, email, uid, name, eventUid, message } = query;
+        const { university, classUid, email, uid, name, eventUid, fileName, fileUrl } = query;
         return university &&
             classUid &&
             email &&
             uid &&
             name &&
-            message &&
+            fileName &&
+            fileUrl &&
             eventUid;
     }
 
-    function updateDiscussion(query, discussionData) {
+    function updateEvent(query, eventData) {
         const { classUid, eventUid } = query;
-        admin.database().ref(`discussions/${classUid}/${eventUid}`)
-        .update(discussionData)
+        admin.database().ref(`events/${classUid}/${eventUid}`)
+        .update(eventData)
         .then(() => {
-            return res.status(200).send({message: 'Added comment.'})
+            return res.status(200).send({message: 'Added submission.'})
         })
         .catch((err) => {
-            err.whereInApi = 'AddMessageHandler/updateDiscussion';
+            err.whereInApi = 'AddMessageHandler/updateEvent';
             return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
     
-    function getDiscussions(query) {
-        const { classUid, eventUid, name, uid, message } = query;
-        admin.database().ref(`discussions/${classUid}/${eventUid}`)
+    function getEvent(query) {
+        const { classUid, eventUid, fileName, fileUrl } = query;
+        admin.database().ref(`events/${classUid}/${eventUid}`)
         .once('value')
-        .then((discussionSnap) => {
-            let discussionData = discussionSnap.val();
-            if (discussionData) {
-                discussionData.push({
-                    message,
-                    fromName: name,
-                    fromUid: uid
-                });
+        .then((eventSnap) => {
+            const eventData = eventSnap.val();
+            if (eventData) {
+                if (eventData.submissions) {
+                    let found = false;
+                    eventData.submissions.forEach((sub, i) => {
+                        if (sub.fileName === fileName) {
+                            found = true;
+                            eventData.submissions[i] = { fileName, fileUrl };
+                        }
+                    });
+                    if (!found) eventData.submissions.push({ fileName, fileUrl });
+                } else {
+                    eventData.submissions = [{ fileName, fileUrl }];
+                }
+                updateEvent(query, eventData);
             } else {
-                discussionData = [{
-                    message,
-                    fromName: name,
-                    fromUid: uid
-                }];
+                return res.status(404).send({message: 'Event not found'});
             }
-            updateDiscussion(query, discussionData);
         })
         .catch((err) => {
-            err.whereInApi = 'AddMessageHandler/getDiscussions';
+            err.whereInApi = 'AddMessageHandler/getEvent';
             return res.status(406).send({message: 'Something went wrong', error: err});
         });
     }
@@ -75,8 +80,10 @@ export function addmessage(req, res) {
             const classData = classSnap.val();
             const emails = classData.approvedEmails;
             if (classData && emails) {
-                if ((emails.indexOf(email) !== -1) || (classData.instructorUid === uid)) getDiscussions(query);
+                if ((emails.indexOf(email) !== -1)) getEvent(query);
                 else return res.status(403).send({message: 'Not authorized to comment on this event.'})
+            } else if (classData.instructorUid === uid) {
+                return res.status(404).send({message: 'Instructors can\'t submit response to their own event.'});
             } else {
                 return res.status(404).send({message: 'Class not found'});
             }
@@ -95,14 +102,14 @@ export function addmessage(req, res) {
             .then((eventSnap) => {
                 const eventData = eventSnap.val();
                 if (eventData) {
-                    if (eventData.allowDiscussion) verifyPermission(req.body);
-                    else return res.status(403).send({message: 'Discussion disabled for this event.'});
+                    if (eventData.allowSubmission) verifyPermission(req.body);
+                    else return res.status(403).send({message: 'Submission disabled for this event.'});
                 } else {
                     return res.status(404).send({message: 'Event not found'});
                 }
             })
             .catch((err) => {
-                err.whereInApi = 'AddMessageHandler/cors';
+                err.whereInApi = 'AddSubmissionHandler/cors';
                 return res.status(406).send({message: 'Something went wrong', error: err});
             });
         } else {

@@ -1,0 +1,18 @@
+.select-input {
+  width: 100% !important;
+  margin: 10px auto !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.ant-drawer-body {
+  height: 90%;
+}
+
+#chat-panel {
+  overflow-y: auto !important;
+  height: 50% !important;
+  max-height: 50% !important;
+}

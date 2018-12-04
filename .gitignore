@@ -38,3 +38,4 @@ backup-server/server/rails-private-key.json
 !.vscode/launch.json
 !.vscode/extensions.json
 *.log
+*.cache

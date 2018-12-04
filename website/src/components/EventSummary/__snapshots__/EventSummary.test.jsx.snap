@@ -3,6 +3,7 @@
 exports[`EventSummary Render EventSummary without any eror 1`] = `
 <div
   className="EventSummary"
+  onClick={[Function]}
   style={
     Object {
       "backgroundColor": "#F44336",

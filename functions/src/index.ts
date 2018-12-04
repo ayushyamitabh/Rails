@@ -63,3 +63,7 @@ export const dropclass = functions.https.onRequest((req, res) => {
 export const addmessage = functions.https.onRequest((req, res) => {
   handlers.addmessage(req, res);
 });
+
+export const addsubmission = functions.https.onRequest((req, res) => {
+  handlers.addsubmission(req, res);
+});
