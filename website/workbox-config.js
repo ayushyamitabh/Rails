@@ -1,7 +1,7 @@
 module.exports = {
   globDirectory: 'build/',
   globPatterns: [
-    '**/*.{json,html,svg,js,css,eot,woff2,woff,ttf}'
+    '**/*.{json,html,svg,js,css,eot,woff2,woff,ttf}',
   ],
   swDest: 'build/service-worker.js',
 
