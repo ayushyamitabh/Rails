@@ -83,10 +83,10 @@ describe('Router Test', () => {
   });
 
   /* create class */
-  it('/create/class path should redirect to signup', () => {
+  it('/class/create path should redirect to signup', () => {
     const wrapper = mount(
       // path to create class
-      <MemoryRouter initialEntries={['/create/class']}>
+      <MemoryRouter initialEntries={['/class/create']}>
         <App />
       </MemoryRouter>,
     );
@@ -95,10 +95,10 @@ describe('Router Test', () => {
   });
 
   /* join class */
-  it('/join/class path should redirect to signup', () => {
+  it('/class/join path should redirect to signup', () => {
     // path to join class
     const wrapper = mount(
-      <MemoryRouter initialEntries={['/join/class']}>
+      <MemoryRouter initialEntries={['/class/join']}>
         <App />
       </MemoryRouter>,
     );

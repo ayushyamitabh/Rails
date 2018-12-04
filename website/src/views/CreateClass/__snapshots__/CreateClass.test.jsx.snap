@@ -76,13 +76,25 @@ exports[`CreateClass Render CreateClass without any eror 1`] = `
               style={
                 Object {
                   "WebkitUserSelect": "none",
-                  "display": "block",
+                  "display": "none",
                   "userSelect": "none",
                 }
               }
               unselectable="on"
             >
               University/College
+            </div>
+            <div
+              className="ant-select-selection-selected-value"
+              style={
+                Object {
+                  "display": "block",
+                  "opacity": 1,
+                }
+              }
+              title=""
+            >
+              
             </div>
             <div
               className="ant-select-search ant-select-search--inline"
@@ -98,6 +110,7 @@ exports[`CreateClass Render CreateClass without any eror 1`] = `
                 <input
                   autoComplete="off"
                   className="ant-select-search__field"
+                  disabled={false}
                   onChange={[Function]}
                   onKeyDown={[Function]}
                   value=""
@@ -455,6 +468,7 @@ exports[`CreateClass Render CreateClass without any eror 1`] = `
         onKeyDown={[Function]}
         placeholder="Pre-approved e-mails, separate e-mails with commas"
         style={Object {}}
+        value=""
       />
       <button
         className="ant-btn create-class-input ant-btn-primary ant-btn-block"
@@ -463,7 +477,10 @@ exports[`CreateClass Render CreateClass without any eror 1`] = `
         type="button"
       >
         <span>
-          Create Class
+          Create
+        </span>
+        <span>
+           Class
         </span>
       </button>
     </div>

@@ -14,17 +14,80 @@ class CreateClass extends PureComponent {
       selectedUniversity: '',
       className: '',
       sectionCode: '',
-      days: new Array(7).fill(false),
+      days: [],
       fromTime: '',
       toTime: '',
       approvedEmails: [],
+      parsedEmails: '',
       collegeOptions: [],
       validatedEmails: true,
       loading: false,
+      mode: 'create',
+      classUid: '',
     };
     this.getColleges = this.getColleges.bind(this);
     this.processEmailList = this.processEmailList.bind(this);
     this.sendCreateClass = this.sendCreateClass.bind(this);
+  }
+
+  componentDidMount() {
+    const path = window.location.pathname.toString().split('/');
+    path.forEach((p, i) => { path[i] = decodeURI(p); });
+    if (path[2] === 'edit') {
+      this.setState({
+        mode: 'edit',
+        collegeOptions: [{ 'school.name': path[3] }],
+        selectedUniversity: path[3],
+        classUid: path[4],
+        loading: true,
+      });
+      const reqData = {
+        university: path[3],
+        classUid: path[4],
+        uid: firebase.auth().currentUser.uid,
+      };
+      fetch('https://us-central1-rails-students.cloudfunctions.net/getclassdetails', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(reqData),
+      })
+        .then(res => res.json())
+        .then((result) => {
+          message.info(result.message);
+          if (result.message === 'Found class.') {
+            console.log(result);
+            const {
+              description, meetingDays, meetingTimes, name, approvedEmails,
+            } = result.classData;
+            const parseDays = [];
+            Object.keys(meetingDays).forEach((d) => {
+              if (meetingDays[d] === 'true' || meetingDays[d] === true) parseDays.push(d);
+            });
+            let parsedEmails = '';
+            if (approvedEmails) parsedEmails = approvedEmails.join(', ');
+            this.setState({
+              className: description,
+              sectionCode: name,
+              fromTime: meetingTimes.from,
+              toTime: meetingTimes.to,
+              days: parseDays,
+              loading: false,
+              parsedEmails,
+              approvedEmails,
+            });
+          } else {
+            message.warn('Go back to dashboard.');
+          }
+        })
+        .catch((err) => {
+          this.setState({ loading: false });
+          console.log(err);
+          message.error(err);
+        });
+    }
   }
 
   getColleges(collegeName) {
@@ -46,7 +109,8 @@ class CreateClass extends PureComponent {
       if (!filter.test(email)) return false;
       return true;
     }
-    const value = e.target.value;
+    const { value } = e.target;
+    this.setState({ parsedEmails: value });
     const newLineSeparated = value.split('\n');
     const emailList = [];
     newLineSeparated.forEach((email) => {
@@ -68,10 +132,19 @@ class CreateClass extends PureComponent {
 
   sendCreateClass() {
     const {
-      isValidated, selectedUniversity, className, sectionCode, days, fromTime, toTime, approvedEmails,
+      validatedEmails,
+      selectedUniversity,
+      className,
+      sectionCode,
+      days,
+      fromTime,
+      toTime,
+      approvedEmails,
+      mode,
+      classUid,
     } = this.state;
     this.setState({ loading: true });
-    if (isValidated === false) {
+    if (validatedEmails === false) {
       message.error('Looks like one or more of your emails is incorrect.');
       this.setState({ loading: false });
       return;
@@ -100,7 +173,8 @@ class CreateClass extends PureComponent {
     });
     const reqData = {
       uid: firebase.auth().currentUser.uid,
-      universityName: selectedUniversity,
+      university: selectedUniversity,
+      classUid,
       classData: {
         name: sectionCode,
         description: className,
@@ -114,7 +188,8 @@ class CreateClass extends PureComponent {
         meetingDays,
       },
     };
-    fetch('https://us-central1-rails-students.cloudfunctions.net/createclass',
+    const API_URL = (mode === 'edit') ? 'https://us-central1-rails-students.cloudfunctions.net/editclass' : 'https://us-central1-rails-students.cloudfunctions.net/createclass';
+    fetch(API_URL,
       {
         method: 'POST',
         headers: {
@@ -124,9 +199,8 @@ class CreateClass extends PureComponent {
         body: JSON.stringify(reqData),
       }).then(res => res.json())
       .then((result) => {
-        message.info(result.message, 3, () => {
-          window.location.reload();
-        });
+        message.info(result.message);
+        this.setState({ loading: false });
       })
       .catch((err) => {
         console.log('Create class err', err);
@@ -135,23 +209,25 @@ class CreateClass extends PureComponent {
   }
 
   render() {
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const daysOptions = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const {
-      collegeOptions, className, sectionCode, selectedUniversity, validatedEmails, loading,
+      collegeOptions, className, sectionCode, selectedUniversity, validatedEmails, loading, mode, toTime, fromTime, days, parsedEmails,
     } = this.state;
     return (
       <div className="create-class-page">
         <h1 className="title">Rails</h1>
         <Card
           className="create-card"
-          title="Create Class"
+          title={mode === 'edit' ? 'Edit Class' : 'Create Class'}
           extra={<Button href="/dashboard" type="danger">Back to  Dashboard</Button>}
         >
           <Select
+            disabled={mode === 'edit'}
             showSearch
             size="large"
             onSearch={this.getColleges}
             placeholder="University/College"
+            value={selectedUniversity}
             style={{ width: '100%' }}
             onChange={(e) => { this.setState({ selectedUniversity: e }); }}
           >
@@ -165,7 +241,7 @@ class CreateClass extends PureComponent {
             }
           </Select>
           <Input
-            disabled={selectedUniversity === ''}
+            disabled={selectedUniversity === '' || loading}
             className="create-class-input"
             size="large"
             placeholder="Class Name: Topics in Software Engineering"
@@ -173,7 +249,7 @@ class CreateClass extends PureComponent {
             onChange={e => this.setState({ className: e.target.value })}
           />
           <Input
-            disabled={selectedUniversity === ''}
+            disabled={selectedUniversity === '' || loading}
             className="create-class-input"
             size="large"
             placeholder="Class Code: CSC 59939 (L) [0001]"
@@ -182,16 +258,17 @@ class CreateClass extends PureComponent {
           />
           <p className="create-class-days-label">Meeting Days</p>
           <Checkbox.Group
-            disabled={selectedUniversity === ''}
+            disabled={selectedUniversity === '' || loading}
             className="create-class-days create-class-input"
-            options={days}
+            options={daysOptions}
+            value={days}
             onChange={e => this.setState({ days: e })}
           />
           <p className="create-class-days-label">Meeting Times</p>
           <div className="time-container">
             <TimePicker
-              disabled={selectedUniversity === ''}
-              placeholder="From Time"
+              disabled={selectedUniversity === '' || loading}
+              placeholder={mode === 'edit' ? fromTime : 'From Time'}
               className="create-class-input"
               onChange={e => this.setState({ fromTime: e ? e.format('HH:mm') : '' })}
               style={{ marginRight: 20 }}
@@ -199,8 +276,8 @@ class CreateClass extends PureComponent {
               format="HH:mm"
             />
             <TimePicker
-              disabled={selectedUniversity === ''}
-              placeholder="To Time"
+              disabled={selectedUniversity === '' || loading}
+              placeholder={mode === 'edit' ? toTime : 'To Time'}
               className="create-class-input"
               onChange={e => this.setState({ toTime: e ? e.format('HH:mm') : '' })}
               minuteStep={5}
@@ -214,21 +291,23 @@ class CreateClass extends PureComponent {
               : null
           }
           <Input.TextArea
-            disabled={selectedUniversity === ''}
+            disabled={selectedUniversity === '' || loading}
             className="create-class-input"
             placeholder="Pre-approved e-mails, separate e-mails with commas"
             autosize
+            value={parsedEmails}
             onChange={this.processEmailList}
           />
           <Button
             className="create-class-input"
             block
-            disabled={selectedUniversity === ''}
+            disabled={selectedUniversity === '' || loading}
             loading={loading}
             type="primary"
             onClick={this.sendCreateClass}
           >
-            Create Class
+            {mode === 'edit' ? 'Edit' : 'Create'}
+            {' Class'}
           </Button>
         </Card>
       </div>

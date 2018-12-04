@@ -41,6 +41,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -175,7 +237,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -200,6 +262,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -572,7 +770,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -777,7 +975,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -809,7 +1007,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -859,6 +1057,68 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
           <Modal
             cancelButtonDisabled={false}
             centered={true}
@@ -1016,7 +1276,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -1041,6 +1301,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -1413,7 +1809,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -1618,7 +2014,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -1650,7 +2046,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -1732,6 +2128,68 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
         <Modal
           cancelButtonDisabled={false}
           centered={true}
@@ -1889,7 +2347,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -2114,6 +2572,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -2486,7 +3080,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -2891,7 +3485,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -3123,7 +3717,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -3986,6 +4580,68 @@ ShallowWrapper {
             okButtonDisabled={false}
             okType="primary"
             prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
             transitionName="zoom"
             visible={false}
             width={520}
@@ -4120,7 +4776,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -4345,6 +5001,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -4717,7 +5509,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -5122,7 +5914,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -5354,7 +6146,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -6249,6 +7041,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -6383,7 +7237,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -6508,6 +7362,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -6880,7 +7870,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -7185,7 +8175,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -7317,7 +8307,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -7785,6 +8775,68 @@ ShallowWrapper {
             okButtonDisabled={false}
             okType="primary"
             prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
             transitionName="zoom"
             visible={false}
             width={520}
@@ -7919,7 +8971,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -8044,6 +9096,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -8416,7 +9604,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -8721,7 +9909,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -8853,7 +10041,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -9353,6 +10541,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -9487,7 +10737,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -9612,6 +10862,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -9984,7 +11370,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -10289,7 +11675,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -10421,7 +11807,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -10889,6 +12275,68 @@ ShallowWrapper {
             okButtonDisabled={false}
             okType="primary"
             prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
             transitionName="zoom"
             visible={false}
             width={520}
@@ -11023,7 +12471,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -11148,6 +12596,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -11520,7 +13104,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -11825,7 +13409,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -11957,7 +13541,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -12457,6 +14041,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -12591,7 +14237,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -12816,6 +14462,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -13188,7 +14970,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -13593,7 +15375,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -13825,7 +15607,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -14688,6 +16470,68 @@ ShallowWrapper {
             okButtonDisabled={false}
             okType="primary"
             prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
             transitionName="zoom"
             visible={false}
             width={520}
@@ -14822,7 +16666,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -15047,6 +16891,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -15419,7 +17399,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -15824,7 +17804,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -16056,7 +18036,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -16951,6 +18931,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -17085,7 +19127,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -17210,6 +19252,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -17582,7 +19760,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -17887,7 +20065,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -18019,7 +20197,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -18487,6 +20665,68 @@ ShallowWrapper {
             okButtonDisabled={false}
             okType="primary"
             prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
             transitionName="zoom"
             visible={false}
             width={520}
@@ -18621,7 +20861,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -18746,6 +20986,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -19118,7 +21494,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -19423,7 +21799,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -19555,7 +21931,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -20055,6 +22431,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -20189,7 +22627,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -20314,6 +22752,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -20686,7 +23260,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -20991,7 +23565,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -21123,7 +23697,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -21591,6 +24165,68 @@ ShallowWrapper {
             okButtonDisabled={false}
             okType="primary"
             prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
             transitionName="zoom"
             visible={false}
             width={520}
@@ -21725,7 +24361,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -21850,6 +24486,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -22222,7 +24994,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -22527,7 +25299,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -22659,7 +25431,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -23159,6 +25931,68 @@ ShallowWrapper {
           okButtonDisabled={false}
           okType="primary"
           prefixCls="ant-modal"
+          title="Edit undefined"
+          transitionName="zoom"
+          visible={false}
+          width={520}
+        >
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <Input
+            className="select-input"
+            disabled={false}
+            onChange={[Function]}
+            prefixCls="ant-input"
+            type="text"
+          />
+          <h4>
+            Meeting Days
+          </h4>
+          <CheckboxGroup
+            className="create-class-days create-class-input"
+            onChange={[Function]}
+            options={
+              Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ]
+            }
+            prefixCls="ant-checkbox"
+          />
+        </Modal>,
+        <Modal
+          cancelButtonDisabled={false}
+          centered={true}
+          className="class-modal"
+          confirmLoading={false}
+          footer={
+            Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ]
+          }
+          maskTransitionName="fade"
+          okButtonDisabled={false}
+          okType="primary"
+          prefixCls="ant-modal"
           transitionName="zoom"
           visible={false}
           width={520}
@@ -23293,7 +26127,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -23318,6 +26152,142 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "cancelButtonDisabled": false,
+          "centered": true,
+          "children": Array [
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />,
+            <h4>
+              Meeting Days
+            </h4>,
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />,
+          ],
+          "className": "class-modal",
+          "confirmLoading": false,
+          "footer": Array [
+            <Button
+              block={false}
+              ghost={false}
+              loading={false}
+              onClick={[Function]}
+              prefixCls="ant-btn"
+              type="primary"
+            >
+              OK
+            </Button>,
+          ],
+          "maskTransitionName": "fade",
+          "okButtonDisabled": false,
+          "okType": "primary",
+          "prefixCls": "ant-modal",
+          "title": "Edit undefined",
+          "transitionName": "zoom",
+          "visible": false,
+          "width": 520,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "select-input",
+              "disabled": false,
+              "onChange": [Function],
+              "prefixCls": "ant-input",
+              "type": "text",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Meeting Days",
+            },
+            "ref": null,
+            "rendered": "Meeting Days",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "create-class-days create-class-input",
+              "onChange": [Function],
+              "options": Array [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              "prefixCls": "ant-checkbox",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -23690,7 +26660,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -23895,7 +26865,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -23927,7 +26897,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -23977,6 +26947,68 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <Modal
+            cancelButtonDisabled={false}
+            centered={true}
+            className="class-modal"
+            confirmLoading={false}
+            footer={
+              Array [
+                <Button
+                  block={false}
+                  ghost={false}
+                  loading={false}
+                  onClick={[Function]}
+                  prefixCls="ant-btn"
+                  type="primary"
+                >
+                  OK
+                </Button>,
+              ]
+            }
+            maskTransitionName="fade"
+            okButtonDisabled={false}
+            okType="primary"
+            prefixCls="ant-modal"
+            title="Edit undefined"
+            transitionName="zoom"
+            visible={false}
+            width={520}
+          >
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <Input
+              className="select-input"
+              disabled={false}
+              onChange={[Function]}
+              prefixCls="ant-input"
+              type="text"
+            />
+            <h4>
+              Meeting Days
+            </h4>
+            <CheckboxGroup
+              className="create-class-days create-class-input"
+              onChange={[Function]}
+              options={
+                Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ]
+              }
+              prefixCls="ant-checkbox"
+            />
+          </Modal>,
           <Modal
             cancelButtonDisabled={false}
             centered={true}
@@ -24134,7 +27166,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -24159,6 +27191,142 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "cancelButtonDisabled": false,
+            "centered": true,
+            "children": Array [
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <Input
+                className="select-input"
+                disabled={false}
+                onChange={[Function]}
+                prefixCls="ant-input"
+                type="text"
+              />,
+              <h4>
+                Meeting Days
+              </h4>,
+              <CheckboxGroup
+                className="create-class-days create-class-input"
+                onChange={[Function]}
+                options={
+                  Array [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                  ]
+                }
+                prefixCls="ant-checkbox"
+              />,
+            ],
+            "className": "class-modal",
+            "confirmLoading": false,
+            "footer": Array [
+              <Button
+                block={false}
+                ghost={false}
+                loading={false}
+                onClick={[Function]}
+                prefixCls="ant-btn"
+                type="primary"
+              >
+                OK
+              </Button>,
+            ],
+            "maskTransitionName": "fade",
+            "okButtonDisabled": false,
+            "okType": "primary",
+            "prefixCls": "ant-modal",
+            "title": "Edit undefined",
+            "transitionName": "zoom",
+            "visible": false,
+            "width": 520,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "select-input",
+                "disabled": false,
+                "onChange": [Function],
+                "prefixCls": "ant-input",
+                "type": "text",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Meeting Days",
+              },
+              "ref": null,
+              "rendered": "Meeting Days",
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "create-class-days create-class-input",
+                "onChange": [Function],
+                "options": Array [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                "prefixCls": "ant-checkbox",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -24531,7 +27699,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -24736,7 +27904,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -24768,7 +27936,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {

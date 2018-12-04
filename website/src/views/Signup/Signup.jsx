@@ -99,10 +99,10 @@ export default class Signup extends PureComponent {
               if (user) {
                 message.success('Signed Up. Redirecting..');
                 if (type === 'student') {
-                  history.push('/join/class');
+                  history.push('/class/join');
                 }
                 if (type === 'teacher') {
-                  history.push('/create/class');
+                  history.push('/class/create');
                 }
               }
             });

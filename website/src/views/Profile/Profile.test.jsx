@@ -178,10 +178,10 @@ describe('when userData is defined, but empty element for universities and reque
     expect(wrapper.contains(<p className="academics-subtitle">Requested classes</p>)).toBe(false);
   });
   it('it should has the button for join class', () => {
-    expect(wrapper.find({ href: '/join/class' }).length).toBe(1);
+    expect(wrapper.find({ href: '/class/join' }).length).toBe(1);
   });
   it('it have not has the button for create class', () => {
-    expect(wrapper.find({ href: '/create/class' }).length).toBe(0);
+    expect(wrapper.find({ href: '/class/create' }).length).toBe(0);
   });
 });
 
@@ -210,9 +210,9 @@ describe('when userData is defined, but one element for universities and request
     expect(wrapper.contains(<p className="academics-subtitle">Requested classes</p>)).toBe(true);
   });
   it('it have not has the button for join class', () => {
-    expect(wrapper.find({ href: '/join/class' }).length).toBe(0);
+    expect(wrapper.find({ href: '/class/join' }).length).toBe(0);
   });
   it('it should has the button for create class', () => {
-    expect(wrapper.find({ href: '/create/class' }).length).toBe(1);
+    expect(wrapper.find({ href: '/class/create' }).length).toBe(1);
   });
 });
