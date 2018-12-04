@@ -1,12 +1,12 @@
-import ProfileInfo from './ProfileInfo/ProfileInfo';
-import DashboardHeader from './DashboardHeader/DashboardHeader';
-import MaterialIcon from './MaterialIcon/MaterialIcon';
-import HeaderIcons from './HeaderIcons/HeaderIcons';
-import IconButton from './IconButton/IconButton';
-import SampleComponent from './SampleComponent/SampleComponent';
-import EventSummary from './EventSummary/EventSummary';
-import EventSummaryCollection from './EventSummaryCollection/EventSummaryCollection';
-import Notification from './Notification/Notification';
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import DashboardHeader from "./DashboardHeader/DashboardHeader";
+import MaterialIcon from "./MaterialIcon/MaterialIcon";
+import HeaderIcons from "./HeaderIcons/HeaderIcons";
+import IconButton from "./IconButton/IconButton";
+import SampleComponent from "./SampleComponent/SampleComponent";
+import EventSummary from "./EventSummary/EventSummary";
+import EventSummaryCollection from "./EventSummaryCollection/EventSummaryCollection";
+import CreateEventDrawer from "./CreateEventDrawer/CreateEventDrawer";
 
 export {
   ProfileInfo,
@@ -15,7 +15,7 @@ export {
   IconButton,
   MaterialIcon,
   SampleComponent,
-  Notification,
+  CreateEventDrawer,
   EventSummary,
-  EventSummaryCollection,
+  EventSummaryCollection
 };
