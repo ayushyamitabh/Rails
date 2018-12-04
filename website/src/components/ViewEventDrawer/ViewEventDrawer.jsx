@@ -27,15 +27,11 @@ class ViewEventDrawer extends Component {
       loading: false,
       newMessage: '',
       enterToSend: false,
-      displayName: '',
+      displayName: 'YOUR_NAME',
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.fileHandler = this.fileHandler.bind(this);
     this.submitFile = this.submitFile.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({ displayName: firebase.auth().currentUser.displayName });
   }
 
   componentWillReceiveProps(nxtPrps) {

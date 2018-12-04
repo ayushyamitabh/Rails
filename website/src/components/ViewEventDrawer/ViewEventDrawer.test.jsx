@@ -12,7 +12,6 @@ configure({ adapter: new Adapter() });
 describe('Notification', () => {
   /* enzyme testing */
   const wrapper = shallow(<ViewEventDrawer visible onClose={() => {}} />);
-
   it('Type of wrapper should be Drawer', () => {
     expect(wrapper.type()).toBe(Drawer);
   });
