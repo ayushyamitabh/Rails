@@ -18,33 +18,42 @@ class DashboardRouter extends PureComponent {
   }
 
   componentDidMount() {
-    if (firebase.auth().currentUser !== undefined) {
-      firebase.auth().currentUser.getIdToken(true)
-        .then((idToken) => {
-          const { uid } = firebase.auth().currentUser;
-          const reqData = { uid, idToken };
-          fetch(
-            'https://us-central1-rails-students.cloudfunctions.net/getprofile',
-            {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
+    if (navigator.onLine) {
+      if (firebase.auth().currentUser !== undefined) {
+        firebase.auth().currentUser.getIdToken(true)
+          .then((idToken) => {
+            const { uid } = firebase.auth().currentUser;
+            const reqData = { uid, idToken };
+            fetch(
+              'https://us-central1-rails-students.cloudfunctions.net/getprofile',
+              {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(reqData),
               },
-              body: JSON.stringify(reqData),
-            },
-          )
-            .then(res => res.json())
-            .then((data) => {
-              this.setState({
-                teacher: data.userData.type === 'teacher',
-                userData: data.userData ? data.userData : {},
+            )
+              .then(res => res.json())
+              .then((data) => {
+                localStorage.setItem('DashboardRouter-teacher', (data.userData.type === 'teacher').toString());
+                localStorage.setItem('DashboardRouter-userData', JSON.stringify(data.userData));
+                this.setState({
+                  teacher: data.userData.type === 'teacher',
+                  userData: data.userData ? data.userData : {},
+                });
+              })
+              .catch((err) => {
+                console.log(err);
               });
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        });
+          });
+      }
+    } else {
+      this.setState({
+        teacher: localStorage.getItem('DashboardRouter-teacher') === 'true',
+        userData: JSON.parse(localStorage.getItem('DashboardRouter-userData')),
+      });
     }
   }
 
