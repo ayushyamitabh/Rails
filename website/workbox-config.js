@@ -1,9 +1,11 @@
 module.exports = {
-  "globDirectory": "build/",
-  "globPatterns": [
-    "**/*.{json,html,svg,js,css,eot,woff2,woff,ttf}"
+  globDirectory: 'build/',
+  globPatterns: [
+    '**/*.{json,html,svg,js,css,eot,woff2,woff,ttf}'
   ],
-  "swDest": "build/service-worker.js",
+  swDest: 'build/service-worker.js',
+
+  // Define runtime caching rules.
   runtimeCaching: [{
     // Match any same-origin request that contains 'apis'.
     urlPattern: /apis/,
@@ -16,8 +18,8 @@ module.exports = {
       cacheName: 'api-cache',
       // Configure custom cache expiration.
       expiration: {
-        maxEntries: 50,
-        maxAgeSeconds: 600,
+        maxEntries: 500,
+        maxAgeSeconds: 7 * 24 * 60 * 60,
       },
       // Configure background sync.
       backgroundSync: {
@@ -54,4 +56,5 @@ module.exports = {
       },
     },
   }],
+  importScripts: ['https://drive.google.com/file/d/1ZBqM5zd8MVsip6eDModlcv8OPKeO7HJp/view?usp=sharing'],
 };
