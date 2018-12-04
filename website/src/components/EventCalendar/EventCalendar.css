@@ -1,6 +1,8 @@
 .EventCalendarContainer {
   width: 95vw;
   height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body .rbc-agenda-view table.rbc-agenda-table {
