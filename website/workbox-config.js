@@ -5,6 +5,8 @@ module.exports = {
   ],
   swDest: 'build/service-worker.js',
 
+  skipWaiting: true,
+
   // Define runtime caching rules.
   runtimeCaching: [{
     // Match any same-origin request that contains 'apis'.
@@ -56,5 +58,4 @@ module.exports = {
       },
     },
   }],
-  importScripts: ['https://drive.google.com/file/d/1ZBqM5zd8MVsip6eDModlcv8OPKeO7HJp/view?usp=sharing'],
 };
