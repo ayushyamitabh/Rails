@@ -175,7 +175,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -572,7 +572,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -777,7 +777,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -809,7 +809,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -1016,7 +1016,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -1413,7 +1413,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -1618,7 +1618,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -1650,7 +1650,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -1889,7 +1889,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -2486,7 +2486,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -2891,7 +2891,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -3123,7 +3123,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -4120,7 +4120,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -4717,7 +4717,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -5122,7 +5122,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -5354,7 +5354,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -6383,7 +6383,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -6880,7 +6880,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -7185,7 +7185,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -7317,7 +7317,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -7919,7 +7919,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -8416,7 +8416,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -8721,7 +8721,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -8853,7 +8853,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -9487,7 +9487,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/join/class"
+              href="/class/join"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -9984,7 +9984,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -10289,7 +10289,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -10421,7 +10421,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Join Class",
                   "ghost": false,
-                  "href": "/join/class",
+                  "href": "/class/join",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -11023,7 +11023,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/join/class"
+                href="/class/join"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -11520,7 +11520,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/join/class"
+                  href="/class/join"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -11825,7 +11825,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/join/class"
+                    href="/class/join"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -11957,7 +11957,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Join Class",
                     "ghost": false,
-                    "href": "/join/class",
+                    "href": "/class/join",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -12591,7 +12591,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -13188,7 +13188,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -13593,7 +13593,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -13825,7 +13825,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -14822,7 +14822,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -15419,7 +15419,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -15824,7 +15824,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -16056,7 +16056,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -17085,7 +17085,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -17582,7 +17582,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -17887,7 +17887,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -18019,7 +18019,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -18621,7 +18621,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -19118,7 +19118,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -19423,7 +19423,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -19555,7 +19555,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -20189,7 +20189,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -20686,7 +20686,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -20991,7 +20991,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -21123,7 +21123,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -21725,7 +21725,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -22222,7 +22222,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -22527,7 +22527,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -22659,7 +22659,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {
@@ -23293,7 +23293,7 @@ ShallowWrapper {
             <Button
               block={true}
               ghost={false}
-              href="/create/class"
+              href="/class/create"
               loading={false}
               prefixCls="ant-btn"
               style={
@@ -23690,7 +23690,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -23895,7 +23895,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -23927,7 +23927,7 @@ ShallowWrapper {
                   "block": true,
                   "children": "Create Class",
                   "ghost": false,
-                  "href": "/create/class",
+                  "href": "/class/create",
                   "loading": false,
                   "prefixCls": "ant-btn",
                   "style": Object {
@@ -24134,7 +24134,7 @@ ShallowWrapper {
               <Button
                 block={true}
                 ghost={false}
-                href="/create/class"
+                href="/class/create"
                 loading={false}
                 prefixCls="ant-btn"
                 style={
@@ -24531,7 +24531,7 @@ ShallowWrapper {
                 <Button
                   block={true}
                   ghost={false}
-                  href="/create/class"
+                  href="/class/create"
                   loading={false}
                   prefixCls="ant-btn"
                   style={
@@ -24736,7 +24736,7 @@ ShallowWrapper {
                   <Button
                     block={true}
                     ghost={false}
-                    href="/create/class"
+                    href="/class/create"
                     loading={false}
                     prefixCls="ant-btn"
                     style={
@@ -24768,7 +24768,7 @@ ShallowWrapper {
                     "block": true,
                     "children": "Create Class",
                     "ghost": false,
-                    "href": "/create/class",
+                    "href": "/class/create",
                     "loading": false,
                     "prefixCls": "ant-btn",
                     "style": Object {

@@ -7,7 +7,7 @@ export function createclass (req, res) {
     /*
     {
     "uid": "XCRZgzLysNOaI9pN8neyU5AQxiT2",
-    "universityName": "CUNY City College",
+    "university": "CUNY City College",
     "classData": {
         "name": "CSC 59939 (L)",
         "description": "Topics in Software Engineering",
@@ -31,8 +31,8 @@ export function createclass (req, res) {
     }
     */
   function setTeacherProfile(query, classList) {
-    const { uid, universityName, classData } = query;
-    admin.database().ref(`users/${uid}/universities/${universityName}`)
+    const { uid, university, classData } = query;
+    admin.database().ref(`users/${uid}/universities/${university}`)
     .set(classList)
     .then(()=>{
       return res.status(200).send({message: `Created class ${classData.name}`});
@@ -43,8 +43,8 @@ export function createclass (req, res) {
   }
 
   function addToTeacherProfile(query, pushKey) {
-    const { uid, universityName } = query;
-    admin.database().ref(`users/${uid}/universities/${universityName}`)
+    const { uid, university } = query;
+    admin.database().ref(`users/${uid}/universities/${university}`)
     .once('value')
     .then((snap)=>{
       let existingClasses = snap.val();
@@ -61,8 +61,8 @@ export function createclass (req, res) {
   }
 
   function createClass(query) {
-    const { universityName, classData } = query;
-    admin.database().ref(`universities/${universityName}`)
+    const { university, classData } = query;
+    admin.database().ref(`universities/${university}`)
     .push(classData)
     .then((pushData)=>{
       addToTeacherProfile(query, pushData.key);
@@ -73,8 +73,8 @@ export function createclass (req, res) {
   }
 
   return cors(req, res, () => {
-    const { uid, universityName, classData } = req.body;
-    if (!(uid && universityName && classData && classData.name && classData.description && classData.instructorName && classData.instructorUid && classData.meetingTimes && classData.meetingDays)) {
+    const { uid, university, classData } = req.body;
+    if (!(uid && university && classData && classData.name && classData.description && classData.instructorName && classData.instructorUid && classData.meetingTimes && classData.meetingDays)) {
       res.status(400).send({message: 'Missing fields'});
     } else {
       admin.database().ref(`users/${uid}/type`)

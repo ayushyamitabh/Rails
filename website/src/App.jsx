@@ -40,8 +40,9 @@ class App extends PureComponent {
             <Route path="/signin" component={Signin} />
             <Route path="/signout" render={this.signout} />
             {/* Protected Routes */}
-            <Route path="/create/class" component={ProtectedCreateClass} />
-            <Route path="/join/class" component={ProtectedJoinClass} />
+            <Route path="/class/create" component={ProtectedCreateClass} />
+            <Route path="/class/edit/:uni/:cuid" component={ProtectedCreateClass} />
+            <Route path="/class/join" component={ProtectedJoinClass} />
             <Route path="/dashboard/:optional?" component={ProtectedDashboardRouter} />
             <Route component={NotFound} />
           </Switch>
