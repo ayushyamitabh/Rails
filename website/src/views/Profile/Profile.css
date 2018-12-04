@@ -42,3 +42,8 @@
   font-weight: 500;
   margin-bottom: 7.5px;
 }
+
+.ant-modal-body {
+  max-height: 50vh !important;
+  overflow-y: auto !important;
+}

@@ -5,13 +5,13 @@ import {
   configure,
 } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Notification } from '..';
+import { CreateEventDrawer } from '..';
 
 configure({ adapter: new Adapter() });
 
 describe('Notification', () => {
   /* enzyme testing */
-  const wrapper = shallow(<Notification notificationVisible={true} onClose={() => {}} />);
+  const wrapper = shallow(<CreateEventDrawer visible onClose={() => {}} />);
 
   it('Type of wrapper should be Drawer', () => {
     expect(wrapper.type()).toBe(Drawer);
