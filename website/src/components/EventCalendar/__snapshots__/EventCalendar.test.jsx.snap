@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventSummaryCollection Snapshot test of EventCalendar in the default agenda view 1`] = `
+<div
+  className="EventCalendarContainer"
+>
+  <div
+    className="rbc-calendar"
+  >
+    <div
+      className="rbc-toolbar"
+    >
+      <span
+        className="rbc-btn-group"
+      >
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Today
+        </button>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Back
+        </button>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Next
+        </button>
+      </span>
+      <span
+        className="rbc-toolbar-label"
+      >
+        12/04/2018 — 01/03/2019
+      </span>
+      <span
+        className="rbc-btn-group"
+      >
+        <button
+          className=""
+          onClick={[Function]}
+          type="button"
+        >
+          Month
+        </button>
+        <button
+          className="rbc-active"
+          onClick={[Function]}
+          type="button"
+        >
+          Agenda
+        </button>
+      </span>
+    </div>
+    <div
+      className="rbc-agenda-view"
+    >
+      <span
+        className="rbc-agenda-empty"
+      >
+        There are no events in this range.
+      </span>
+    </div>
+  </div>
+</div>
+`;

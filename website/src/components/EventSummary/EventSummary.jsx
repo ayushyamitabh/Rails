@@ -1,31 +1,43 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import './EventSummary.css';
 
 class EventSummary extends PureComponent {
   static propTypes = {
-    course: PropTypes.string.isRequired,
-    eventName: PropTypes.string.isRequired,
-    dueDate: PropTypes.string.isRequired,
-    color: PropTypes.string,
+    event: PropTypes.shape({
+      course: PropTypes.string,
+      title: PropTypes.string,
+      eventName: PropTypes.string,
+      dueDate: PropTypes.instanceOf(Date),
+      description: PropTypes.string,
+      priority: PropTypes.number,
+    }).isRequired,
   }
 
-  static defaultProps = {
-    color: 'red',
+  priorityColor = () => {
+    const {
+      event,
+    } = this.props;
+    const {
+      priority,
+    } = event;
+    const colors = ['#9E9E9E', '#03A9F4', '#F44336'];
+    const color = colors[priority];
+    return color;
   }
 
   render() {
     const {
-      course,
-      eventName,
-      dueDate,
-      color,
+      event,
     } = this.props;
+
+    const time = moment(event.dueDate).format('hh:mm A');
     return (
-      <div style={{ borderColor: color, color }} className="EventSummary">
-        <span className="course">{course}</span>
-        <span className="eventName">{eventName}</span>
-        <span className="dueDate">{dueDate}</span>
+      <div style={{ backgroundColor: this.priorityColor() }} className="EventSummary">
+        <span className="course">{event.course}</span>
+        <span className="eventName">{event.title}</span>
+        <span className="dueDate">{time}</span>
       </div>
     );
   }

@@ -14,8 +14,6 @@ import {
 configure({ adapter: new Adapter() }); // configure
 
 describe('Home Page', () => {
-  console.log(shallow(<Home />).debug()); // check the debug (return the html string)
-  console.log(); // for better looking at console.log
   it('Should render home page without any errors', () => {
     expect(renderer.create(<Home />).toJSON()).toMatchSnapshot(); // this is the snapshot test
   });

@@ -1,0 +1,65 @@
+.EventCalendarContainer {
+  width: 95vw;
+  height: 90vh;
+}
+
+body .rbc-agenda-view table.rbc-agenda-table {
+  border: 0;
+}
+
+.rbc-agenda-view > .rbc-agenda-table {
+  display: none;
+}
+
+.rbc-agenda-view .rbc-agent-content .rbc-agenda-table {
+  background-color: green;
+}
+
+.rbc-agenda-table .rbc-agenda-time-cell {
+  display: none;
+}
+
+.rbc-agenda-table .rbc-agenda-date-cell {
+  font-size: 22px;
+  margin-left: 7.5px;
+}
+
+body .rbc-agenda-view table.rbc-agenda-table tbody > tr > td + td {
+  border: 0;
+}
+
+body .rbc-agenda-view table.rbc-agenda-table tbody > tr + tr {
+  border-top: 0;
+}
+
+.rbc-toolbar button {
+  transition: 0.5s ease;
+  background: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}
+
+.rbc-toolbar button:hover {
+  transition: 0.5s ease;
+  background: #40a9ff;
+  border-color: #40a9ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
+  transition: 0.5s ease;
+  background: #40a9ff;
+  border-color: #40a9ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active:hover {
+  transition: 0.5s ease;
+  background: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}

@@ -14,6 +14,7 @@ class DashboardRouter extends PureComponent {
     this.state = {
       visible: false,
       teacher: false,
+      userData: {},
     };
   }
 
@@ -77,12 +78,8 @@ class DashboardRouter extends PureComponent {
         <Layout style={{ height: '100%' }}>
           <Router>
             <div>
-              <Route exact path="/dashboard" component={DashboardHome} />
-              <Route
-                exact
-                path="/dashboard/profile"
-                render={props => <Profile {...props} userData={userData} />}
-              />
+              <Route exact path="/dashboard" render={props => <DashboardHome {...props} userData={userData} />} />
+              <Route exact path="/dashboard/profile" render={props => <Profile {...props} userData={userData} />} />
             </div>
           </Router>
         </Layout>
