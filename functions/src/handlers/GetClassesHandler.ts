@@ -9,7 +9,8 @@ export function getclasses (req, res) {
     REQUEST
     =======
     {
-      universityName: 'College Name'
+      universityName: 'College Name',
+      userEmail: 'user@email.com',
     }
     ========
     RESPONSE
@@ -28,8 +29,8 @@ export function getclasses (req, res) {
     }
   */
   return cors(req, res, () => {
-    const {universityName} = req.body;
-    if (!universityName) {
+    const {universityName, userEmail} = req.body;
+    if (!universityName || !userEmail) {
       res.status(400).send({message: 'Missing fields'});
     } else {
       admin.database().ref(`universities/${universityName}`)
@@ -39,8 +40,13 @@ export function getclasses (req, res) {
           const uniData = snap.val();
           const processedData = {};
           Object.keys(uniData).forEach((key)=>{
-            const { approvedEmails, description, instructorName, meetingTimes, name, meetingDays } = uniData[key];
-            processedData[key] = {approvedEmails, description, instructorName, meetingTimes, name, meetingDays};
+            const { description, instructorName, meetingTimes, name, meetingDays } = uniData[key];
+            let approved = false;
+            if (uniData[key].approvedEmails) {
+              if (uniData[key].approvedEmails.indexOf(userEmail) !== -1) approved = true;
+            }
+            const temp = { approved, description, instructorName, meetingTimes, name, meetingDays };
+            processedData[key] = temp;
           });
           return res.status(200).send({message: 'Classes found.', classList: processedData});
         } else {

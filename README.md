@@ -17,6 +17,8 @@ Our development team is making use of various pre-built libraries to help us foc
 5. [Node.js](http://nodejs.org) - our back-end runtime and API 
 6. [React Big Calendar](https://github.com/intljusticemission/react-big-calendar) - our calendar view UI
 7. [React Router](https://reacttraining.com/react-router/web/guides/quick-start) - our routing manager
+8. [Jest](https://jestjs.io/) - our testing tool
+9. [Enzyme](https://airbnb.io/enzyme/) - our testing tool
 
 #### Team  
 ##### iteration 1
