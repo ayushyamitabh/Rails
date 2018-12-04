@@ -8,8 +8,15 @@ import { EventSummary } from '..';
 
 configure({ adapter: new Adapter() });
 
+const event = {
+  title: 'Project Presentation',
+  course: 'CSC 59929',
+  start: new Date('2018-12-04T21:41:00'),
+  dueDate: new Date('2018-12-04T23:41:00'),
+  priority: 2,
+};
 describe('EventSummary', () => {
   it('Render EventSummary without any eror', () => {
-    expect(renderer.create(<EventSummary course="CS103" eventName="Final exam" dueDate="Friday" />).toJSON()).toMatchSnapshot();
+    expect(renderer.create(<EventSummary event={event} />).toJSON()).toMatchSnapshot();
   });
 });

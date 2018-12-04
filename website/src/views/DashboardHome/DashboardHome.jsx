@@ -1,112 +1,75 @@
 import React, { PureComponent } from 'react';
-import { EventSummaryCollection } from '../../components';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import { EventCalendar } from '../../components';
 import './DashboardHome.css';
 
 class DashboardHome extends PureComponent {
+  static propTypes = {
+    userData: PropTypes.shape({}).isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
     };
   }
 
+  extractCourses = () => {
+    const {
+      userData,
+    } = this.props;
+    const {
+      universities,
+    } = userData;
+    const courses = [];
+    if (universities) {
+      Object.keys(universities).forEach((university) => {
+        const course = universities[university];
+        courses.push(course);
+      });
+    }
+    return courses;
+  }
+
+  extractEvents = (courses) => {
+    let courseList = [];
+    courseList = courses.map(course => course);
+    const eventList = courseList.map((course) => {
+      const eventItems = [];
+
+      Object.keys(course).forEach((key) => {
+        Object.keys(course[key].events).forEach((eventKey) => {
+          const {
+            description,
+            dueDate,
+            title,
+            priority,
+          } = course[key].events[eventKey];
+          const eventItem = {
+            course: course[key].name,
+            description,
+            start: moment(dueDate).subtract(15, 'minutes').toDate(),
+            dueDate: moment(dueDate).toDate(),
+            title,
+            priority,
+          };
+          eventItems.push(eventItem);
+        });
+      });
+      return eventItems;
+    });
+    // map returns an array the entire array gets saved
+    // to the first iterator take it out
+    return eventList[0];
+  }
+
   render() {
-    const classArray = [
-      {
-        date: 'Oct. 24',
-        events: [
-          {
-            course: 'CSC 342',
-            eventName: 'Review of First Exam',
-            dueTime: '3:30pm',
-            color: '#d83a42',
-            key: 0,
-          },
-          {
-            course: 'CSC 220',
-            eventName: 'Homework 1',
-            dueTime: '5:00pm',
-            color: '#62c4f9',
-            key: 1,
-
-          },
-        ],
-        key: 'Oct. 24',
-      },
-      {
-        date: 'Oct. 25',
-        events: [
-          {
-            course: 'CSC 342',
-            eventName: 'First Exam',
-            dueTime: '3:30pm',
-            color: '#d83a42',
-            key: 2,
-
-          },
-          {
-            course: 'CHEM 103',
-            eventName: 'Lab Report',
-            dueTime: '7:00pm',
-            color: '#62c4f9',
-            key: 3,
-
-          },
-        ],
-        key: 'Oct. 25',
-
-      },
-      {
-        date: 'Oct. 30',
-        events: [
-          {
-            course: 'MATH 203',
-            eventName: 'Quiz',
-            dueTime: '12:00pm',
-            color: '#d83a42',
-            key: 4,
-
-          },
-          {
-            course: 'CSC 301',
-            eventName: 'Midterm',
-            dueTime: '6:30pm',
-            color: '#d83a42',
-            key: 5,
-
-          },
-          {
-            course: 'PHY 201',
-            eventName: 'Lab Report',
-            dueTime: '11:59pm',
-            color: '#62c4f9',
-            key: 6,
-
-          },
-        ],
-        key: 'Oct. 30',
-
-      },
-      {
-        date: 'Oct. 31',
-        events: [
-          {
-            course: 'CSC 59929',
-            eventName: 'Outline of Research Paper',
-            dueTime: '6:30pm',
-            color: '#62c4f9',
-            key: 7,
-
-          },
-        ],
-        key: 'Oct. 31',
-
-      },
-    ];
+    const { userData } = this.props;
+    const myEventsList = userData ? this.extractEvents(this.extractCourses()) : [];
     return (
       <div className="DashboardHome">
-        {classArray.map(event => (
-          <EventSummaryCollection key={event.key} event={event} />
-        ))}
+        <EventCalendar events={myEventsList} />
       </div>
     );
   }

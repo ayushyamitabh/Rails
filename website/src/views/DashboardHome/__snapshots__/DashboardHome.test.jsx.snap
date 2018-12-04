@@ -5,253 +5,67 @@ exports[`DashboardHome Render DashboardHome without any eror 1`] = `
   className="DashboardHome"
 >
   <div
-    className="eventWrapper"
+    className="EventCalendarContainer"
   >
-    <span
-      className="eventDate"
-    >
-      Oct. 24
-    </span>
     <div
-      className="events"
+      className="rbc-calendar"
     >
       <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#d83a42",
-            "color": "#d83a42",
-          }
-        }
+        className="rbc-toolbar"
       >
         <span
-          className="course"
+          className="rbc-btn-group"
         >
-          CSC 342
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Today
+          </button>
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Back
+          </button>
+          <button
+            onClick={[Function]}
+            type="button"
+          >
+            Next
+          </button>
         </span>
         <span
-          className="eventName"
+          className="rbc-toolbar-label"
         >
-          Review of First Exam
+          12/04/2018 — 01/03/2019
         </span>
         <span
-          className="dueDate"
+          className="rbc-btn-group"
         >
-          3:30pm
+          <button
+            className=""
+            onClick={[Function]}
+            type="button"
+          >
+            Month
+          </button>
+          <button
+            className="rbc-active"
+            onClick={[Function]}
+            type="button"
+          >
+            Agenda
+          </button>
         </span>
       </div>
       <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#62c4f9",
-            "color": "#62c4f9",
-          }
-        }
+        className="rbc-agenda-view"
       >
         <span
-          className="course"
+          className="rbc-agenda-empty"
         >
-          CSC 220
-        </span>
-        <span
-          className="eventName"
-        >
-          Homework 1
-        </span>
-        <span
-          className="dueDate"
-        >
-          5:00pm
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
-    className="eventWrapper"
-  >
-    <span
-      className="eventDate"
-    >
-      Oct. 25
-    </span>
-    <div
-      className="events"
-    >
-      <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#d83a42",
-            "color": "#d83a42",
-          }
-        }
-      >
-        <span
-          className="course"
-        >
-          CSC 342
-        </span>
-        <span
-          className="eventName"
-        >
-          First Exam
-        </span>
-        <span
-          className="dueDate"
-        >
-          3:30pm
-        </span>
-      </div>
-      <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#62c4f9",
-            "color": "#62c4f9",
-          }
-        }
-      >
-        <span
-          className="course"
-        >
-          CHEM 103
-        </span>
-        <span
-          className="eventName"
-        >
-          Lab Report
-        </span>
-        <span
-          className="dueDate"
-        >
-          7:00pm
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
-    className="eventWrapper"
-  >
-    <span
-      className="eventDate"
-    >
-      Oct. 30
-    </span>
-    <div
-      className="events"
-    >
-      <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#d83a42",
-            "color": "#d83a42",
-          }
-        }
-      >
-        <span
-          className="course"
-        >
-          MATH 203
-        </span>
-        <span
-          className="eventName"
-        >
-          Quiz
-        </span>
-        <span
-          className="dueDate"
-        >
-          12:00pm
-        </span>
-      </div>
-      <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#d83a42",
-            "color": "#d83a42",
-          }
-        }
-      >
-        <span
-          className="course"
-        >
-          CSC 301
-        </span>
-        <span
-          className="eventName"
-        >
-          Midterm
-        </span>
-        <span
-          className="dueDate"
-        >
-          6:30pm
-        </span>
-      </div>
-      <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#62c4f9",
-            "color": "#62c4f9",
-          }
-        }
-      >
-        <span
-          className="course"
-        >
-          PHY 201
-        </span>
-        <span
-          className="eventName"
-        >
-          Lab Report
-        </span>
-        <span
-          className="dueDate"
-        >
-          11:59pm
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
-    className="eventWrapper"
-  >
-    <span
-      className="eventDate"
-    >
-      Oct. 31
-    </span>
-    <div
-      className="events"
-    >
-      <div
-        className="EventSummary"
-        style={
-          Object {
-            "borderColor": "#62c4f9",
-            "color": "#62c4f9",
-          }
-        }
-      >
-        <span
-          className="course"
-        >
-          CSC 59929
-        </span>
-        <span
-          className="eventName"
-        >
-          Outline of Research Paper
-        </span>
-        <span
-          className="dueDate"
-        >
-          6:30pm
+          There are no events in this range.
         </span>
       </div>
     </div>

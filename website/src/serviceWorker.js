@@ -18,6 +18,7 @@ const isLocalhost = Boolean(
     ),
 );
 
+// If you want to test serviceWorker in local host, remove "process.env.NODE_ENV === 'production' &&" at line 23.
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -68,7 +69,7 @@ function registerValidSW(swUrl, config) {
               console.log('New content is available; please refresh.');
 
               // Execute callback
-              if (config.onUpdate) {
+              if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
             } else {
@@ -78,7 +79,7 @@ function registerValidSW(swUrl, config) {
               console.log('Content is cached for offline use.');
 
               // Execute callback
-              if (config.onSuccess) {
+              if (config && config.onSuccess) {
                 config.onSuccess(registration);
               }
             }

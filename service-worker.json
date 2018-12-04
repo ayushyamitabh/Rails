@@ -1,0 +1,20 @@
+{
+  "CACHE_NAME": "v1",
+  "urlsToCache": {
+    "level": "v1",
+    "cache": "HTTPS",
+    "urls": [
+      "/",
+      "/*/*.css",
+      "/*/*.jsx"
+    ],
+    "blacklist": ["\/^\/_\/,\/\/[^\/]+\\.[^\/]+$/"],
+    "workbox": "/index.html",
+    "autoScripts": [
+      "https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js",
+      "/precache-manifest.4c3eef58a37b6e59a9a43cbbe82c25f3.js"
+    ]
+  },
+  "fetch": true,
+  "basic": false
+}

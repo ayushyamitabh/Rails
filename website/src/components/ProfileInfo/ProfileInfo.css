@@ -1,9 +1,15 @@
 .rightSide {
-  display: flex;
-  flex-direction: column;
-  line-height: 12px;
-  margin-left: 10px;
-  margin-top: 15px;
+  display: none;
+}
+
+@media screen and (min-width: 400px) {
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    line-height: 12px;
+    margin-left: 10px;
+    margin-top: 15px;
+  }
 }
 
 .ProfileInfo {

@@ -20,6 +20,7 @@ jobs:
       script:
         - node travis.js
         - npm install -g firebase-tools
+        - npm install workbox-cli --global
         - cd ./functions && npm install && cd ..
         - cd ./website && npm install
         - npm run build
