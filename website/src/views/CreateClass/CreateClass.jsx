@@ -110,9 +110,7 @@ class CreateClass extends PureComponent {
       return true;
     }
     const { value } = e.target;
-
     this.setState({ parsedEmails: value });
-
     const newLineSeparated = value.split('\n');
     const emailList = [];
     newLineSeparated.forEach((email) => {
@@ -190,7 +188,6 @@ class CreateClass extends PureComponent {
         meetingDays,
       },
     };
-    console.log(reqData);
     const API_URL = (mode === 'edit') ? 'https://us-central1-rails-students.cloudfunctions.net/editclass' : 'https://us-central1-rails-students.cloudfunctions.net/createclass';
     fetch(API_URL,
       {
