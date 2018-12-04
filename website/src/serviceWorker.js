@@ -19,7 +19,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if (/*process.env.NODE_ENV === 'production' &&*/ 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
@@ -68,7 +68,7 @@ function registerValidSW(swUrl, config) {
               console.log('New content is available; please refresh.');
 
               // Execute callback
-              if (config.onUpdate) {
+              if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
             } else {
@@ -78,7 +78,7 @@ function registerValidSW(swUrl, config) {
               console.log('Content is cached for offline use.');
 
               // Execute callback
-              if (config.onSuccess) {
+              if (config && config.onSuccess) {
                 config.onSuccess(registration);
               }
             }

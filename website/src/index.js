@@ -24,9 +24,7 @@ ReactDOM.render(<FirebaseApp />, document.getElementById('root'));
 
 // Google Service Worker. Support Chrome 64+ and firefox 13+. Tested on Chrome 70.0.3538.110 (64 bit).
 
-// Registion. Scope: '/app/'.
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/service-worker.js');
-  });
-}
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.register();
