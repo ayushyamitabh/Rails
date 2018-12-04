@@ -21,7 +21,7 @@ export function editevent (req, res) {
         }
     */
     
-    function validateData(eventData) {
+   function validateData(eventData) {
         const { 
             allowDiscussion,
             allowSubmission,
@@ -29,14 +29,16 @@ export function editevent (req, res) {
             dueDate,
             postedDate,
             priority,
-            title 
+            title, 
+            hasFile
         } = eventData;
-        return allowDiscussion &&
-            allowSubmission &&
+        return (allowDiscussion !== null) &&
+            (allowSubmission !== null) &&
             description &&
             dueDate &&
             postedDate &&
-            priority &&
+            (priority !== null) &&
+            (hasFile !== null) &&
             title;
     }
 

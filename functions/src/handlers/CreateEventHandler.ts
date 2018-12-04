@@ -29,25 +29,25 @@ export function createevent (req, res) {
             dueDate,
             postedDate,
             priority,
-            title 
+            title, 
+            hasFile
         } = eventData;
-        return allowDiscussion &&
-            allowSubmission &&
+        return (allowDiscussion !== null) &&
+            (allowSubmission !== null) &&
             description &&
             dueDate &&
             postedDate &&
-            priority &&
+            (priority !== null) &&
+            (hasFile !== null) &&
             title;
     }
 
     function addEvent (classUid, eventData) {
         admin.database().ref(`events/${classUid}`)
-        .push()
-        .set(eventData)
-        .then(() => {
-            return res.status(200).send({message: 'Created event.'});
-        })
-        .catch((err) => {
+        .push(eventData)
+        .then((snap) => {
+            return res.status(200).send({message: 'Created event.', eventUid: snap.key});
+        }, (err) => {
             err.whereInApi = 'CreateEventHandler/addEvent';
             return res.status(406).send({message: 'Something went wrong', error: err});
         });
