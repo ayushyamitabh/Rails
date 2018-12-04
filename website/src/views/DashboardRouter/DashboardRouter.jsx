@@ -35,6 +35,7 @@ class DashboardRouter extends PureComponent {
             body: JSON.stringify(reqData),
           }).then(res => res.json())
             .then((data) => {
+              localStorage.setItem('userData', JSON.stringify(data.userData));
               this.setState({
                 teacher: data.userData.type === 'teacher',
                 userData: data.userData ? data.userData : {},
@@ -44,8 +45,12 @@ class DashboardRouter extends PureComponent {
               console.log(err);
             });
         });
-    }
+    }else if (localStorage.getItem('userData') !== undefined){
+        this.setState( {
+          userData: JSON.parse(localStorage.getItem('userData'))
+    });
   }
+}
 
   showDrawer = () => {
     this.setState({
