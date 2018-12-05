@@ -3,6 +3,7 @@ const reqData = {
   name: 'API Test',
   password: '1234567890',
   type: 'student',
+  test: true,
 };
 
 function SignUpApi(input) {
