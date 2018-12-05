@@ -9,17 +9,28 @@ import { JoinClass } from '..';
 
 configure({ adapter: new Adapter() });
 
+const sampleFunction = () => {
+
+};
 
 /* Snapshot */
-describe('JoinClass', () => {
-  it('Render JoinClass without any eror', () => {
+describe('JoinClass Snapshot Test', () => {
+  it('Render JoinClass without any error', () => {
     expect(renderer.create(<JoinClass />).toJSON()).toMatchSnapshot();
+  });
+  it('Render button without error', () => {
+    const component = renderer.create(
+      <JoinClass type="setting" onClick={sampleFunction} />,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 
+
 /* Enzyme */
 const wrapper = shallow(<JoinClass />);
-describe('JoinClass shallow', () => {
+describe('JoinClass Enzyme Test', () => {
   it('Title tag should exists', () => {
     expect(wrapper.find('.title').closest('.join-class-page').length).toBe(1);
   });
