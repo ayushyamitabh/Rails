@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import { ChatFeed } from 'react-chat-ui';
 import './ViewEventDrawer.css';
+import moment from 'moment';
 
 class ViewEventDrawer extends Component {
   static propTypes = {
@@ -210,7 +211,7 @@ class ViewEventDrawer extends Component {
             ? (
               <div className="view-event-container">
                 <h4>Due Date</h4>
-                <p>{`${new Date(eventData.dueDate).toDateString()} at ${new Date(eventData.dueDate).toLocaleTimeString()}`}</p>
+                <p>{`${moment(eventData.dueDate).toDate().toDateString()} at ${moment(eventData.dueDate).toDate().toLocaleTimeString()}`}</p>
                 <h4>Description</h4>
                 <Input.TextArea
                   className="select-input"
@@ -264,7 +265,7 @@ class ViewEventDrawer extends Component {
                               </Button>
                               <p>
                                 Will be uploaded as
-                                {` '${new Date(eventData.dueDate) < Date.now() ? '[LATE]' : ''}${displayName}.${file.name.split('.')[file.name.split('.').length - 1]}'`}
+                                {` '${moment(eventData.dueDate) < moment.now() ? '[LATE]' : ''}${displayName}.${file.name.split('.')[file.name.split('.').length - 1]}'`}
                               </p>
                             </div>
                           ) : null
