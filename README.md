@@ -1,5 +1,6 @@
 # Rails
 
+![](https://api.travis-ci.com/CSC59939/Rails.svg?branch=master)
 #### About  
 _“Rails”_ is a platform for teachers and students. Rails will help organize all events in a class. From
 helping set due dates and reminders to providing a discussion forum for events in a class.  
