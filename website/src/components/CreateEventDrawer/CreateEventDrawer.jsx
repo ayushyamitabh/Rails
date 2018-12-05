@@ -8,6 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import './CreateEventDrawer.css';
 import moment from 'moment';
+import { ChatFeed } from 'react-chat-ui';
 
 class CreateEventDrawer extends PureComponent {
   static propTypes = {
@@ -39,17 +40,29 @@ class CreateEventDrawer extends PureComponent {
       dueDate: moment(Date.now()),
       mode: 'create',
       submissions: null,
+      discussions: [],
+      newMessage: '',
+      enterToSend: false,
     };
     this.fileHandler = this.fileHandler.bind(this);
     this.createEvent = this.createEvent.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
 
   componentWillReceiveProps(nxtPrps) {
     if (nxtPrps.userData) this.setState({ userData: nxtPrps.userData });
     if (nxtPrps.eventData) {
       const {
-        university, classUid, submissions, title, description, priority, allowDiscussion, allowSubmission, dueDate, hasFile,
+        university, classUid, submissions, title, description, priority, allowDiscussion, allowSubmission, dueDate, hasFile, discussions, eventUid,
       } = nxtPrps.eventData;
+      if (nxtPrps.eventData.allowDiscussion && nxtPrps.eventData.discussions) {
+        const { displayName } = firebase.auth().currentUser;
+        nxtPrps.eventData.discussions.forEach((ed, i) => {
+          ed.senderName = ed.fromName;
+          ed.id = (ed.fromName === displayName) ? 0 : ed.fromName;
+          nxtPrps.eventData.discussions[i] = ed;
+        });
+      }
       this.setState({
         mode: 'edit',
         selectedUni: university,
@@ -60,8 +73,10 @@ class CreateEventDrawer extends PureComponent {
         priority,
         discussion: allowDiscussion === 'true' || allowDiscussion === true,
         submission: allowSubmission === 'true' || allowSubmission === true,
+        discussions,
         dueDate: moment(dueDate),
         hasFile,
+        eventUid,
       });
     }
   }
@@ -85,7 +100,7 @@ class CreateEventDrawer extends PureComponent {
       const reqData = {
         university: selectedUni,
         classUid: selectedClass,
-        eventUid: eventData.eventUid,
+        eventUid: eventData ? eventData.eventUid : null,
         uid: firebase.auth().currentUser.uid,
         eventData: {
           allowDiscussion: discussion,
@@ -162,6 +177,54 @@ class CreateEventDrawer extends PureComponent {
     }
   }
 
+
+  sendMessage() {
+    this.setState({ loading: true });
+    const {
+      newMessage, eventUid, selectedUni, selectedClass,
+    } = this.state;
+    const ma = newMessage.split('\n');
+    const mas = ma.join('');
+    if (newMessage && mas.length > 0 && newMessage.length > 0) {
+      const { uid, displayName, email } = firebase.auth().currentUser;
+      const reqData = {
+        university: selectedUni,
+        classUid: selectedClass,
+        eventUid,
+        uid,
+        email,
+        name: displayName,
+        message: newMessage,
+      };
+      console.log(reqData);
+      fetch('https://us-central1-rails-students.cloudfunctions.net/addmessage', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reqData),
+      })
+        .then(res => res.json())
+        .then((result) => {
+          message.info(result.message);
+          if (result.message === 'Added comment.') {
+            window.location.reload();
+          } else {
+            this.setState({ loading: false });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          message.error(err.message);
+        });
+    } else {
+      this.setState({ loading: false });
+      message.info('Message can\'t be empty.');
+    }
+  }
+
+
   render() {
     const { visible, onClose } = this.props;
     const {
@@ -171,7 +234,8 @@ class CreateEventDrawer extends PureComponent {
       title, description,
       priority, selectedClass,
       dueDate, discussion,
-      submission,
+      submission, discussions,
+      newMessage, enterToSend,
     } = this.state;
     return (
       <Drawer
@@ -315,6 +379,42 @@ class CreateEventDrawer extends PureComponent {
                 )
                 : null
             }
+
+            {
+                  mode === 'edit' && (discussion === 'true' || discussion === true)
+                    ? (
+                      <div className="discussion-container">
+                        <h4 className="select-input">Discussion</h4>
+                        <ChatFeed
+                          centered
+                          messages={discussions || [{ message: 'No messages yet.' }]}
+                          showSenderName
+                        />
+                        <Input.TextArea
+                          disabled={loading}
+                          className="select-input"
+                          rows={5}
+                          placeholder="Add message..."
+                          value={newMessage}
+                          onChange={e => this.setState({ newMessage: e.target.value })}
+                          onPressEnter={enterToSend ? this.sendMessage : null}
+                        />
+                        <Switch
+                          disabled={loading}
+                          onChange={c => this.setState({ enterToSend: c })}
+                          className="select-input"
+                          checkedChildren="Enter To Send"
+                          unCheckedChildren="Use Send Button"
+                        />
+                        {
+                          !enterToSend
+                            ? <Button loading={loading} block type="primary" icon="right-circle" onClick={this.sendMessage}>Send</Button>
+                            : null
+                        }
+                      </div>
+                    )
+                    : null
+                }
             <Button
               className="select-input"
               disabled={loading}

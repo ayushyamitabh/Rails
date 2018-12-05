@@ -4,7 +4,7 @@ import {
   configure,
 } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { MemoryRouter } from 'react-router-dom';
 import { DashboardRouter } from '..';
 

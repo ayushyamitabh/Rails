@@ -74,3 +74,25 @@
   display: flex;
   align-items: center;
 }
+
+.email-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.email-list-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  width: calc(100% - 20px);
+  padding: 0 20px;
+}
+
+.email-list-item p {
+  flex: 1;
+  margin: 0;
+}
+
+.email-list-button {
+  margin: auto 5px;
+}

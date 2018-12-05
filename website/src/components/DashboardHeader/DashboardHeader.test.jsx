@@ -5,7 +5,7 @@ import {
 } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter } from 'react-router-dom';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import DashboardHeader from './DashboardHeader';
 
 configure({ adapter: new Adapter() });

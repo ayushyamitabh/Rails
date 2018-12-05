@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import {
-  Input, Button, Card, TimePicker, Checkbox, Select, message, Alert,
+  Input, Button, Card, TimePicker, Checkbox, Select, message, Alert, List,
 } from 'antd';
 import { WithProtectedView } from '../../hoc';
 import 'firebase/auth';
@@ -24,10 +24,12 @@ class CreateClass extends PureComponent {
       loading: false,
       mode: 'create',
       classUid: '',
+      pendingEmails: [],
     };
     this.getColleges = this.getColleges.bind(this);
     this.processEmailList = this.processEmailList.bind(this);
     this.sendCreateClass = this.sendCreateClass.bind(this);
+    this.dropStudent = this.dropStudent.bind(this);
   }
 
   componentDidMount() {
@@ -58,9 +60,8 @@ class CreateClass extends PureComponent {
         .then((result) => {
           message.info(result.message);
           if (result.message === 'Found class.') {
-            console.log(result);
             const {
-              description, meetingDays, meetingTimes, name, approvedEmails,
+              description, meetingDays, meetingTimes, name, approvedEmails, pendingEmails,
             } = result.classData;
             const parseDays = [];
             Object.keys(meetingDays).forEach((d) => {
@@ -77,6 +78,7 @@ class CreateClass extends PureComponent {
               loading: false,
               parsedEmails,
               approvedEmails,
+              pendingEmails,
             });
           } else {
             message.warn('Go back to dashboard.');
@@ -142,6 +144,7 @@ class CreateClass extends PureComponent {
       approvedEmails,
       mode,
       classUid,
+      pendingEmails,
     } = this.state;
     this.setState({ loading: true });
     if (validatedEmails === false) {
@@ -181,6 +184,7 @@ class CreateClass extends PureComponent {
         instructorUid: firebase.auth().currentUser.uid,
         instructorName: firebase.auth().currentUser.displayName,
         approvedEmails,
+        pendingEmails,
         meetingTimes: {
           from: fromTime,
           to: toTime,
@@ -208,10 +212,52 @@ class CreateClass extends PureComponent {
       });
   }
 
+  dropStudent(email) {
+    this.setState({ loading: true });
+    if (window.confirm('Are you want to reject this student?')) {
+      const { pendingEmails } = this.state;
+      const indexOfEmail = pendingEmails.indexOf(email);
+      pendingEmails.splice(indexOfEmail, 1);
+      this.setState({ pendingEmails });
+      this.sendCreateClass();
+    }
+  }
+
+  approveStudent(email) {
+    this.setState({ loading: true });
+    const { selectedUniversity, classUid } = this.state;
+    const { uid } = firebase.auth().currentUser;
+    const reqData = {
+      universityName: selectedUniversity,
+      classUid,
+      studentEmail: email,
+      uid,
+    };
+    fetch('https://us-central1-rails-students.cloudfunctions.net/approveclass',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(reqData),
+      })
+      .then(res => res.json())
+      .then((result) => {
+        if (result.message === 'Approved and added student to class.') { message.info(result.message, 4, () => { window.location.reload(); }); } else message.info(result.message);
+        this.setState({ loading: false });
+      })
+      .catch((err) => {
+        console.log(err);
+        message.error(err.message);
+        this.setState({ loading: false });
+      });
+  }
+
   render() {
     const daysOptions = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const {
-      collegeOptions, className, sectionCode, selectedUniversity, validatedEmails, loading, mode, toTime, fromTime, days, parsedEmails,
+      collegeOptions, className, sectionCode, selectedUniversity, validatedEmails, loading, mode, toTime, fromTime, days, parsedEmails, pendingEmails,
     } = this.state;
     return (
       <div className="create-class-page">
@@ -298,6 +344,28 @@ class CreateClass extends PureComponent {
             value={parsedEmails}
             onChange={this.processEmailList}
           />
+          {
+            mode === 'edit'
+              ? (
+                <div className="select-input">
+                  <h4>Pending Students</h4>
+                  <List
+                    className="email-list"
+                    dataSource={pendingEmails}
+                    renderItem={item => (
+                      <List.Item>
+                        <div className="email-list-item">
+                          <p>{item}</p>
+                          <Button className="email-list-button" onClick={() => { this.dropStudent('requested', item); }} type="warn" icon="delete" />
+                          <Button className="email-list-button" onClick={() => { this.approveStudent(item); }} type="warn" icon="check" />
+                        </div>
+                      </List.Item>
+                    )}
+                  />
+                </div>
+              )
+              : null
+          }
           <Button
             className="create-class-input"
             block
