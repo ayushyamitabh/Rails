@@ -7,6 +7,28 @@
   display: none;
 }
 
+.ant-drawer-body {
+  height: 90%;
+}
+
+#chat-panel {
+  overflow-y: auto !important;
+  height: 50% !important;
+  max-height: 50% !important;
+}
+
+.view-event-container {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion-container {
+  flex: 1;
+  max-height: 80%;
+}
+
 .drawer-custom .ant-drawer-content-wrapper {
   width: 500px !important;
 }

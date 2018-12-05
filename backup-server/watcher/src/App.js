@@ -87,6 +87,19 @@ export default class App extends Component {
     }
   }
 
+  forceBackup() {
+    fetch(`http://35.211.175.158:5000/forcebackup`, {
+      method: "POST"
+    }).then(res => res.json())
+    .then(result => {
+      message.info(result.message);
+    })
+    .catch((err) => {
+      console.log('forcebackup', err);
+      message.error(err.message);
+    })
+  }
+
   refresh() {
     const { tab } = this.state;
     this.switchTab({ key: tab });
@@ -133,6 +146,13 @@ export default class App extends Component {
             ) : null}
             {tab === "backup" ? (
               <div>
+                <Button
+                  style={{ marginBottom: 40 }}
+                  block
+                  onClick={this.forceBackup}
+                >
+                  Backup Now
+                </Button>
                 <ReactJson collapsed enableClipboard={false} src={sourceData} />
               </div>
             ) : null}

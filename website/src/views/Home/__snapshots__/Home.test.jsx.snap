@@ -66,5 +66,14 @@ exports[`Home Page Should render home page without any errors 1`] = `
       </p>
     </div>
   </div>
+  <a
+    className="ant-btn home-button"
+    href="http://35.211.175.158:8080/"
+    onClick={[Function]}
+  >
+    <span>
+      Developer's Portal
+    </span>
+  </a>
 </div>
 `;

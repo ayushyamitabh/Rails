@@ -12,6 +12,7 @@ import { geteventdetails } from "./GetEventDetailHandler";
 import { editclass } from "./EditClassHandler";
 import { dropclass } from "./DropClassHandler";
 import { addmessage } from "./AddMessageHandler";
+import { addsubmission } from './AddSubmissionHandler';
 
 export const handlers = {
   approveclass,
@@ -28,4 +29,5 @@ export const handlers = {
   editclass,
   dropclass,
   addmessage,
+  addsubmission,
 };

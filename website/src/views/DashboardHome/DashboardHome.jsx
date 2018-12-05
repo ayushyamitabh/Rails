@@ -6,7 +6,13 @@ import './DashboardHome.css';
 
 class DashboardHome extends PureComponent {
   static propTypes = {
-    userData: PropTypes.shape({}).isRequired,
+    userData: PropTypes.shape({}),
+    viewEvent: PropTypes.func,
+  }
+
+  static defaultProps = {
+    userData: null,
+    viewEvent: () => {},
   }
 
   constructor(props) {
@@ -26,6 +32,9 @@ class DashboardHome extends PureComponent {
     if (universities) {
       Object.keys(universities).forEach((university) => {
         const course = universities[university];
+        Object.keys(course).forEach((c) => {
+          course[c].university = university;
+        });
         courses.push(course);
       });
     }
@@ -34,10 +43,10 @@ class DashboardHome extends PureComponent {
 
   extractEvents = (courses) => {
     let courseList = [];
+    const { viewEvent } = this.props;
     courseList = courses.map(course => course);
     const eventList = courseList.map((course) => {
       const eventItems = [];
-
       Object.keys(course).forEach((key) => {
         Object.keys(course[key].events).forEach((eventKey) => {
           const {
@@ -51,25 +60,31 @@ class DashboardHome extends PureComponent {
             description,
             start: moment(dueDate).subtract(15, 'minutes').toDate(),
             dueDate: moment(dueDate).toDate(),
+            university: course[key].university,
             title,
             priority,
+            eventUid: eventKey,
+            classUid: key,
+            viewEvent,
           };
           eventItems.push(eventItem);
         });
       });
       return eventItems;
     });
-    // map returns an array the entire array gets saved
-    // to the first iterator take it out
-    return eventList[0];
+    const sendEvList = [];
+    eventList.forEach((el) => {
+      sendEvList.push(...el);
+    });
+    return sendEvList;
   }
 
   render() {
-    const { userData } = this.props;
+    const { userData, viewEvent } = this.props;
     const myEventsList = userData ? this.extractEvents(this.extractCourses()) : [];
     return (
       <div className="DashboardHome">
-        <EventCalendar events={myEventsList} />
+        <EventCalendar viewEvent={viewEvent} events={myEventsList} />
       </div>
     );
   }

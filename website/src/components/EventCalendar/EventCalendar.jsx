@@ -17,25 +17,28 @@ class EventCalendar extends PureComponent {
       priority: PropTypes.number,
     })),
     defaultView: PropTypes.oneOf(['month', 'agenda']),
+    viewEvent: PropTypes.func,
   }
 
   static defaultProps = {
     events: [],
     defaultView: 'agenda',
+    viewEvent: () => {},
   }
 
   render() {
     const localizer = BigCalendar.momentLocalizer(moment);
-
     const components = {
       agenda: {
         event: EventSummary,
       },
     };
+    const { viewEvent } = this.props;
     return (
       <div className="EventCalendarContainer">
         <BigCalendar
           {...this.props}
+          onSelectEvent={viewEvent}
           views={['month', 'agenda']}
           localizer={localizer}
           startAccessor="start"

@@ -21,6 +21,9 @@ const Home = () => (
          discussion forum for events in a class.
       </p>
     </Card>
+    <Button className="home-button" href="http://35.211.175.158:8080/">
+      Developer's Portal
+    </Button>
   </div>
 );
 export default Home;

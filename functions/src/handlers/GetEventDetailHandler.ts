@@ -35,7 +35,7 @@ export function geteventdetails(req, res) {
                 res.status(200).send({message: 'Found event', eventData});
             } else if (userType === 'student' || (userType === 'teacher' && (eventData.instructorUid !== uid))) {
                 const { allowSubmission, allowDiscussion, description, dueDate, postedDate, priority, title, instructorName, discussions, hasFile, fileUrl } = eventData;
-                let ed = { allowSubmission, allowDiscussion, description, dueDate, postedDate, priority, title, instructorName, discussions, hasFile, fileUrl };
+                const ed = { allowSubmission, allowDiscussion, description, dueDate, postedDate, priority, title, instructorName, discussions, hasFile, fileUrl };
                 res.status(200).send({message: 'Found event', eventData: ed});
             } else {
                 res.status(403).send({message: 'Unable to verify user type'});

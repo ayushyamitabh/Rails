@@ -6,7 +6,8 @@ import IconButton from './IconButton/IconButton';
 import SampleComponent from './SampleComponent/SampleComponent';
 import EventSummary from './EventSummary/EventSummary';
 import EventCalendar from './EventCalendar/EventCalendar';
-import CreateEventDrawer from "./CreateEventDrawer/CreateEventDrawer";
+import CreateEventDrawer from './CreateEventDrawer/CreateEventDrawer';
+import ViewEventDrawer from './ViewEventDrawer/ViewEventDrawer';
 
 export {
   ProfileInfo,
@@ -18,4 +19,5 @@ export {
   CreateEventDrawer,
   EventSummary,
   EventCalendar,
+  ViewEventDrawer,
 };

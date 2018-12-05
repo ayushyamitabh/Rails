@@ -4,6 +4,7 @@ import {
   configure,
 } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import MockDate from 'mockdate';
 import { EventCalendar } from '..';
 
 configure({ adapter: new Adapter() });
@@ -24,23 +25,15 @@ const myEventsList = [
   },
 ];
 
-// mock moment to return the same seperate times so we always render the same
+// mock date to return the same time so we always render the same
 // calendar range
 
 
 describe('EventSummaryCollection', () => {
   it('Snapshot test of EventCalendar in the default agenda view', () => {
-    let mockNCalls = 0;
-    jest.mock('moment', () => () => ({
-      format: () => {
-        if (mockNCalls > 0) {
-          return '2018-12-04T23:55:00';
-        }
-        mockNCalls += 1;
-        return '2018-12-04T21:10:00';
-      },
-    }));
+    MockDate.set(1543820242000);
     expect(renderer.create(<EventCalendar events={myEventsList} />)
       .toJSON()).toMatchSnapshot();
+    MockDate.reset();
   });
 });
