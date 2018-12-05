@@ -34,10 +34,10 @@ describe('EventSummaryCollection', () => {
     jest.mock('moment', () => () => ({
       format: () => {
         if (mockNCalls > 0) {
-          return '2018-12-04T23:55:00';
+          return '2018-12-03T23:55:00';
         }
         mockNCalls += 1;
-        return '2018-12-04T21:10:00';
+        return '2018-12-03T21:10:00';
       },
     }));
     expect(renderer.create(<EventCalendar events={myEventsList} />)
