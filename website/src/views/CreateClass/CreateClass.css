@@ -27,13 +27,19 @@
 }
 
 .create-card {
-  width: 500px;
+  width: 95vw;
   margin-top: 10px;
   border-radius: 15px !important;
 }
 
 .create-card .create-class-input {
   margin-top: 7.5px;
+}
+
+@media screen and (min-width: 768px) {
+  .create-card {
+    width: 500px;
+  }
 }
 
 .create-class-days-label {

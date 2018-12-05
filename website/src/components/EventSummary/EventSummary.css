@@ -6,12 +6,18 @@
   padding-left: 15px;
   padding-right: 15px;
   font-weight: regular;
-  font-size: 25px;
+  font-size: 15px;
   margin-bottom: 12px;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 }
 
-.course {
-  font-size: 22px;
+@media screen and (min-width: 768px) {
+  .EventSummary {
+    font-size: 25px;
+  }
+
+  .course {
+    font-size: 22px;
+  }
 }

@@ -17,10 +17,16 @@
 }
 
 .join-card {
-  width: 75%;
+  width: 95vw;
   margin-top: 10px;
   margin-bottom: 50px !important;
   border-radius: 15px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .join-card {
+    width: 75%;
+  }
 }
 
 .tag-line {

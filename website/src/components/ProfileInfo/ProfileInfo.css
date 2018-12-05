@@ -2,7 +2,7 @@
   display: none;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 500px) {
   .rightSide {
     display: flex;
     flex-direction: column;
