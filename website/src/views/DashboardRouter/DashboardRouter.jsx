@@ -94,7 +94,6 @@ class DashboardRouter extends PureComponent {
         .then(res => res.json())
         .then((result) => {
           message.info(result.message);
-          console.log(result);
           if (result.message === 'Found event') {
             result.eventData.university = university;
             result.eventData.classUid = classUid;

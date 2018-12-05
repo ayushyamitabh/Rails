@@ -180,7 +180,6 @@ class ViewEventDrawer extends Component {
           } else {
             this.setState({ loading: false });
           }
-          console.log(result);
         })
         .catch((err) => {
           console.log(err);
@@ -209,10 +208,7 @@ class ViewEventDrawer extends Component {
         {
           eventData
             ? (
-              <div style={{
-                width: '100%', height: '90%', display: 'flex', flexDirection: 'column',
-              }}
-              >
+              <div className="view-event-container">
                 <h4>Due Date</h4>
                 <p>{`${new Date(eventData.dueDate).toDateString()} at ${new Date(eventData.dueDate).toLocaleTimeString()}`}</p>
                 <h4>Description</h4>
@@ -280,7 +276,7 @@ class ViewEventDrawer extends Component {
                 {
                   eventData.allowDiscussion === 'true' || eventData.allowDiscussion === true
                     ? (
-                      <div style={{ flex: 1, maxHeight: '80%' }}>
+                      <div className="discussion-container">
                         <h4 className="select-input">Discussion</h4>
                         <ChatFeed
                           centered

@@ -16,3 +16,15 @@
   height: 50% !important;
   max-height: 50% !important;
 }
+
+.view-event-container {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion-container {
+  flex: 1;
+  max-height: 80%;
+}

@@ -15,52 +15,57 @@ firebase.initializeApp({
   databaseURL: "https://rails-students.firebaseio.com"
 });
 
+function backup() {
+  const start = Date.now();
+  log.info("Started backup...");
+  firebase
+    .database()
+    .ref("/")
+    .once("value")
+    .then(databaseSnap => {
+      const data = databaseSnap.val();
+      if (data) {
+        const dataJson = JSON.stringify(data);
+        if (fs.existsSync("database.json")) {
+          log.info("Older copy of database exists");
+          fs.unlinkSync("database.json");
+          log.info("Older copy of database deleted");
+        }
+        fs.writeFileSync("database.json", dataJson, "utf8", err => {
+          if (err) {
+            log.error(
+              "Failed to write to file\n" + JSON.stringify(err) + "\n"
+            );
+          } else log.info("Wrote latest copy to 'database.json'");
+        });
+      } else {
+        log.warn("Got garbage value from Firebase.");
+      }
+      const duration = Date.now() - start;
+      log.info(
+        "Backup finished. Took " +
+          duration +
+          "ms\n============================================"
+      );
+    })
+    .catch(err => {
+      log.fatal(
+        "Databse fetch failed with exception\n" + JSON.stringify(err) + "\n"
+      );
+      const duration = Date.now() - start;
+      log.info(
+        "Backup finished. Took " +
+          duration +
+          "ms\n============================================"
+      );
+    });
+}
+
 cron.schedule(
   "0 0-23 * * *",
   () => {
-    const start = Date.now();
-    log.info("Started backup...");
-    firebase
-      .database()
-      .ref("/")
-      .once("value")
-      .then(databaseSnap => {
-        const data = databaseSnap.val();
-        if (data) {
-          const dataJson = JSON.stringify(data);
-          if (fs.existsSync("database.json")) {
-            log.info("Older copy of database exists");
-            fs.unlinkSync("database.json");
-            log.info("Older copy of database deleted");
-          }
-          fs.writeFileSync("database.json", dataJson, "utf8", err => {
-            if (err) {
-              log.error(
-                "Failed to write to file\n" + JSON.stringify(err) + "\n"
-              );
-            } else log.info("Wrote latest copy to 'database.json'");
-          });
-        } else {
-          log.warn("Got garbage value from Firebase.");
-        }
-        const duration = Date.now() - start;
-        log.info(
-          "Backup finished. Took " +
-            duration +
-            "ms\n============================================"
-        );
-      })
-      .catch(err => {
-        log.fatal(
-          "Databse fetch failed with exception\n" + JSON.stringify(err) + "\n"
-        );
-        const duration = Date.now() - start;
-        log.info(
-          "Backup finished. Took " +
-            duration +
-            "ms\n============================================"
-        );
-      });
+    log.info("AUTO BACKUP");
+    backup();
   },
   {
     scheduled: true,
@@ -77,6 +82,12 @@ app.post("/", function(req, res) {
   });
 });
 
+app.post("/forcebackup", function(req, res) {
+  log.info("MANUAL BACKUP");
+  backup();
+  res.status(200).send({ message: 'Started backup, check logs.'})
+});
+
 app.post("/logs", (req, res) => {
   return cors(req, res, () => {
     fs.readFile("backup-logger.log", (err, data) => {
@@ -90,7 +101,7 @@ app.post("/logs", (req, res) => {
           arr[index] = item.trim();
         });
         log.info("POST REQUEST at: '/logs' - Got logs");
-        res.status(200).send({ message: "Got logs.", logs: arr });
+        res.status(200).send({ message: "Got logs.", logs: arr.reverse() });
       }
     });
   });
