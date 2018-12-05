@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import './EventSummary.css';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import moment, { now } from "moment";
+import "./EventSummary.css";
 
 class EventSummary extends PureComponent {
   static propTypes = {
@@ -12,29 +12,41 @@ class EventSummary extends PureComponent {
       dueDate: PropTypes.instanceOf(Date),
       description: PropTypes.string,
       priority: PropTypes.number,
-      viewEvent: PropTypes.func,
-    }).isRequired,
-  }
+      viewEvent: PropTypes.func
+    })
+  };
+
+  static defaultProps = {
+    event: {
+      course: "",
+      title: "",
+      eventName: "",
+      dueDate: new Date(),
+      description: "",
+      priority: 0,
+      viewEvent: () => {}
+    }
+  };
 
   priorityColor = () => {
-    const {
-      event,
-    } = this.props;
-    const {
-      priority,
-    } = event;
-    const colors = ['#9E9E9E', '#03A9F4', '#F44336'];
+    const { event } = this.props;
+    const { priority } = event;
+    const colors = ["#9E9E9E", "#03A9F4", "#F44336"];
     const color = colors[priority];
     return color;
-  }
+  };
 
   render() {
-    const {
-      event,
-    } = this.props;
-    const time = moment(event.dueDate).format('hh:mm A');
+    const { event } = this.props;
+    const time = moment(event.dueDate).format("hh:mm A");
     return (
-      <div style={{ backgroundColor: this.priorityColor() }} onClick={() => { event.viewEvent(event); }} className="EventSummary">
+      <div
+        style={{ backgroundColor: this.priorityColor() }}
+        onClick={() => {
+          event.viewEvent(event);
+        }}
+        className="EventSummary"
+      >
         <span className="course">{event.course}</span>
         <span className="eventName">{event.title}</span>
         <span className="dueDate">{time}</span>

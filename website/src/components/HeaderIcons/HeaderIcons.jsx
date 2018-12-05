@@ -32,7 +32,7 @@ class HeaderIcons extends PureComponent {
           />
         ))}
         <Link to="/signout">
-          <IconButton type="exit_to_app" onClick={() => { firebase.auth().signOut(); }} />
+          <IconButton className="logout-icon" type="exit_to_app" onClick={() => { firebase.auth().signOut(); }} />
         </Link>
 
       </div>

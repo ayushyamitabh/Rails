@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {
-  configure,
+  configure, shallow,
 } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter } from 'react-router-dom';
@@ -21,7 +21,7 @@ describe('DashboardHeader', () => {
       }));
     const component = renderer.create(
       <MemoryRouter>
-        <DashboardHeader />
+        <DashboardHeader showDrawer={() => {}} teacher />
       </MemoryRouter>,
     );
     const tree = component.toJSON();

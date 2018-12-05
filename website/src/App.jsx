@@ -16,7 +16,7 @@ class App extends PureComponent {
   }
 
   static defaultProps = {
-    signoutHandler: console.log('No signout handler inputted'),
+    signoutHandler: () => {},
   }
 
   constructor(props) {

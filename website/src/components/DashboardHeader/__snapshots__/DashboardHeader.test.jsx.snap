@@ -43,6 +43,18 @@ exports[`DashboardHeader Expect DashboardHeader to match snapshot 1`] = `
         className="material-icons"
         style={null}
       >
+        add_circle
+      </i>
+    </button>
+    <button
+      className="IconButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="material-icons"
+        style={null}
+      >
         settings
       </i>
     </button>

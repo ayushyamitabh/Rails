@@ -10,7 +10,6 @@ import { DashboardRouter } from '..';
 
 configure({ adapter: new Adapter() });
 
-
 describe('DashboardRouter', () => {
   jest.spyOn(firebase, 'auth')
     .mockImplementation(() => ({

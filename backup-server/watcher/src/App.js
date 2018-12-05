@@ -88,7 +88,7 @@ export default class App extends Component {
   }
 
   forceBackup() {
-    fetch(`http://35.211.175.158:5000/forcebackup`, {
+    fetch('https://cors-anywhere.herokuapp.com/http://35.211.175.158:5000/forcebackup', {
       method: "POST"
     }).then(res => res.json())
     .then(result => {
