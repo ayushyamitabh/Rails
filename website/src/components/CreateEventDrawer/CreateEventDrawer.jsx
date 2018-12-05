@@ -120,7 +120,6 @@ class CreateEventDrawer extends PureComponent {
                 (snap) => {
                   // uploading
                 }, (err) => {
-                  console.log(err);
                   message.error(err.message);
                 }, () => {
                   upl.snapshot.ref.getDownloadURL().then((durl) => {
@@ -141,7 +140,6 @@ class CreateEventDrawer extends PureComponent {
                         this.setState({ loading: false, uploading: false });
                       })
                       .catch((err) => {
-                        console.log(err);
                         message.error(err.message);
                         this.setState({ loading: false, uploading: false });
                       });
@@ -155,7 +153,6 @@ class CreateEventDrawer extends PureComponent {
           }
         })
         .catch((err) => {
-          console.log(err);
           message.error(err.message);
           this.setState({ loading: false, uploading: false });
         });

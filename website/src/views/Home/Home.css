@@ -5,23 +5,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.title {
+.home .title {
   color: white;
   font-size: 4.3rem;
-  margin: 0 !important;
-  margin-top: 10px !important;
+  margin: 0;
+  margin-top: 10px;
   text-align: center;
   font-weight: 400;
 }
 
-.tag-line {
+.home .tag-line {
   color: white;
   font-size: 1.2rem;
-  margin: 0 !important;
-  margin-top: -15px !important;
+  margin: 0;
+  margin-top: -15px;
   text-align: center;
   font-weight: 100;
 }
@@ -33,15 +34,34 @@
   align-items: center;
 }
 
-.about-card {
+.home .about-card {
   width: 400px;
-  margin-top: 10px !important;
-  border-radius: 15px !important;
+  margin-top: 10px;
+  border-radius: 15px;
   filter: drop-shadow(0 1px 2px rgba(190, 190, 190, 0.5));
 }
 
-.home-button {
-  border-radius: 15px !important;
-  margin-top: 10px !important;
+.home .ant-card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 769px) {
+  .about-card {
+    width: 95vw;
+  }
+}
+
+.home .home-button {
+  border-radius: 15px;
+  margin-top: 10px;
   width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 769px) {
+  .home .home-button {
+    width: 95vw;
+  }
 }

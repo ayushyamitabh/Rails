@@ -8,32 +8,36 @@
   background: linear-gradient(135deg, rgba(210, 31, 241, 1) 0%, rgba(130, 51, 232, 1) 49%, rgba(0, 212, 255, 1) 100%);
 }
 
-.title {
+.join-class-page .title {
   color: white;
   font-size: 3.8rem;
-  margin-top: 20px !important;
+  margin-top: 20px;
   text-align: center;
   font-weight: 400;
 }
 
-.join-card {
+.join-class-page .join-card {
   width: 95vw;
   margin-top: 10px;
-  margin-bottom: 50px !important;
-  border-radius: 15px !important;
+  margin-bottom: 50px;
+  border-radius: 15px;
 }
 
 @media screen and (min-width: 768px) {
   .join-card {
-    width: 75%;
+    width: 95vw;
+  }
+
+  .ant-modal {
+    width: 95vw !important;
   }
 }
 
-.tag-line {
+.join-class-page .tag-line {
   color: white;
   font-size: 1.2rem;
-  margin: 0 !important;
-  margin-top: -15px !important;
+  margin: 0;
+  margin-top: -15px;
   text-align: center;
   font-weight: 100;
 }
@@ -42,8 +46,12 @@
   transition: all ease-in-out 0.3s;
 }
 
-.join-class-table {
-  margin-top: 20px !important;
+.join-class-page .join-class-table {
+  margin-top: 20px;
+}
+
+.ant-modal .class-modal {
+  width: 95vw;
 }
 
 .class-modal .ant-modal-content,
@@ -64,17 +72,22 @@
   padding: 20px 0;
 }
 
-.add-distance {
-  margin-top: 5px !important;
+.join-class-page .add-distance {
+  margin-top: 5px;
 }
 
-.join-class-label {
+.join-class-page .join-class-label {
   margin: 0;
-  margin-top: 15px !important;
-  margin-bottom: 5px !important;
-  font-size: 16px !important;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
 }
 
 .join-class-label span {
   font-weight: 600;
+}
+
+.join-class-page .ant-table-thead > tr > th,
+.join-class-page .ant-table-tbody > tr > td {
+  word-break: normal;
 }

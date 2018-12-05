@@ -1,6 +1,6 @@
-.select-input {
-  width: 100% !important;
-  margin: 10px auto !important;
+.drawer-custom .select-input {
+  width: 100%;
+  margin: 10px auto;
 }
 
 .hidden {
@@ -8,11 +8,11 @@
 }
 
 .drawer-custom .ant-drawer-content-wrapper {
-  width: 500px !important;
+  width: 500px;
 }
 
 @media only screen and (max-width: 768px) {
   .drawer-custom .ant-drawer-content-wrapper {
-    width: 100% !important;
+    width: 100%;
   }
 }

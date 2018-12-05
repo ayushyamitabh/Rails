@@ -1,6 +1,6 @@
-.select-input {
-  width: 100% !important;
-  margin: 10px auto !important;
+body .select-input {
+  width: 100%;
+  margin: 10px auto;
 }
 
 .hidden {
@@ -11,10 +11,10 @@
   height: 90%;
 }
 
-#chat-panel {
-  overflow-y: auto !important;
-  height: 50% !important;
-  max-height: 50% !important;
+.view-event-container #chat-panel {
+  overflow-y: auto;
+  height: 50%;
+  max-height: 50%;
 }
 
 .view-event-container {
@@ -34,7 +34,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .drawer-custom .ant-drawer-content-wrapper {
+  body .drawer-custom .ant-drawer-content-wrapper {
     width: 100% !important;
   }
 }

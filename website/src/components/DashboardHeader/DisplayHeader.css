@@ -1,10 +1,10 @@
-.Header {
+body .Header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   z-index: 2;
   box-shadow: 0 0 8px rgba(100, 100, 100, 0.4);
-  padding: 3rem !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  padding: 3rem;
+  width: 100%;
+  max-width: 100%;
 }

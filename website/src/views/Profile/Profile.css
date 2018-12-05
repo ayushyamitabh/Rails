@@ -1,10 +1,19 @@
 .profile-page {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding-top: 15px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+}
+
+.profile-page .profile-card {
+  flex: 1;
+  height: fit-content;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 15px;
+  filter: drop-shadow(0 1px 2px rgba(190, 190, 190, 0.5));
 }
 
 @media only screen and (max-width: 768px) {
@@ -12,32 +21,25 @@
     flex-direction: column;
   }
 
-  .profile-card {
-    margin-top: 40px !important;
-    width: 100% !important;
+  .profile-page .profile-card {
+    margin-top: 40px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
-.profile-card {
-  flex: 1;
-  height: fit-content !important;
-  margin-left: 10px !important;
-  margin-right: 10px !important;
-  border-radius: 15px !important;
-  filter: drop-shadow(0 1px 2px rgba(190, 190, 190, 0.5));
-}
-
-.profile-card .cust-button,
+.profile-page .profile-card .cust-button,
 .cust-input {
-  margin-top: 10px !important;
+  margin-top: 10px;
 }
 
 .profile-card .cust-input {
-  border-radius: 15px !important;
+  border-radius: 15px;
 }
 
-.profile-card .cust-button {
-  border-radius: 15px !important;
+.profile-page .profile-card .cust-button {
+  border-radius: 15px;
 }
 
 .center-loading-icon {
@@ -56,7 +58,7 @@
   margin-bottom: 7.5px;
 }
 
-.ant-modal-body {
-  max-height: 50vh !important;
-  overflow-y: auto !important;
+.profile-page .ant-modal-body {
+  max-height: 50vh;
+  overflow-y: auto;
 }

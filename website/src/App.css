@@ -12,14 +12,14 @@
   background: linear-gradient(135deg, rgba(210, 31, 241, 1) 0%, rgba(130, 51, 232, 1) 49%, rgba(0, 212, 255, 1) 100%);
 }
 
-.protected-view-loading svg {
-  width: 50px !important;
-  height: auto !important;
-  color: white !important;
+#root .protected-view-loading svg {
+  width: 50px;
+  height: auto;
+  color: white;
 }
 
-.profile-loading svg {
-  width: 50px !important;
-  height: auto !important;
-  color: rgb(38, 27, 190) !important;
+#root .profile-loading svg {
+  width: 50px;
+  height: auto;
+  color: rgb(38, 27, 190);
 }

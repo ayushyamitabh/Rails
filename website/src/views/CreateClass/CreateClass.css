@@ -17,19 +17,19 @@
   font-weight: 400;
 }
 
-.tag-line {
+.create-class-page .tag-line {
   color: white;
   font-size: 1.2rem;
-  margin: 0 !important;
-  margin-top: -15px !important;
+  margin: 0;
+  margin-top: -15px;
   text-align: center;
   font-weight: 100;
 }
 
-.create-card {
+.create-class-page .create-card {
   width: 95vw;
   margin-top: 10px;
-  border-radius: 15px !important;
+  border-radius: 15px;
 }
 
 .create-card .create-class-input {
@@ -37,31 +37,31 @@
 }
 
 @media screen and (min-width: 768px) {
-  .create-card {
+  .create-class-page .create-card {
     width: 500px;
   }
 }
 
-.create-class-days-label {
+.create-class-page .create-class-days-label {
   margin: 0;
-  margin-top: 15px !important;
-  margin-bottom: 5px !important;
-  font-size: 16px !important;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
 }
 
-.create-class-days-hint {
+.create-class-page .create-class-days-hint {
   margin: 0;
-  margin-top: 2.5px !important;
-  margin-bottom: 2.5px !important;
-  font-size: 12px !important;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  font-size: 12px;
   color: darkgray;
 }
 
-.create-class-days-error {
+.create-class-page .create-class-days-error {
   margin: 0;
-  margin-top: 2.5px !important;
-  margin-bottom: 2.5px !important;
-  font-size: 12px !important;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  font-size: 12px;
   color: darkred;
   text-align: center;
 }

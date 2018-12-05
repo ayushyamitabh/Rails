@@ -150,6 +150,7 @@ class JoinClass extends Component {
         title: 'Class Name',
         dataIndex: 'description',
         key: 'description',
+
       },
       {
         title: 'Instructor',
